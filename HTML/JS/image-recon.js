@@ -76,8 +76,7 @@ var imagesCrop = [
   // Show the first image initially
 document.getElementById(images[0].id).style.display = 'block';
 
- // Automatically display the first image on page load
+ // Automatically display the first image on page 
 window.addEventListener('load', function() {
     document.getElementById(images[0].id).style.display = 'block';
   });
-  //heiheihei
