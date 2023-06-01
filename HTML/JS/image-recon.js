@@ -14,12 +14,37 @@ function checkFileNames() {
 */
 
 
-var images = [
+
+/*
+var imagesCrop = [
+    { 
+    id: '1.2', 
+    id: '2.2',
+    id: '3.2'
+}
+
+]
+
+    var currentImage 
+    var correctImage
+
+  function displayImage() {
+    //Get random index from imagesCrop array
+    var randomIndex = Math.floor.random() * imagesCrop
+
+    //Get the random image
+    var randomImage = imagesCrop[randomIndex];
+
+    var imageElement = document.getElementById()
+  }
+  */
+
+  var images = [
     { id: '1.1', duplicateId: '1.2' },
     { id: '2.1', duplicateId: '2.2' },
     { id: '3.1', duplicateId: '3.2' }
   ];
-
+  
   function checkGuess() {
     var guessInput = document.getElementById('guessInput');
     var guess = guessInput.value;
@@ -37,17 +62,22 @@ var images = [
     } else {
       result.textContent = 'Wrong!';
     }
-  
+
     // Clear the input
     guessInput.value = '';
-  
+
     // Show the next image
     var currentIndex = images.indexOf(currentImage);
     var nextIndex = (currentIndex + 1) % images.length;
     document.getElementById(images[nextIndex].id).style.display = 'block';
     document.getElementById(images[currentIndex].id).style.display = 'none';
-  }
-  
-  // Show the first image initially
-  document.getElementById(images[0].id).style.display = 'block';
+  }  
 
+  // Show the first image initially
+document.getElementById(images[0].id).style.display = 'block';
+
+ // Automatically display the first image on page load
+window.addEventListener('load', function() {
+    document.getElementById(images[0].id).style.display = 'block';
+  });
+  
