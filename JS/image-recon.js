@@ -66,8 +66,75 @@ var imageList = [
 	"WavesAgainstTheShore-crop",
 	"WavesAgainstTheShore",
 ];
+imageListCropped = [
+	"AndreasMunchStudyingAnatomy-crop",
+	"BathingGirls-crop",
+	"BathingMan-crop",
+	"BathingMenOnRocks-crop",
+	"BricklayerAtWork-crop",
+	"ChildrenandDucks-crop",
+	"ConsolationInTheForest-crop",
+	"DiggingMenWithHorseAndCart-crop",
+	"FivePuppiesOnThecarpet-crop",
+	"ForestInSnow-crop",
+	"FromMaridalen-crop",
+	"inTheKennel-crop",
+	"JealousyInTheGarden-crop",
+	"KarenBjølstadInTheRockingChair-crop",
+	"KarlJohanintheRain-crop",
+	"LifeLeftPart-crop",
+	"RecliningNudeOnTheRocks-crop",
+	"TheFight-crop",
+	"TheGirlFromNordland-crop",
+	"TheGirlsOnTheBridge-crop",
+	"TheMurderer-crop",
+	"TreesByTheSea-crop",
+	"TwoWomenByTheVerandaSteps-crop",
+	"TwoWomenIntheGarden-crop",
+	"UninvitedGuests-crop",
+	"WavesAgainstTheShore-crop",
+];
 
-var imagePath = "../../../Images/"; // Modify this path according to your directory structure
+imageListNormal = [
+	"AndreasMunchStudyingAnatomy",
+	"BathingGirls",
+	"BathingMan",
+	"BathingMenOnRocks",
+	"BricklayerAtWork",
+	"ChildrenandDucks",
+	"ConsolationInTheForest",
+	"DiggingMenWithHorseAndCart",
+	"FivePuppiesOnTheCarpet",
+	"ForestInSnow",
+	"FromMaridalen",
+	"HenrikIbsen",
+	"image1",
+	"image1_duplicate",
+	"image2",
+	"image2_duplicate",
+	"image3",
+	"image3_duplicate",
+	"InTheKennel",
+	"JealousyInTheGarden",
+	"KarenBjølstadInTheRockingChair",
+	"KarlJohanintheRain",
+	"LifeLeftPart",
+	"RecliningNudeonTheRocks",
+	"RolfHansen",
+	"SelfPortrait",
+	"StarryNight",
+	"TheFight",
+	"TheGirlFromNordland",
+	"TheGirlsOnTheBridge",
+	"TheMurderer",
+	"TreesByTheSea",
+	"TwoWomenByTheVerandaSteps",
+	"TwoWomenInTheGarden",
+	"UninvitedGuests",
+	"WavesAgainstTheShore",
+];
+
+var imagePath = "../../Images/"; // Modify this path according to your directory structure
 var jpg = ".jpg";
 var fullImagePath = imageList.map(function (imageName) {
 	return imagePath + imageName + jpg;
@@ -107,3 +174,5 @@ function getRandImg() {
 
 	//imageElement.src = imagePath;
 }
+
+//takk for at du hjelper til <3
