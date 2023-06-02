@@ -150,6 +150,11 @@ function displayRandomImage() {
 	var imageContainer = document.getElementById("Container1");
 	imageContainer.innerHTML = "";
 	imageContainer.appendChild(imageElement);
+
+	// Save random image chosen to use for blur
+	blurImage(randomImagePath);
+
+	window.alert("test work"); //test functionality
 }
 
 //var currentPic
@@ -166,7 +171,7 @@ function getRandImg() {
 
 	//alert(imagePathMartin);
 
-	divContent.innerHTML = "<img>" + imagePathMartin + "<img>";
+	divContent.innerHTML = "<img id = 'testId'>" + imagePathMartin + "<img>";
 
 	//var divContent = document.getElementById("testDiv");
 
@@ -174,5 +179,14 @@ function getRandImg() {
 
 	//imageElement.src = imagePath;
 }
+
+
+function blurImage(chosen) {
+
+
+	document.getElementById("testId").style.filter = "blur(3Px)"; // trenger en måte å få element by object idk how
+
+}
+
 
 //takk for at du hjelper til <3
