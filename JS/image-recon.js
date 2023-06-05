@@ -211,6 +211,7 @@ var floor5ListCrop = [
 var currentFloorArray;
 var currentImage = "there is no current image selected"; //letting the user know that there is no current image selected
 var userGuess = "there is no user guess :("; // placeholder for a default user guess
+var result;
 
 function floor1() {
 	currentFloorArray = floor1ListCrop;
@@ -236,6 +237,8 @@ var imagePath = "../../Images/"; // This is for the path of the images. in this 
 var jpg = ".jpg"; // This is for the extension of the images. in this case it is .jpg, just to to make it easier to add compare without the extension later
 
 function displayRandomImage() {
+	clearResultDiv();
+/////
 	var fullImagePath = currentFloorArray.map(function (imageName) {
 		return imagePath + imageName + jpg; // This will return the full image path for each image in the array with the correct extension
 	});
@@ -255,11 +258,28 @@ function displayRandomImage() {
 function checkGuess() {
 	userGuess = document.getElementById("guessInput").value.toUpperCase(); // Get the user guess from the guessInput field
 	var userGuessString = userGuess.toString().toUpperCase(); // Convert the user guess to a string and make it uppercase
-
+	result = document.getElementById("resultDiv"); // Get the result element
 	if (userGuess + "-CROP" === currentImage) {
 		// check if the user guess is the same as the random image path (in an ettempt to be case-insensitive)
-		alert("Correct!");
+		correctResult();
 	} else {
 		alert("Wrong!");
+		incorrectResult();
 	}
+}
+
+function correctResult(){
+	
+	result.innerHTML = "The correct answer was: " + currentImage;
+}
+
+function incorrectResult(){
+	
+	result = document.getElementById("resultDiv"); // Get the result element (again..)
+	result.innerHTML = "LMAO noob"; // This will clear the result element in the html file
+}
+
+function clearResultDiv(){
+	result = document.getElementById("resultDiv"); // Get the result element (again..)
+	result.innerHTML = ""; // This will clear the result element in the html file
 }
