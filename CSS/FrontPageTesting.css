@@ -1,0 +1,82 @@
+body {
+    background-color: #eba398;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.app {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.quiz {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f2f2f2;
+    border-radius: 5px;
+}
+
+h2 {
+    text-align: center;
+}
+
+#question {
+    margin-bottom: 20px;
+}
+
+#answar-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.btn {
+    width: 200px;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background-color: #ccc;
+}
+
+.Top {
+    background-color: #0f2335;
+    width: 100%;
+    height: 100px;
+    font-size: larger;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+#mlogo {
+    color: #eba398;
+    font-style: oblique;
+    font-size: 30px;
+    margin-right: 10px;
+
+}
+
+#slogo {
+    color: white;
+    font-size: 25px;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 600px) {
+    .btn {
+        width: 100%;
+    }
+}
