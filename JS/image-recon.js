@@ -209,40 +209,50 @@ var floor5ListCrop = [
 ];
 
 var currentFloorArray;
+var currentFloorCropNorm;
 var currentImage = "there is no current image selected"; //letting the user know that there is no current image selected
 var userGuess = "there is no user guess :("; // placeholder for a default user guess
 var result;
+var randomIndex;
+var resultImgDiv;
+var resultImagePath;
 
+//var resultParagraph;
 function floor1() {
 	currentFloorArray = floor1ListCrop;
+	currentFloorCropNorm = floor1List;
 }
 
 function floor2() {
 	currentFloorArray = floor2ListCrop;
+	currentFloorCropNorm = floor2List;
 }
 
 function floor3() {
 	currentFloorArray = floor3ListCrop;
+	currentFloorCropNorm = floor3List;
 }
 
 function floor4() {
 	currentFloorArray = floor4ListCrop;
+	currentFloorCropNorm = floor4List;
 }
 
 function floor5() {
 	currentFloorArray = floor5ListCrop;
+	currentFloorCropNorm = floor5List;
 }
 
 var imagePath = "../../Images/"; // This is for the path of the images. in this case it is in the Images folder
 var jpg = ".jpg"; // This is for the extension of the images. in this case it is .jpg, just to to make it easier to add compare without the extension later
+var randomIndex;
 
 function displayRandomImage() {
 	clearResultDiv();
-/////
 	var fullImagePath = currentFloorArray.map(function (imageName) {
 		return imagePath + imageName + jpg; // This will return the full image path for each image in the array with the correct extension
 	});
-	var randomIndex = Math.floor(Math.random() * currentFloorArray.length); //Get random index number for a random image
+	randomIndex = Math.floor(Math.random() * currentFloorArray.length); //Get random index number for a random image
 	var randomImagePath = fullImagePath[randomIndex]; //get random image path, this includes the path and the image name with current floor-array
 	var imageElement = document.createElement("img"); // Create an image element to put the image in
 	imageElement.src = randomImagePath; // This will put the image in the image element based on the random image path
@@ -258,25 +268,36 @@ function displayRandomImage() {
 function checkGuess() {
 	userGuess = document.getElementById("guessInput").value.toUpperCase(); // Get the user guess from the guessInput field
 	var userGuessString = userGuess.toString().toUpperCase(); // Convert the user guess to a string and make it uppercase
-	result = document.getElementById("resultDiv"); // Get the result element
-	if (userGuess + "-CROP" === currentImage) {
+	resultImgDiv = document.getElementById("resultImgDiv"); // Get the result image Div element
+	result = document.getElementById("resultDiv"); // Get the result container Div
+	//resultParagraph = document.getElementById("resultParagraph"); // Create a paragraph element
+	if (userGuess + "-CROP" == currentImage) {
 		// check if the user guess is the same as the random image path (in an ettempt to be case-insensitive)
 		correctResult();
 	} else {
-		alert("Wrong!");
 		incorrectResult();
 	}
 }
 
 function correctResult(){
+	//resultImgDiv = document.getElementById("resultImgDiv");
+	resultImagePath = '<img src="' + imagePath + currentFloorCropNorm[randomIndex] + jpg + '" width="300px" alt="hei">'
+	+ "Correct!";
+	resultDiv.innerHTML = resultImagePath;
+	//alert(resultImagePath);
+	//resultImagePath = imagePath + currentFloorCropNorm[randomIndex] + jpg;
+	//result.innerHTML = '<img src="" alt="">';
 	
-	result.innerHTML = "The correct answer was: " + currentImage;
+	//resultParagraph = document.getElementById("resultParagraph"); // Create a paragraph element
+	//resultParagraph.innerHTML = "Correct funker!";
 }
 
 function incorrectResult(){
 	
 	result = document.getElementById("resultDiv"); // Get the result element (again..)
-	result.innerHTML = "LMAO noob"; // This will clear the result element in the html file
+	result.innerHTML = "lmao noob"; // This will clear the result element in the html file
+	//resultParagraph = document.getElementById("resultParagraph"); // Create a paragraph element
+	//resultParagraph.innerHTML = "Incorrect funker";
 }
 
 function clearResultDiv(){
