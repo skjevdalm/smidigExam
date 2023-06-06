@@ -6,8 +6,7 @@ body {
 }
 
 .app {
-    text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 100px;
 }
 
 h1 {
@@ -15,26 +14,51 @@ h1 {
 }
 
 .quiz {
-    max-width: 800px;
-    margin: 0 auto;
+    max-width: 600px;
     padding: 20px;
     background-color: #f2f2f2;
     border-radius: 5px;
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    border: 10px solid #0f2335;
+    margin-top: 60px;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #f2f2f2;
+}
+
 h2 {
     text-align: center;
+
 }
 
-#question {
+.container h2 {
+    text-align: center;
+    margin-bottom: 2;
+    color: #0f2335;
+    font-style: oblique;
+    font-size: 25px;
+
+}
+
+
+.container img {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
     margin-bottom: 20px;
 }
 
-#answar-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin-bottom: 20px;
+#answer-buttons {
+    position: absolute;
+    top: 40%;
+    right: 0;
+    margin-top: 50px;
 }
 
 .btn {
@@ -66,7 +90,6 @@ h2 {
     font-style: oblique;
     font-size: 30px;
     margin-right: 10px;
-
 }
 
 #slogo {
