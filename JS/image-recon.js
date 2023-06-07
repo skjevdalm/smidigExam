@@ -66,7 +66,6 @@ var imageList = [
 	"WavesAgainstTheShore-crop",
 	"WavesAgainstTheShore",
 ];
-
 /*
 var imageListCropped = [
 	"AndreasMunchStudyingAnatomy-crop",
@@ -208,20 +207,22 @@ var floor5ListCrop = [
 	"WavesAgainstTheShore-crop",
 ];
 
-var currentFloorArray;
-var currentFloorCropNorm;
+var currentFloorArray = null;
+var currentFloorCropNorm = null;
 var currentImage = "there is no current image selected"; //letting the user know that there is no current image selected
 var userGuess = "there is no user guess :("; // placeholder for a default user guess
 var result;
 var randomIndex;
 var resultImgDiv;
 var resultImagePath;
+//var currentFloorArray = localStorage.setItem(null);
+//var currentFloorCropNorm = localStorage.setItem(null);
 
 //var resultParagraph;
-function floor1() {
-	currentFloorArray = floor1ListCrop;
-	currentFloorCropNorm = floor1List;
-}
+//function floor1() {
+//currentFloorArray = floor1ListCrop;
+//currentFloorCropNorm = floor1List;
+//}
 
 function floor2() {
 	currentFloorArray = floor2ListCrop;
@@ -231,6 +232,7 @@ function floor2() {
 function floor3() {
 	currentFloorArray = floor3ListCrop;
 	currentFloorCropNorm = floor3List;
+	alert(typeof currentFloorArray);
 }
 
 function floor4() {
@@ -243,8 +245,66 @@ function floor5() {
 	currentFloorCropNorm = floor5List;
 }
 
-var imagePath = "../../Images/"; // This is for the path of the images. in this case it is in the Images folder
-var jpg = ".jpg"; // This is for the extension of the images. in this case it is .jpg, just to to make it easier to add compare without the extension later
+function setFloor(floorNumber) {
+	switch (floorNumber) {
+		case 1:
+			currentFloorArray = floor1ListCrop;
+			currentFloorCropNorm = floor1List;
+			localStorage.setItem("currentFloorArray", JSON.stringify(currentFloorArray));
+			localStorage.setItem("currentFloorCropNorm", JSON.stringify(currentFloorCropNorm));
+			alert("case 1 kjører wtfffff" + currentFloorArray);
+			break;
+		case 2:
+			currentFloorArray = floor2ListCrop;
+			currentFloorCropNorm = floor2List;
+			localStorage.setItem("currentFloorArray", JSON.stringify(currentFloorArray));
+			localStorage.setItem("currentFloorCropNorm", JSON.stringify(currentFloorCropNorm));
+			console.log(
+				"case 2 kjører wtfffff" +
+					"\n\n" +
+					currentFloorArray +
+					typeof currentFloorArray +
+					"\n\n" +
+					localStorage.getItem("currentFloorArray") +
+					typeof localStorage.getItem("currentFloorArray")
+			);
+			break;
+		case 3:
+			currentFloorArray = floor3ListCrop;
+			currentFloorCropNorm = floor3List;
+			localStorage.setItem("currentFloorArray", JSON.stringify(currentFloorArray));
+			localStorage.setItem("currentFloorCropNorm", JSON.stringify(currentFloorCropNorm));
+			break;
+		case 4:
+			currentFloorArray = floor4ListCrop;
+			currentFloorCropNorm = floor4List;
+			localStorage.setItem("currentFloorArray", JSON.stringify(currentFloorArray));
+			localStorage.setItem("currentFloorCropNorm", JSON.stringify(currentFloorCropNorm));
+			break;
+		case 5:
+			currentFloorArray = floor5ListCrop;
+			currentFloorCropNorm = floor5List;
+			localStorage.setItem("currentFloorArray", JSON.stringify(currentFloorArray));
+			localStorage.setItem("currentFloorCropNorm", JSON.stringify(currentFloorCropNorm));
+			break;
+		default:
+			// Handle invalid floor number
+			console.log("Invalid floor number");
+			return;
+	}
+}
+
+//------------------------------------------------------
+// // Retrieve the values from localStorage
+//var savedCurrentFloorArray = JSON.parse(localStorage.getItem('currentFloorArray'));
+//var savedCurrentFloorCropNorm = JSON.parse(localStorage.getItem('currentFloorCropNorm'));
+
+// Use the retrieved values as needed
+//console.log(savedCurrentFloorArray);
+//console.log(savedCurrentFloorCropNorm);
+
+const imagePath = "../../Images/"; // This is for the path of the images. in this case it is in the Images folder
+const jpg = ".jpg"; // This is for the extension of the images. in this case it is .jpg, just to to make it easier to add compare without the extension later
 var randomIndex;
 
 function displayRandomImage() {
@@ -267,40 +327,63 @@ function displayRandomImage() {
 
 function checkGuess() {
 	userGuess = document.getElementById("guessInput").value.toUpperCase(); // Get the user guess from the guessInput field
-	var userGuessString = userGuess.toString().toUpperCase(); // Convert the user guess to a string and make it uppercase
+	var userGuessString = userGuess.toString().toUpperCase().replace(/\s/g, ""); // Convert the user guess to a string and make it uppercase, then remove all spaces so that it can be compared to the current image name that is without spaces
+	//var userGuessStringUpperNoSpace = userGuessString.replace(/\s/g, ""); // Remove all spaces from the user guess
 	resultImgDiv = document.getElementById("resultImgDiv"); // Get the result image Div element
 	result = document.getElementById("resultDiv"); // Get the result container Div
 	//resultParagraph = document.getElementById("resultParagraph"); // Create a paragraph element
-	if (userGuess + "-CROP" == currentImage) {
-		// check if the user guess is the same as the random image path (in an ettempt to be case-insensitive)
+	if (userGuessString + "-CROP" == currentImage) {
+		// check if the user guess is the same as the random image path (in an attempt to be case-insensitive)
 		correctResult();
 	} else {
 		incorrectResult();
 	}
 }
 
-function correctResult(){
+function correctResult() {
 	//resultImgDiv = document.getElementById("resultImgDiv");
-	resultImagePath = '<img src="' + imagePath + currentFloorCropNorm[randomIndex] + jpg + '" width="300px" alt="hei">'
-	+ "Correct!";
+	resultImagePath =
+		'<img src="' +
+		imagePath +
+		currentFloorCropNorm[randomIndex] +
+		jpg +
+		'" width="300px" alt="hei">' +
+		"Correct!";
 	resultDiv.innerHTML = resultImagePath;
 	//alert(resultImagePath);
 	//resultImagePath = imagePath + currentFloorCropNorm[randomIndex] + jpg;
 	//result.innerHTML = '<img src="" alt="">';
-	
+
 	//resultParagraph = document.getElementById("resultParagraph"); // Create a paragraph element
 	//resultParagraph.innerHTML = "Correct funker!";
 }
 
-function incorrectResult(){
-	
+function incorrectResult() {
 	result = document.getElementById("resultDiv"); // Get the result element (again..)
 	result.innerHTML = "lmao noob"; // This will clear the result element in the html file
 	//resultParagraph = document.getElementById("resultParagraph"); // Create a paragraph element
 	//resultParagraph.innerHTML = "Incorrect funker";
 }
 
-function clearResultDiv(){
+function clearResultDiv() {
 	result = document.getElementById("resultDiv"); // Get the result element (again..)
 	result.innerHTML = ""; // This will clear the result element in the html file
+}
+
+function testFunc() {
+	alert(currentFloorArray + typeof currentFloorArray);
+}
+function getItemFromLocalStorage() {
+	var currentFloorArrayLocal = localStorage.getItem("currentFloorArray"); // Retrieve the values from localStorage
+	var currentFloorCropNorm = localStorage.getItem("currentFloorCropNorm");
+	console.log(currentFloorArrayLocal); // Use the retrieved values as for the console
+	console.log(currentFloorCropNorm);
+}
+
+function resetLocalStorage () {
+	localStorage.clear(); // Clear the localStorage
+}
+
+function testtest(){
+	alert("Fungerer!!!!!1!!111");
 }

@@ -5,34 +5,44 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
+		<script>window.onload = function(){
+			localStorage.clear();
+		}</script>
 	</head>
 	<body>
 		<div id="imageContainer" style="max-width: " 200px; max-height: 200px></div>
 
 		<div id="Container1"></div>
 
-		<button onclick="displayRandomImage()">Display displayRandomImage</button>
+		<button onclick="displayRandomImage()">Show First Image</button>
 
 		<input type="text" id="guessInput" />
 		<button onclick="checkGuess()" placeholder="Enter your guess">Check</button>
 
-		<button id="floor1Button" onclick="floor1()">Floor 1</button>
-		<button id="floor2Button" onclick="floor2()">Floor 2</button>
-		<button id="floor3Button" onclick="floor3()">Floor 3</button>
-		<button id="floor4Button" onclick="floor4()">Floor 4</button>
-		<button id="floor5Button" onclick="floor5()">Floor 5</button>
+		<button id="floor1Button" onclick="setFloor(1)">Floor 1</button>
+		<button id="floor2Button" onclick="setFloor(2)">Floor 2</button>
+		<button id="floor3Button" onclick="setFloor(3)">Floor 3</button>
+		<button id="floor4Button" onclick="setFloor(4)">Floor 4</button>
+		<button id="floor5Button" onclick="setFloor(5)">Floor 5</button>
+
+		<!--testing shit-->
+		<button onclick="window.location.href = 'TaskPage5.html';">gå til floor 5 siden</button>
+		<button id="floor1Button" onclick="testFunc()">test shitttttt</button>
 		<!--
 		<button onclick="getRandImg()">martin test</button>
 		<div id="testDiv"></div>
 		-->
 		<div id="resultDiv">
-			<div id="resultImgDiv"></div>
 			<!--
 			<img src="../../Images/BricklayerAtWork.jpg" width="300px" alt="hei">
 			
 			<p id="resultParagraph"></p>
 			-->
 		</div>
+
+		<div class="alternativeImgs"></div>
+		<button onclick="getItemFromLocalStorage()">getItemFromLocalStorage</button>
+		<button onclick="resetLocalStorage()">Reset the localStorage</button>
 		
 	</body>
 	<script src="../JS/image-recon.js"></script>	
