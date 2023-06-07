@@ -218,19 +218,19 @@ var resultImagePath;
 const imagePath = "../../Images/"; // This is for the path of the images. in this case it is in the Images folder
 const jpg = ".jpg"; // This is for the extension of the images. in this case it is .jpg, just to to make it easier to add compare without the extension later
 var randomIndex;
+var showImgBtn;
 
 function clearLocalStorage() {
 	localStorage.clear();
 	currentFloorArray = [];
 }
-function clearArray(){
+function clearArray() {
 	currentFloorArray = [];
 }
 function showArray() {
 	for (let i = 0; i < currentFloorArray.length; i++) {
 		console.log(currentFloorArray[i]);
 	}
-
 }
 
 function setFloor(floorNumber) {
@@ -296,14 +296,15 @@ function displayRandomImage() {
 	imageElement.style.width = "300px"; // Set the width of the image
 	imageElement.style.height = "300px"; // Set the height of the image
 	currentImage = currentFloorArray[randomIndex].toString().toUpperCase(); // Get the current image name as a string
-	console.log(currentFloorArray);
+	//console.log(currentFloorArray);
 	var imageContainer = document.getElementById("Container1"); // Get the container into a variable
 	imageContainer.innerHTML = ""; // Clear the container
 	imageContainer.appendChild(imageElement); // Add the image to the container
+	console.log(currentFloorArray[randomIndex]);
 }
 
 function checkGuess() {
-	userGuess = document.getElementById("guessInput").value.toUpperCase(); // Get the user guess from the guessInput field
+	userGuess = document.getElementById("searchInput").value.toUpperCase(); // Get the user guess from the searchInput field
 	var userGuessString = userGuess.toString().toUpperCase().replace(/\s/g, ""); // Convert the user guess to a string and make it uppercase, then remove all spaces so that it can be compared to the current image name that is without spaces
 	//var userGuessStringUpperNoSpace = userGuessString.replace(/\s/g, ""); // Remove all spaces from the user guess
 	resultImgDiv = document.getElementById("resultImgDiv"); // Get the result image Div element
@@ -317,8 +318,9 @@ function checkGuess() {
 	}
 }
 
-function correctResult() {	
-	//resultImgDiv = document.getElementById("resultImgDiv");
+function correctResult() {
+	//showImgBtn = document.getElementById("showImgBtn");
+	//showImgBtn.innerHTML = "Next Image"
 	resultImagePath =
 		'<img src="' +
 		imagePath +
@@ -327,7 +329,6 @@ function correctResult() {
 		'" width="300px" alt="hei">' +
 		"Correct!"; // This will create the image path for the result image
 	resultDiv.innerHTML = resultImagePath;
-	
 }
 
 function incorrectResult() {
@@ -348,8 +349,38 @@ function getItemFromLocalStorage() {
 	}
 }
 
-// ---------------------this is a bunch of arrays for all our floors------------------
+/*********search function test 01*******************/
 
-// --------------------this is a bunch of images for all our arrays------------------
-//
-//
+function handleInput() {
+	var searchInput = document.getElementById("searchInput").value.replace(/\s/g, "");
+	var suggestionsList = document.getElementById("suggestionsList");
+	
+
+	// Clear previous suggestions
+	suggestionsList.innerHTML = "";
+	// Filter search terms based on user input
+	var matchingTerms = currentFloorArray.filter((term) =>
+		term.toLowerCase().startsWith(searchInput.toLowerCase())
+	);
+
+	// Display matching terms as suggestions
+	if (searchInput.length > 0) {
+		matchingTerms.forEach((term) => {
+			var li = document.createElement("li");
+			li.textContent = term;
+			suggestionsList.appendChild(li);
+			if (suggestionsList == null) {
+				suggestionsList = "No result";
+			}
+		});
+	} else {
+		suggestionsList.innerHTML = "";
+	}
+}
+
+function keyDownFunc(event) {
+	if (event.key === "Enter") {
+		console.log("Enter pressed");
+		checkGuess();
+	}
+}

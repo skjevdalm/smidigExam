@@ -7,26 +7,26 @@
 		<title>Document</title>
 		<script></script>
 	</head>
-	<script src="../JS/image-recon.js"></script>
+
 	<body>
 		<div id="imageContainer" style="max-width: " 200px; max-height: 200px></div>
 
 		<div id="Container1"></div>
 
-		<button onclick="displayRandomImage()">Show First Image</button>
+		<button onclick="displayRandomImage()">Show Image</button>
 
+		<!--
 		<input type="text" id="guessInput" />
 		<button onclick="checkGuess()" placeholder="Enter your guess">Check</button>
-
+		-->
 		<button id="floor1Button" onclick="setFloor(1)">Floor 1</button>
 		<button id="floor2Button" onclick="setFloor(2)">Floor 2</button>
 		<button id="floor3Button" onclick="setFloor(3)">Floor 3</button>
 		<button id="floor4Button" onclick="setFloor(4)">Floor 4</button>
 		<button id="floor5Button" onclick="setFloor(5)">Floor 5</button>
 
-		<button onclick="getRandImg()">martin test</button>
 		<div id="testDiv"></div>
-	
+
 		<div id="resultDiv">
 			<!--
 			<img src="../../Images/BricklayerAtWork.jpg" width="300px" alt="hei">
@@ -34,12 +34,23 @@
 			<p id="resultParagraph"></p>
 			-->
 		</div>
-
+		<!--
 		<div class="alternativeImgs"></div>
 		<button onclick="getItemFromLocalStorage()">getItemFromLocalStorage</button>
 		<button onclick="clearLocalStorage()">Reset the localStorage</button>
 		<button onclick="clearArray()">Reset the currentFloorArray</button>
 		<button onclick="showArray()">show the currentFloorArray</button>
-		
+		-->
+		<input
+			type="text"
+			id="searchInput"
+			placeholder="write for real time suggestions"
+			onkeydown="keyDownFunc(event)"
+			oninput="handleInput()"
+		/>
+		<!--<div id="searchResult"></div>-->
+		<ul id="suggestionsList"></ul>
+
+		<script src="../JS/image-recon.js"></script>
 	</body>
 </html>
