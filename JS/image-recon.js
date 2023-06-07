@@ -220,6 +220,12 @@ const jpg = ".jpg"; // This is for the extension of the images. in this case it 
 var randomIndex;
 var showImgBtn;
 
+var filter;
+var dropdown;
+var item;
+var a;
+var i;
+
 function clearLocalStorage() {
 	localStorage.clear();
 	currentFloorArray = [];
@@ -234,13 +240,66 @@ function showArray() {
 }
 
 function setFloor(floorNumber) {
+	let currentFloorArray, currentFloorCropNorm;
+
+	switch (floorNumber) {
+		case 1:
+			currentFloorArray = floor1ListCrop || [];
+			currentFloorCropNorm = floor1List || [];
+			break;
+		case 2:
+			currentFloorArray = floor2ListCrop || [];
+			currentFloorCropNorm = floor2List || [];
+			break;
+		case 3:
+			currentFloorArray = floor3ListCrop || [];
+			currentFloorCropNorm = floor3List || [];
+			break;
+		case 4:
+			currentFloorArray = floor4ListCrop || [];
+			currentFloorCropNorm = floor4List || [];
+			break;
+		case 5:
+			currentFloorArray = floor5ListCrop || [];
+			currentFloorCropNorm = floor5List || [];
+			break;
+		default:
+			// Handle invalid floor number
+			console.log("Invalid floor number");
+			return;
+	}
+
+	localStorage.setItem("currentFloorArray", JSON.stringify(currentFloorArray +" this is a string"));
+	localStorage.setItem("currentFloorCropNorm", JSON.stringify(currentFloorCropNorm));
+
+	console.log(
+		"\n\n" +
+			currentFloorArray +
+			typeof currentFloorArray +
+			"\n\n" +
+			localStorage.getItem("currentFloorArray") +
+			typeof localStorage.getItem("currentFloorArray")
+	);
+}
+
+///////////////////////////////////////////////////////////working code ->>>>/////////////////////////////////////////////
+
+/*
+function setFloor(floorNumber) {
 	switch (floorNumber) {
 		case 1:
 			currentFloorArray = floor1ListCrop;
 			currentFloorCropNorm = floor1List;
 			localStorage.setItem("currentFloorArray", JSON.stringify(currentFloorArray));
 			localStorage.setItem("currentFloorCropNorm", JSON.stringify(currentFloorCropNorm));
-			console.log("Case 1 har kjørt gjennom");
+			console.log(
+				"\n\n" +
+					currentFloorArray +
+					typeof currentFloorArray +
+					"\n\n" +
+					localStorage.getItem("currentFloorArray") +
+					typeof localStorage.getItem("currentFloorArray")
+			);
 			break;
 		case 2:
 			currentFloorArray = floor2ListCrop;
@@ -248,8 +307,7 @@ function setFloor(floorNumber) {
 			localStorage.setItem("currentFloorArray", JSON.stringify(currentFloorArray));
 			localStorage.setItem("currentFloorCropNorm", JSON.stringify(currentFloorCropNorm));
 			console.log(
-				"case 2 kjører wtfffff" +
-					"\n\n" +
+				"\n\n" +
 					currentFloorArray +
 					typeof currentFloorArray +
 					"\n\n" +
@@ -262,19 +320,42 @@ function setFloor(floorNumber) {
 			currentFloorCropNorm = floor3List;
 			localStorage.setItem("currentFloorArray", JSON.stringify(currentFloorArray));
 			localStorage.setItem("currentFloorCropNorm", JSON.stringify(currentFloorCropNorm));
-			console.log("case 3 kjører");
+			console.log(
+				"\n\n" +
+					currentFloorArray +
+					typeof currentFloorArray +
+					"\n\n" +
+					localStorage.getItem("currentFloorArray") +
+					typeof localStorage.getItem("currentFloorArray")
+			);
 			break;
 		case 4:
 			currentFloorArray = floor4ListCrop;
 			currentFloorCropNorm = floor4List;
 			localStorage.setItem("currentFloorArray", JSON.stringify(currentFloorArray));
 			localStorage.setItem("currentFloorCropNorm", JSON.stringify(currentFloorCropNorm));
+			console.log(
+				"\n\n" +
+					currentFloorArray +
+					typeof currentFloorArray +
+					"\n\n" +
+					localStorage.getItem("currentFloorArray") +
+					typeof localStorage.getItem("currentFloorArray")
+			);
 			break;
 		case 5:
 			currentFloorArray = floor5ListCrop;
 			currentFloorCropNorm = floor5List;
 			localStorage.setItem("currentFloorArray", JSON.stringify(currentFloorArray));
 			localStorage.setItem("currentFloorCropNorm", JSON.stringify(currentFloorCropNorm));
+			console.log(
+				"\n\n" +
+					currentFloorArray +
+					typeof currentFloorArray +
+					"\n\n" +
+					localStorage.getItem("currentFloorArray") +
+					typeof localStorage.getItem("currentFloorArray")
+			);
 			break;
 		default:
 			// Handle invalid floor number
@@ -282,13 +363,15 @@ function setFloor(floorNumber) {
 			return;
 	}
 }
+*/
+//////////////////////////////////////////////////////////////////////////////////////////////
 
 function displayRandomImage() {
 	clearResultDiv();
 	var fullImagePath = currentFloorArray.map(function (imageName) {
 		return imagePath + imageName + jpg; // This will return the full image path for each image in the array with the correct extension
 	});
-	console.log(fullImagePath + "\n\nwe have an image path");
+	console.log(fullImagePath + "\n\nwe have an image path"); // This will log the full image path for each image in the array with the correct extension
 	randomIndex = Math.floor(Math.random() * currentFloorArray.length); //Get random index number for a random image
 	var randomImagePath = fullImagePath[randomIndex]; //get random image path, this includes the path and the image name with current floor-array
 	var imageElement = document.createElement("img"); // Create an image element to put the image in
@@ -342,6 +425,7 @@ function clearResultDiv() {
 }
 
 function getItemFromLocalStorage() {
+	// This function is not used, but it can be used to get the current floor array from local storage
 	for (var i = 0; i < localStorage.length; i++) {
 		var key = localStorage.key(i);
 		var value = localStorage.getItem(key);
@@ -350,11 +434,9 @@ function getItemFromLocalStorage() {
 }
 
 /*********search function test 01*******************/
-
 function handleInput() {
-	var searchInput = document.getElementById("searchInput").value.replace(/\s/g, "");
-	var suggestionsList = document.getElementById("suggestionsList");
-	
+	var searchInput = document.getElementById("searchInput").value.replace(/\s/g, ""); // Get the user input from the search field
+	var suggestionsList = document.getElementById("suggestionsList"); // Get the suggestions list element
 
 	// Clear previous suggestions
 	suggestionsList.innerHTML = "";
@@ -384,3 +466,99 @@ function keyDownFunc(event) {
 		checkGuess();
 	}
 }
+// ...................................code for the search function----------------------------------------------
+// ...................................code for the search function----------------------------------------------
+// ...................................code for the search function----------------------------------------------
+function generateDropdownItems() {
+	var dropdown = document.getElementById("dropdown");
+	dropdown.innerHTML = ""; // Clear previous currentFloorArray
+
+	var fragment = document.createDocumentFragment(); // Create a DocumentFragment to hold the currentFloorArray
+
+	for (var i = 0; i < currentFloorArray.length; i++) {
+		var item = currentFloorArray[i].replace("-crop", ""); // Get the current item in the currentFloorArray and remove the "-crop" part
+		var link = document.createElement("a"); // Create an <a> element
+		link.href = "#"; // Set the href attribute to "#"
+		link.innerText = item; // Set the text content of the link to the current item
+		link.addEventListener("click", function (e) {
+			// Add a click event listener to the link
+			e.preventDefault(); // Prevent the default link behavior
+			var selectedItem = this.innerText; // Get the selected item
+			document.getElementById("searchInput").value = selectedItem; // Set the search input value
+			filterItems(); // Filter the items based on the selected value
+		});
+		fragment.appendChild(link); // Append the link to the DocumentFragment
+	}
+
+	dropdown.appendChild(fragment); // Append the DocumentFragment to the dropdown
+}
+
+// Function to filter the items based on search input
+
+function filterItems() {
+	var input, filter, dropdown, items, a, i; // Declare variables
+	input = document.getElementById("searchInput"); // Get the input element
+
+	if (!input) {
+		// Check if the input element exists
+		console.error("searchInput element not found"); // Log an error message
+		return;
+	}
+
+	filter = input.value.toUpperCase(); // Convert the input value to uppercase
+	dropdown = document.getElementById("dropdown"); // Get the dropdown element
+
+	if (!dropdown) {
+		console.error("dropdown element not found"); // Log an error message
+		return;
+	}
+
+	items = dropdown.getElementsByTagName("a"); // Get all <a> elements inside the dropdown
+
+	for (i = 0; i < items.length; i++) {
+		// Loop through all <a> elements
+		a = items[i];
+
+		if (!a) {
+			console.error("Invalid item at index", i); // Log an error message
+			continue;
+		}
+
+		if (a.innerText && a.innerText.toUpperCase().indexOf(filter) > -1) {
+			// If the item contains the search term, show it
+			a.style.display = ""; // Show the item
+		} else {
+			a.style.display = "none"; // Hide the item
+		}
+	}
+
+	if (filter.length > 0) {
+		dropdown.classList.add("show"); // Show the dropdown
+	} else {
+		dropdown.classList.remove("show"); // Hide the dropdown
+	}
+}
+
+// Function to select an item
+function selectItem(item) {
+	document.getElementById("searchInput").value = item;
+	document.getElementById("dropdown").classList.remove("show");
+}
+
+// Close the dropdown when clicking outside
+window.onclick = function (event) {
+	if (!event.target.matches("#searchInput")) {
+		var dropdowns = document.getElementsByClassName("dropdown-content");
+		for (var i = 0; i < dropdowns.length; i++) {
+			var openDropdown = dropdowns[i];
+			if (openDropdown.classList.contains("show")) {
+				openDropdown.classList.remove("show");
+			}
+		}
+	}
+};
+
+// Add event listener to the search input field
+document.getElementById("searchInput").addEventListener("keyup", filterItems);
+
+// Generate initial dropdown items
