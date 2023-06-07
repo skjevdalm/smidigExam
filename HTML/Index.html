@@ -22,25 +22,53 @@
 
 		<div class="Mid">
 			<!--Velger etasje-->
-			<button onclick="window.location.href = 'Image-recon.html'; setFloor(1)">
-				Første etasje
-			</button>
-			<button onclick="window.location.href = 'TaskPage2.html'; setFloor(2)">
-				Andre etasje
-			</button>
-			<button onclick="window.location.href = 'TaskPage3.html'; setFloor(3)">
-				Tredje etasje
-			</button>
-			<button onclick="window.location.href = 'TaskPage4.html'; setFloor(4)">
-				Fjerde etasje
-			</button>
-			<button onclick="window.location.href = 'TaskPage5.html'; setFloor(5)">
-				Femte etasje
-			</button>
-			<button onclick="clearLocalStorage()">clearLocalStorage</button>
+			<table class="floors">
+				<tr>
+				  <td>
+					<button onclick="window.location.href = 'TaskPage1.html'; setFloor(1)">
+						1. Lobby + Shop + Cafe + Amphitheatre
+					</button>
+				</td>
+				  <td>
+					  <button onclick="window.location.href = 'TaskPage2.html'; setFloor(2)">
+						2. Party hall with live program
+					  </button>
+				  </td>
+				</tr>
+				<tr>
+				  <td>
+					<button onclick="window.location.href = 'TaskPage3.html'; setFloor(3)">
+						3. Exhibition: Freedoms form + Workshop + Library
+					</button>
+				  </td>
+				  	<td>
+					<button onclick="window.location.href = 'TaskPage4.html'; setFloor(4)">
+						4. Exhibition: Munch infinity
+					</button>
+
+					</td>
+				</tr>
+				<tr>
+				  	<td>
+					<button onclick="window.location.href = 'TaskPage5.html'; setFloor(5)">
+						6. Exhibition: Munch monumental
+					</button>
+					</td>
+				  	<td>
+					<!-- <button onclick="window.location.href = 'Image-recon.html'; setFloor(1)">
+						image recon
+					</button> -->
+					</td>
+				</tr>
+			  </table>
+			
+			
+			
+			
+			<!-- <button onclick="clearLocalStorage()">clearLocalStorage</button>
 			<button id="testwhatfloorButton" onclick="getItemFromLocalStorage()">
 				Print local storage
-			</button>
+			</button> -->
 		</div>
 
 		<script src="../JS/image-recon.js"></script>
