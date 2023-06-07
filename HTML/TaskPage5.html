@@ -7,6 +7,7 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
     <script src='main.js'></script>
+    <script src="../JS/image-recon.js"></script>
 </head>
 <body>
     <div class="Top">
@@ -24,11 +25,13 @@
             <option value="4">Oppgave 5</option>
             <option value="5">Oppgave 6</option>
         </select>
-
+        <button id="floor1Button" onclick="testFunc()">test shit</button>
+        <button id="testwhatfloorButton" onclick="getItemFromLocalStorage()">test floor btn</button>
     </div>
 
     <div class="Bot">
         <button onclick="window.location.href = 'Index.html';">Hjem</button>
+        <button onclick="getItemFromLocalStorage()">getItemFromLocalStorage</button>
 
     </div>
 

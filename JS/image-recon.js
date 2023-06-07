@@ -215,34 +215,22 @@ var result;
 var randomIndex;
 var resultImgDiv;
 var resultImagePath;
-//var currentFloorArray = localStorage.setItem(null);
-//var currentFloorCropNorm = localStorage.setItem(null);
+const imagePath = "../../Images/"; // This is for the path of the images. in this case it is in the Images folder
+const jpg = ".jpg"; // This is for the extension of the images. in this case it is .jpg, just to to make it easier to add compare without the extension later
+var randomIndex;
 
-//var resultParagraph;
-//function floor1() {
-//currentFloorArray = floor1ListCrop;
-//currentFloorCropNorm = floor1List;
-//}
-
-function floor2() {
-	currentFloorArray = floor2ListCrop;
-	currentFloorCropNorm = floor2List;
+function clearLocalStorage() {
+	localStorage.clear();
+	currentFloorArray = [];
 }
-
-function floor3() {
-	currentFloorArray = floor3ListCrop;
-	currentFloorCropNorm = floor3List;
-	alert(typeof currentFloorArray);
+function clearArray(){
+	currentFloorArray = [];
 }
+function showArray() {
+	for (let i = 0; i < currentFloorArray.length; i++) {
+		console.log(currentFloorArray[i]);
+	}
 
-function floor4() {
-	currentFloorArray = floor4ListCrop;
-	currentFloorCropNorm = floor4List;
-}
-
-function floor5() {
-	currentFloorArray = floor5ListCrop;
-	currentFloorCropNorm = floor5List;
 }
 
 function setFloor(floorNumber) {
@@ -252,7 +240,7 @@ function setFloor(floorNumber) {
 			currentFloorCropNorm = floor1List;
 			localStorage.setItem("currentFloorArray", JSON.stringify(currentFloorArray));
 			localStorage.setItem("currentFloorCropNorm", JSON.stringify(currentFloorCropNorm));
-			alert("case 1 kjører wtfffff" + currentFloorArray);
+			console.log("Case 1 har kjørt gjennom");
 			break;
 		case 2:
 			currentFloorArray = floor2ListCrop;
@@ -274,6 +262,7 @@ function setFloor(floorNumber) {
 			currentFloorCropNorm = floor3List;
 			localStorage.setItem("currentFloorArray", JSON.stringify(currentFloorArray));
 			localStorage.setItem("currentFloorCropNorm", JSON.stringify(currentFloorCropNorm));
+			console.log("case 3 kjører");
 			break;
 		case 4:
 			currentFloorArray = floor4ListCrop;
@@ -294,24 +283,12 @@ function setFloor(floorNumber) {
 	}
 }
 
-//------------------------------------------------------
-// // Retrieve the values from localStorage
-//var savedCurrentFloorArray = JSON.parse(localStorage.getItem('currentFloorArray'));
-//var savedCurrentFloorCropNorm = JSON.parse(localStorage.getItem('currentFloorCropNorm'));
-
-// Use the retrieved values as needed
-//console.log(savedCurrentFloorArray);
-//console.log(savedCurrentFloorCropNorm);
-
-const imagePath = "../../Images/"; // This is for the path of the images. in this case it is in the Images folder
-const jpg = ".jpg"; // This is for the extension of the images. in this case it is .jpg, just to to make it easier to add compare without the extension later
-var randomIndex;
-
 function displayRandomImage() {
 	clearResultDiv();
 	var fullImagePath = currentFloorArray.map(function (imageName) {
 		return imagePath + imageName + jpg; // This will return the full image path for each image in the array with the correct extension
 	});
+	console.log(fullImagePath + "\n\nwe have an image path");
 	randomIndex = Math.floor(Math.random() * currentFloorArray.length); //Get random index number for a random image
 	var randomImagePath = fullImagePath[randomIndex]; //get random image path, this includes the path and the image name with current floor-array
 	var imageElement = document.createElement("img"); // Create an image element to put the image in
@@ -319,7 +296,7 @@ function displayRandomImage() {
 	imageElement.style.width = "300px"; // Set the width of the image
 	imageElement.style.height = "300px"; // Set the height of the image
 	currentImage = currentFloorArray[randomIndex].toString().toUpperCase(); // Get the current image name as a string
-	console.log(currentImage);
+	console.log(currentFloorArray);
 	var imageContainer = document.getElementById("Container1"); // Get the container into a variable
 	imageContainer.innerHTML = ""; // Clear the container
 	imageContainer.appendChild(imageElement); // Add the image to the container
@@ -340,7 +317,7 @@ function checkGuess() {
 	}
 }
 
-function correctResult() {
+function correctResult() {	
 	//resultImgDiv = document.getElementById("resultImgDiv");
 	resultImagePath =
 		'<img src="' +
@@ -348,21 +325,14 @@ function correctResult() {
 		currentFloorCropNorm[randomIndex] +
 		jpg +
 		'" width="300px" alt="hei">' +
-		"Correct!";
+		"Correct!"; // This will create the image path for the result image
 	resultDiv.innerHTML = resultImagePath;
-	//alert(resultImagePath);
-	//resultImagePath = imagePath + currentFloorCropNorm[randomIndex] + jpg;
-	//result.innerHTML = '<img src="" alt="">';
-
-	//resultParagraph = document.getElementById("resultParagraph"); // Create a paragraph element
-	//resultParagraph.innerHTML = "Correct funker!";
+	
 }
 
 function incorrectResult() {
 	result = document.getElementById("resultDiv"); // Get the result element (again..)
 	result.innerHTML = "lmao noob"; // This will clear the result element in the html file
-	//resultParagraph = document.getElementById("resultParagraph"); // Create a paragraph element
-	//resultParagraph.innerHTML = "Incorrect funker";
 }
 
 function clearResultDiv() {
@@ -370,20 +340,16 @@ function clearResultDiv() {
 	result.innerHTML = ""; // This will clear the result element in the html file
 }
 
-function testFunc() {
-	alert(currentFloorArray + typeof currentFloorArray);
-}
 function getItemFromLocalStorage() {
-	var currentFloorArrayLocal = localStorage.getItem("currentFloorArray"); // Retrieve the values from localStorage
-	var currentFloorCropNorm = localStorage.getItem("currentFloorCropNorm");
-	console.log(currentFloorArrayLocal); // Use the retrieved values as for the console
-	console.log(currentFloorCropNorm);
+	for (var i = 0; i < localStorage.length; i++) {
+		var key = localStorage.key(i);
+		var value = localStorage.getItem(key);
+		console.log(key + ": " + value);
+	}
 }
 
-function resetLocalStorage () {
-	localStorage.clear(); // Clear the localStorage
-}
+// ---------------------this is a bunch of arrays for all our floors------------------
 
-function testtest(){
-	alert("Fungerer!!!!!1!!111");
-}
+// --------------------this is a bunch of images for all our arrays------------------
+//
+//
