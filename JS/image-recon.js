@@ -239,6 +239,7 @@ function showArray() {
 	}
 }
 
+/*
 function setFloor(floorNumber) {
 	let currentFloorArray, currentFloorCropNorm;
 
@@ -281,10 +282,10 @@ function setFloor(floorNumber) {
 			typeof localStorage.getItem("currentFloorArray")
 	);
 }
-
+*/
 ///////////////////////////////////////////////////////////working code ->>>>/////////////////////////////////////////////
 
-/*
+
 function setFloor(floorNumber) {
 	switch (floorNumber) {
 		case 1:
@@ -363,7 +364,7 @@ function setFloor(floorNumber) {
 			return;
 	}
 }
-*/
+
 //////////////////////////////////////////////////////////////////////////////////////////////
 
 function displayRandomImage() {

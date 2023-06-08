@@ -1,70 +1,277 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Second Floor</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='/CSS/FrontPageTesting.css'>
-    <script src='main.js'></script>
-</head>
-<body>
-    <div class="Top">
-        <h1 id="mlogo">MUNCH</h1>
-        <h1 id="slogo">SCAVENGER</h1>
-        <button onclick="window.location.href = 'Index.html';" id="home" > <img src="/Images/homeBtn.png" width="50px" alt="HOME" id="homebtn"></button>
-    </div>
-
-    
-    <script>
-      var imageNames = [
-                "/Images/AndreasMunchStudyingAnatomy-crop.jpg",
-                "/Images/BathingMan-crop.jpg",
-                "/Images/BathingGirls-crop.jpg",
-                "/Images/BathingMenOnRocks-crop.jpg",
-                "/Images/ChildrenAndDucks-crop.jpg",
-                "/Images/BricklayerAtWork-crop.jpg"
-            ];
-
-      function generateSelectedImage() {
-        var selectElement = document.getElementById("image-select");
-        var selectedImageName = selectElement.value;
-
-        var container = document.getElementById("image-container");
-        container.innerHTML = "";
-
-        if (selectedImageName !== "") {
-          var imageElement = document.createElement("img");
-          imageElement.src = selectedImageName;
-          container.appendChild(imageElement);
-        }
-      }
-    </script>
-    <select id="image-select">
-        <option value="">-- Select Task --</option>
-        <option value="/Images/AndreasMunchStudyingAnatomy-crop.jpg">Task 1</option>
-        <option value="/Images/BathingMan-crop.jpg">Task 2</option>
-        <option value="/Images/BathingGirls-crop.jpg">Task 3</option>
-        <option value="/Images/BathingMenOnRocks-crop.jpg">Task 4</option>
-        <option value="/Images/ChildrenAndDucks-crop.jpg">Task 5</option>
-        <option value="/Images/BricklayerAtWork-crop.jpg">Task 6</option>
-        </select>
-        <button onclick="generateSelectedImage()">Select Image</button>
-    <div class="quiz">
-        <h1>Image Selector</h1>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>Second Floor</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" type="text/css" media="screen" href="/CSS/FrontPageTesting.css" />
+        <link rel="stylesheet" type="text/css" media="screen" href="../CSS/mstest.css" />
+		<script src="main.js"></script>
         
-        <div id="image-container"> <img src="/Images/placeHolder.png" alt="Guess the painting" id="placeholder"></div>
+	</head>
+	<body>
+		<div class="Top">
+			<h1 id="mlogo">MUNCH</h1>
+			<h1 id="slogo">SCAVENGER</h1>
+			<button onclick="window.location.href = 'Index.html';" id="home">
+				<img src="/Images/homeBtn.png" width="50px" alt="HOME" id="homebtn" />
+			</button>
+		</div>
+
+		<script>
+			var imageNames = [
+				"AndreasMunchStudyingAnatomy.jpg",
+				"BathingGirls.jpg",
+				"BathingMan.jpg",
+				"BathingMenOnRocks.jpg",
+				"BricklayerAtWork.jpg",
+			];
+
+			var imageNamesCrop = [
+				"AndreasMunchStudyingAnatomy-crop.jpg",
+				"BathingGirls-crop.jpg",
+				"BathingMan-crop.jpg",
+				"BathingMenOnRocks-crop.jpg",
+				"BricklayerAtWork-crop.jpg",
+                
+			];
+
+			var selectElement;
+			var selectedImageName;
+			var container;
+			var imageElement;
+			var userGuess;
+			var imgPath;
+			var resultImgPath;
+			var resultImgTag;
+			var resultDiv;
+			var resultImg;
+			var resultImgPathMod;
+			var indexNumber;
+            var dropdown;
+            var resultText;
+
+			function generateSelectedImage() {
+				selectElement = document.getElementById("image-select");
+				selectedImageName = selectElement.value.toUpperCase();
+
+				container = document.getElementById("image-container");
+                resultDiv = document.getElementById("resultDiv");
+                resultText = document.getElementById("resultText");
+				container.innerHTML = "";
+                resultDiv.innerHTML = "";
+                resultText.innerHTML = "";
+                
+
+				if (selectedImageName !== "") {
+					imageElement = document.createElement("img");
+					imageElement.src = selectedImageName;
+					container.appendChild(imageElement);
+				}
+				console.log(selectElement.value);
+
+				assignIndex();
+			}
+			///Images/AndreasMunchStudyingAnatomy-crop.jpg
+			function checkGuess() {
+				userGuess = document.getElementById("searchInput").value.toUpperCase(); // Get the user guess from the searchInput field
+				var userGuessString = userGuess.toString(); // Convert the user guess to a string and make it uppercase, then remove all spaces so that it can be compared to the current image name that is without spaces
+				//var userGuessStringUpperNoSpace = userGuessString.replace(/\s/g, ""); // Remove all spaces from the user guess
+				resultImgDiv = document.getElementById("resultImgDiv"); // Get the result image Div element
+				result = document.getElementById("resultDiv"); // Get the result container Div
+
+				imgPath = "/Images/";
+				var userGuessModified =
+					"/IMAGES/" + userGuess.toUpperCase().replace(/\s/g, "") + "-CROP.JPG";
+				console.log(selectElement.value);
+				console.log(userGuessModified);
+				console.log(typeof userGuessModified);
+				console.log(typeof selectElement.value);
+				//resultParagraph = document.getElementById("resultParagraph"); // Create a paragraph element
+				if (userGuessModified == selectElement.value.toUpperCase()) {
+					// check if the user guess is the same as the random image path (in an attempt to be case-insensitive)
+					resultImgPath = ".." + selectElement.value;
+					resultImgPathMod = resultImgPath.replace("-CROP", "");
+					//alert(resultImgPathMod);
+					correctResult();
+				} else {
+					incorrectResult();
+				}
+			}
+
+			function correctResult() {
+				resultDiv = document.getElementById("resultDiv");
+                resultText = document.getElementById("resultText");
+				resultImgPath = "/Images/" + imageNames[indexNumber];
+				alert("ResultImgPath:" + resultImgPath);
+				resultImgTag =
+					'<img src="' + resultImgPath + '" width="300px" alt="hei">';
+				resultDiv.innerHTML = resultImgTag;
+                resultText.innerHTML = "That is correct!"
+                
+
+			}
+
+			function incorrectResult() {
+                resultText = document.getElementById("resultDiv");
+				resultText.innerHTML = "That is incorrect"
+			}
+
+			function assignIndex() {
+				//alert(selectElement.value);
+
+				if (selectElement.value == "/Images/AndreasMunchStudyingAnatomy-crop.jpg") {
+					indexNumber = 0;
+				} else if (selectElement.value === "/Images/BathingGirls-crop.jpg") {
+					indexNumber = 1;
+				} else if (selectElement.value === "/Images/BathingMan-crop.jpg") {
+					indexNumber = 2;
+				} else if (selectElement.value === "/Images/BathingMenOnRocks-crop.jpg") {
+					indexNumber = 3;
+				} else if (selectElement.value === "/Images/BricklayerAtWork-crop.jpg") {
+					indexNumber = 4;
+				} else {
+					alert("nope");
+				}
+
+				alert(indexNumber);
+			}
+
+
+////////////////////////////////SEARCH FUNCTION/////////////////////////////////////////
+
+
+			function generateDropdownItems() {
+				var dropdown = document.getElementById("dropdown");
+				dropdown.innerHTML = ""; // Clear previous currentFloorArray
+
+				var fragment = document.createDocumentFragment(); // Create a DocumentFragment to hold the currentFloorArray
+
+				for (var i = 0; i < imageNames.length; i++) {
+                    var removeWords = /(-crop|.jpg)/gi;
+					var item = imageNames[i].replace(removeWords, ""); // Get the current item in the currentFloorArray and remove the "-crop" part
+					var link = document.createElement("a"); // Create an <a> element
+					link.href = "#"; // Set the href attribute to "#"
+					link.innerText = item; // Set the text content of the link to the current item
+					link.addEventListener("click", function (e) {
+						// Add a click event listener to the link
+						e.preventDefault(); // Prevent the default link behavior
+						var selectedItem = this.innerText; // Get the selected item
+						document.getElementById("searchInput").value = selectedItem; // Set the search input value
+						filterItems(); // Filter the items based on the selected value
+					});
+					fragment.appendChild(link); // Append the link to the DocumentFragment
+				}
+
+				dropdown.appendChild(fragment); // Append the DocumentFragment to the dropdown
+			}
+
+			// Function to filter the items based on search input
+
+			function filterItems() {
+				var input, filter, dropdown, items, a, i; // Declare variables
+				input = document.getElementById("searchInput"); // Get the input element
+
+				if (!input) {
+					// Check if the input element exists
+					console.error("searchInput element not found"); // Log an error message
+					return;
+				}
+
+				filter = input.value.toUpperCase(); // Convert the input value to uppercase
+				dropdown = document.getElementById("dropdown"); // Get the dropdown element
+
+				if (!dropdown) {
+					console.error("dropdown element not found"); // Log an error message
+					return;
+				}
+
+				items = dropdown.getElementsByTagName("a"); // Get all <a> elements inside the dropdown
+
+				for (i = 0; i < items.length; i++) {
+					// Loop through all <a> elements
+					a = items[i];
+
+					if (!a) {
+						console.error("Invalid item at index", i); // Log an error message
+						continue;
+					}
+
+					if (a.innerText && a.innerText.toUpperCase().indexOf(filter) > -1) {
+						// If the item contains the search term, show it
+						a.style.display = ""; // Show the item
+					} else {
+						a.style.display = "none"; // Hide the item
+					}
+				}
+
+				if (filter.length > 0) {
+					dropdown.classList.add("show"); // Show the dropdown
+				} else {
+					dropdown.classList.remove("show"); // Hide the dropdown
+				}
+			}
+
+			// Function to select an item
+			function selectItem(item) {
+				document.getElementById("searchInput").value = item;
+				document.getElementById("dropdown").classList.remove("show");
+			}
+
+			// Close the dropdown when clicking outside
+			window.onclick = function (event) {
+				if (!event.target.matches("#searchInput")) {
+					var dropdowns = document.getElementsByClassName("dropdown-content");
+					for (var i = 0; i < dropdowns.length; i++) {
+						var openDropdown = dropdowns[i];
+						if (openDropdown.classList.contains("show")) {
+							openDropdown.classList.remove("show");
+						}
+					}
+				}
+			};
+
+			// Add event listener to the search input field
+			document.getElementById("searchInput").addEventListener("keyup", filterItems);
+		</script>
+		<select id="image-select">
+			<option value="">-- Select Task --</option>
+			<option value="/Images/AndreasMunchStudyingAnatomy-crop.jpg">Task 1</option>
+			<option value="/Images/BathingGirls-crop.jpg">Task 2</option>
+			<option value="/Images/BathingMan-crop.jpg">Task 3</option>
+			<option value="/Images/BathingMenOnRocks-crop.jpg">Task 4</option>
+			<option value="/Images/BricklayerAtWork-crop.jpg">Task 5</option>
+		</select>
+		<button onclick="generateSelectedImage()">Select Image</button>
+		<div class="quiz">
+			<h1>Image Selector</h1>
+
+			<div id="image-container">
+				<img src="/Images/placeHolder.png" alt="Guess the painting" id="placeholder" />
+			</div>
+			<input type="text" id="searchInputt" placeholder="Enter you guess" />
+			
+
+            <br />
+            <input
+			type="text"
+			id="searchInput"
+			onkeyup="generateDropdownItems();filterItems(); "
+			placeholder="Search..."
+            
+            />
+            <button onclick="checkGuess()" placeholder="Enter your guess">Check</button>
         
-        <div id="answer-buttons">
-            <button class="btn">Answer 1</button>
-            <button class="btn">Answer 2</button>
-            <button class="btn">Answer 3</button>
-        </div>
-    </div>
-    
+        <div id="dropdown" class="dropdown-content"></div>
+			<div id="resultDiv"></div>
+            <div id="resultText"></div>
+		</div>
+        
 
+        
 
-    <!--
+		<!--
     <div class="Mid">
         <select id="select-task">
             <option>--Velg oppgave--</option>
@@ -109,5 +316,5 @@
 
     </div>
 -->
-</body>
+	</body>
 </html>
