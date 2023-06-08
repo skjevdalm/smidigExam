@@ -5,17 +5,68 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Second Floor</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/CSS/FrontPageTesting.css'>
     <script src='main.js'></script>
 </head>
 <body>
     <div class="Top">
-        <h1>Disse oppgavene finner du svaret på i andre etasje!</h1>
-        
+        <h1 id="mlogo">MUNCH</h1>
+        <h1 id="slogo">SCAVENGER</h1>
+        <button onclick="window.location.href = 'Index.html';" id="home" > <img src="/Images/homeBtn.png" width="50px" alt="HOME" id="homebtn"></button>
     </div>
 
+    
+    <script>
+      var imageNames = [
+                "/Images/AndreasMunchStudyingAnatomy-crop.jpg",
+                "/Images/BathingMan-crop.jpg",
+                "/Images/BathingGirls-crop.jpg",
+                "/Images/BathingMenOnRocks-crop.jpg",
+                "/Images/ChildrenAndDucks-crop.jpg",
+                "/Images/BricklayerAtWork-crop.jpg"
+            ];
+
+      function generateSelectedImage() {
+        var selectElement = document.getElementById("image-select");
+        var selectedImageName = selectElement.value;
+
+        var container = document.getElementById("image-container");
+        container.innerHTML = "";
+
+        if (selectedImageName !== "") {
+          var imageElement = document.createElement("img");
+          imageElement.src = selectedImageName;
+          container.appendChild(imageElement);
+        }
+      }
+    </script>
+    <select id="image-select">
+        <option value="">-- Select Task --</option>
+        <option value="/Images/AndreasMunchStudyingAnatomy-crop.jpg">Task 1</option>
+        <option value="/Images/BathingMan-crop.jpg">Task 2</option>
+        <option value="/Images/BathingGirls-crop.jpg">Task 3</option>
+        <option value="/Images/BathingMenOnRocks-crop.jpg">Task 4</option>
+        <option value="/Images/ChildrenAndDucks-crop.jpg">Task 5</option>
+        <option value="/Images/BricklayerAtWork-crop.jpg">Task 6</option>
+        </select>
+        <button onclick="generateSelectedImage()">Select Image</button>
+    <div class="quiz">
+        <h1>Image Selector</h1>
+        
+        <div id="image-container"> <img src="/Images/placeHolder.png" alt="Guess the painting" id="placeholder"></div>
+        
+        <div id="answer-buttons">
+            <button class="btn">Answer 1</button>
+            <button class="btn">Answer 2</button>
+            <button class="btn">Answer 3</button>
+        </div>
+    </div>
+    
+
+
+    <!--
     <div class="Mid">
-        <select id="select-task"><!-- velger etasje -->
+        <select id="select-task">
             <option>--Velg oppgave--</option>
             <option value="0">Oppgave 1</option>
             <option value="1">Oppgave 2</option>
@@ -25,13 +76,38 @@
             <option value="5">Oppgave 6</option>
         </select>
 
+        <div id="image-container"></div>
+        <button onclick="generateRandomImage()">Generate Random Image</button>
+
+        <script>
+            var imageNames = [
+                "/Images/AndreasMunchStudyingAnatomy-crop.jpg",
+                "/Images/BathingMan-crop.jpg",
+                "/Images/BathingGirls-crop.jpg",
+                "/Images/BathingMenOnRocks-crop.jpg",
+                "/Images/ChildrenAndDucks-crop.jpg",
+                "/Images/BricklayerAtWork-crop.jpg"
+            ];
+
+            function generateRandomImage() {
+                var container = document.getElementById("image-container");
+
+                container.innerHTML = "";
+
+                var randomIndex = Math.floor(Math.random() * imageNames.length);
+                var randomImageName = imageNames[randomIndex];
+                var imageElement = document.createElement("img");
+                imageElement.src = randomImageName;
+                
+                
+                container.appendChild(imageElement);
+            }
+
+            generateRandomImage();
+
+        </script>
+
     </div>
-
-    <div class="Bot">
-        <button onclick="window.location.href = 'Index.html';">Hjem</button>
-
-    </div>
-
-
+-->
 </body>
 </html>

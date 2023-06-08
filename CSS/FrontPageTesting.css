@@ -25,6 +25,7 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     position: relative;
     border: 10px solid #0f2335;
     margin-top: 60px;
@@ -85,7 +86,13 @@ h2 {
     align-items: center;
     padding-left: 20px;
 }
+#homebtn{
+    background-color: #0f2335;
+}
+#home{
+    background-color: #0f2335;
 
+}
 #mlogo {
     color: #eba398;
     font-style: oblique;
@@ -96,6 +103,12 @@ h2 {
 #slogo {
     color: white;
     font-size: 25px;
+    padding-right:1100px;
+}
+#placeholder{
+    width: 400px;
+    display: flex;
+    align-content: center;
 }
 
 /* Responsive styles */

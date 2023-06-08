@@ -20,12 +20,13 @@ body{
 
 #mlogo {
     color: #eba398;
-    font-style: oblique;
+    font-family: Girott Munch Backslant;
     margin-right: 10px;
 }
 
 #slogo {
     color: white;
+    font-family: Girott Munch;
 }
 .floors{
     width: 100%;
@@ -49,8 +50,9 @@ button{
     background-color: #eba398;
     border: 0;
     color: #0f2335;
-    font-size: 25px;
+    font-size: 30px;
     font-weight: 900;
+    font-family: Girott Munch;
 }
 button:hover{
     color: white;
@@ -61,4 +63,11 @@ button:hover{
 }
 #toptable{
     border-top: 0;
+}
+.nonreact{
+    height: 100px;
+    color: white;
+    font-size: 30px;
+    font-weight: 900;
+    font-family: Girott Munch;
 }
