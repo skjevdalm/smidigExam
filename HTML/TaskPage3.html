@@ -5,33 +5,50 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Third Floor</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='/CSS/task.css'>
     <script src='main.js'></script>
 </head>
 <body>
     <div class="Top">
-        <h1>Disse oppgavene finner du svaret på i tredje etasje!</h1>
-        
+        <button onclick="window.location.href = 'Index.html';" id="home">
+            <img src="/Images/homeBtn.png" width="50px" alt="HOME" id="homebtn" />
+        </button>
+        <h1 id="mlogo">MUNCH</h1>
+        <h1 id="slogo">SCAVENGER</h1>
     </div>
 
-    <div class="Mid">
-        <select id="select-task"><!-- velger oppgave -->
-            <option>--Velg oppgave--</option>
-            <option value="0">Oppgave 1</option>
-            <option value="1">Oppgave 2</option>
-            <option value="2">Oppgave 3</option>
-            <option value="3">Oppgave 4</option>
-            <option value="4">Oppgave 5</option>
-            <option value="5">Oppgave 6</option>
+    <div class="mid">
+        <select id="image-select">
+            <option value="">-- Select Task --</option>
+            <option value="/Images/AndreasMunchStudyingAnatomy-crop.jpg">Task 1</option>
+            <option value="/Images/BathingGirls-crop.jpg">Task 2</option>
+            <option value="/Images/BathingMan-crop.jpg">Task 3</option>
+            <option value="/Images/BathingMenOnRocks-crop.jpg">Task 4</option>
+            <option value="/Images/BricklayerAtWork-crop.jpg">Task 5</option>
         </select>
-
+        <button onclick="generateSelectedImage()" id="btnSelect">Select Image</button>
     </div>
 
-    <div class="Bot">
-        <button onclick="window.location.href = 'Index.html';">Hjem</button>
+    <div class="quiz">
+        <h1>Second floor tasks!</h1>
 
+        <div id="image-container">
+            <img src="/Images/placeHolder.png" alt="Guess the painting" id="placeholder" />
+        </div>
+
+        <br />
+        <input
+        type="text"
+        id="searchInput"
+        onkeyup="generateDropdownItems();filterItems(); "
+        placeholder="Search..."
+        />
+
+        <button onclick="checkGuess()" placeholder="Enter your guess">Check</button>
+    
+        <div id="dropdown" class="dropdown-content"></div>
+        <div id="resultDiv"></div>
+        <div id="resultText"></div>
     </div>
-
-
 </body>
 </html>

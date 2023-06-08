@@ -1,0 +1,81 @@
+body {
+    background-color: #eba398;
+    font-family: Girott Munch Backslant;
+    margin: 0;
+    padding: 0;
+}
+
+.quiz {
+    max-width: 50%;
+    padding: 20px;
+    margin-left: 25%;
+    background-color: #f2f2f2;
+    border-radius: 10px;
+}
+
+.Top {
+    background-color: #0f2335;
+    width: 100%;
+    height: 100px;
+    font-size: larger;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.mid{
+    margin: 5px;
+}
+#homebtn{
+    background-color: #0f2335;
+}
+
+#home{
+    background-color: #0f2335;
+
+}
+
+#mlogo {
+    color: #eba398;
+    font-size: 30px;
+    margin-right: 10px;
+    margin-left: 50px;
+    font-family: Girott Munch;
+}
+
+#slogo {
+    color: white;
+    font-size: 25px;
+}
+
+#placeholder{
+    width: 400px;
+    display: flex;
+    align-content: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+#image-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#resultDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#image-select , #btnSelect{
+    height: 40px;
+    width: 150px;
+    font-size: larger;
+    text-align: center;
+    font-family:Girott Munch Backslant;
+    border: 1px solid #0f2335;
+    background-color: #0f2335;
+    color: white;
+}
