@@ -20,6 +20,7 @@
 		</div>
 
 		<script>
+            //Normal images
 			var imageNames = [
 				"AndreasMunchStudyingAnatomy.jpg",
 				"BathingGirls.jpg",
@@ -27,7 +28,7 @@
 				"BathingMenOnRocks.jpg",
 				"BricklayerAtWork.jpg",
 			];
-
+            //Cropped images
 			var imageNamesCrop = [
 				"AndreasMunchStudyingAnatomy-crop.jpg",
 				"BathingGirls-crop.jpg",
@@ -36,7 +37,7 @@
 				"BricklayerAtWork-crop.jpg",
                 
 			];
-
+            //Declaring variables globally
 			var selectElement;
 			var selectedImageName;
 			var container;
@@ -52,6 +53,7 @@
             var dropdown;
             var resultText;
 
+            //Retrieves and displays the image based off of which task the user has selected
 			function generateSelectedImage() {
 				selectElement = document.getElementById("image-select");
 				selectedImageName = selectElement.value.toUpperCase();
@@ -69,28 +71,31 @@
 					imageElement.src = selectedImageName;
 					container.appendChild(imageElement);
 				}
-				console.log(selectElement.value);
-
-				assignIndex();
+				//console.log(selectElement.value);
+                
+				assignIndex();//assignIndex is initiated as soon as the user clicks display image
 			}
-			///Images/AndreasMunchStudyingAnatomy-crop.jpg
+			
+            //Function that compares the user input to the correct answer
 			function checkGuess() {
-				userGuess = document.getElementById("searchInput").value.toUpperCase(); // Get the user guess from the searchInput field
-				var userGuessString = userGuess.toString(); // Convert the user guess to a string and make it uppercase, then remove all spaces so that it can be compared to the current image name that is without spaces
+				userGuess = document.getElementById("searchInput").value.toUpperCase(); // Get the user guess from the searchInput field and make it uppercase
+				var userGuessString = userGuess.toString(); // Convert the user guess to a string
 				//var userGuessStringUpperNoSpace = userGuessString.replace(/\s/g, ""); // Remove all spaces from the user guess
 				resultImgDiv = document.getElementById("resultImgDiv"); // Get the result image Div element
 				result = document.getElementById("resultDiv"); // Get the result container Div
 
 				imgPath = "/Images/";
+                //in order to compare the userguess with the correct answer, it is converted to uppercase, all spaces are removed
+                //and -CROP.JPG is added at the end.
 				var userGuessModified =
-					"/IMAGES/" + userGuess.toUpperCase().replace(/\s/g, "") + "-CROP.JPG";
+					"/IMAGES/" + userGuess.toUpperCase().replace(/\s/g, "") + "-CROP.JPG"; 
 				console.log(selectElement.value);
 				console.log(userGuessModified);
 				console.log(typeof userGuessModified);
 				console.log(typeof selectElement.value);
 				//resultParagraph = document.getElementById("resultParagraph"); // Create a paragraph element
 				if (userGuessModified == selectElement.value.toUpperCase()) {
-					// check if the user guess is the same as the random image path (in an attempt to be case-insensitive)
+					// check if the user guess is the same as the image path (in an attempt to be case-insensitive)
 					resultImgPath = ".." + selectElement.value;
 					resultImgPathMod = resultImgPath.replace("-CROP", "");
 					//alert(resultImgPathMod);
@@ -106,7 +111,7 @@
 				resultImgPath = "/Images/" + imageNames[indexNumber];
 				alert("ResultImgPath:" + resultImgPath);
 				resultImgTag =
-					'<img src="' + resultImgPath + '" width="300px" alt="hei">';
+					'<img src="' + resultImgPath + '" width="300px" alt="hei">';//The uncropped image is displayed
 				resultDiv.innerHTML = resultImgTag;
                 resultText.innerHTML = "That is correct!"
                 
@@ -119,7 +124,8 @@
 			}
 
 			function assignIndex() {
-				//alert(selectElement.value);
+                //assigns an indexnumber based off of which task is selected, 
+                //in order to retrieve and display the uncropped image when the user is correct  
 
 				if (selectElement.value == "/Images/AndreasMunchStudyingAnatomy-crop.jpg") {
 					indexNumber = 0;
@@ -135,16 +141,15 @@
 					alert("nope");
 				}
 
-				alert(indexNumber);
+				
 			}
 
 
 ////////////////////////////////SEARCH FUNCTION/////////////////////////////////////////
 
-
 			function generateDropdownItems() {
 				var dropdown = document.getElementById("dropdown");
-				dropdown.innerHTML = ""; // Clear previous currentFloorArray
+				dropdown.innerHTML = ""; // Clear previous results
 
 				var fragment = document.createDocumentFragment(); // Create a DocumentFragment to hold the currentFloorArray
 
