@@ -1,276 +1,274 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Third Floor</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='/CSS/task.css'>
-    <link rel="stylesheet" type="text/css" media="screen" href="/CSS/mstest.css">
-    <script src='main.js'></script>
-</head>
-<body>
-    <div class="Top">
-        <button onclick="window.location.href = 'Index.html';" id="home">
-            <img src="/Images/homeBtn.png" width="50px" alt="HOME" id="homebtn" />
-        </button>
-        <h1 id="mlogo">MUNCH</h1>
-        <h1 id="slogo">SCAVENGER</h1>
-    </div>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>Third Floor</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" type="text/css" media="screen" href="/CSS/task.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="/CSS/mstest.css" />
+		<script src="main.js"></script>
+	</head>
+	<body>
+		<div class="Top">
+			<button onclick="window.location.href = 'Index.html';" id="home">
+				<img src="/Images/homeBtn.png" width="50px" alt="HOME" id="homebtn" />
+			</button>
+			<h1 id="mlogo">MUNCH</h1>
+			<h1 id="slogo">SCAVENGER</h1>
+		</div>
 
-    <div class="mid">
-        <select id="image-select">
-            <option value="">-- Select Task --</option>
-            <option value="/Images/ChildrenandDucks-crop.jpg">Task 1</option>
-            <option value="/Images/ConsolationInTheForest-crop.jpg">Task 2</option>
-            <option value="/Images/DiggingMenWithHorseAndCart-crop.jpg">Task 3</option>
-            <option value="/Images/FivePuppiesOnTheCarpet-crop.jpg">Task 4</option>
-            <option value="/Images/ForestInSnow-crop.jpg">Task 5</option>
-        </select>
+		<div class="mid">
+			<select id="image-select">
+				<option value="">-- Select Task --</option>
+				<option value="/Images/ChildrenandDucks-crop.jpg">Task 1</option>
+				<option value="/Images/ConsolationInTheForest-crop.jpg">Task 2</option>
+				<option value="/Images/DiggingMenWithHorseAndCart-crop.jpg">Task 3</option>
+				<option value="/Images/FivePuppiesOnTheCarpet-crop.jpg">Task 4</option>
+				<option value="/Images/ForestInSnow-crop.jpg">Task 5</option>
+			</select>
 
-        <button onclick="generateSelectedImage()" id="btnSelect">Select Image</button>
-    </div>
+			<button onclick="generateSelectedImage()" id="btnSelect">Select Image</button>
+		</div>
 
-    <div class="quiz">
-        <h1>Third floor tasks!</h1>
+		<div class="quiz">
+			<h1>Third floor tasks!</h1>
 
-        <div id="image-container">
-            <img src="/Images/placeHolder.png" alt="Guess the painting" id="placeholder" />
-        </div>
+			<div id="image-container">
+				<img src="/Images/placeHolder.png" alt="Guess the painting" id="placeholder" />
+			</div>
 
-        <br />
-        <input
-        type="text"
-        id="searchInput"
-        onkeyup="generateDropdownItems();filterItems(); "
-        placeholder="Search..."
-        />
+			<br />
 
-        <button onclick="checkGuess()" placeholder="Enter your guess">Check</button>
-    
-        <div id="dropdown" class="dropdown-content"></div>
-        <div id="resultDiv"></div>
-        <div id="resultText"></div>
-    </div>
-    <script>
-        //Normal images
-        var imageNames = [
-            "ChildrenandDucks.jpg",
-            "ConsolationInTheForest.jpg",
-            "DiggingMenWithHorseAndCart.jpg",
-            "FivePuppiesOnTheCarpet.jpg",
-            "ForestInSnow.jpg",
-        ];
-        //Cropped images
-        var imagesNamesCrop = [
-            "ChildrenandDucks-crop.jpg",
-            "ConsolationInTheForest-crop.jpg",
-            "DiggingMenWithHorseAndCart-crop.jpg",
-            "FivePuppiesOnTheCarpet-crop.jpg",
-            "ForestInSnow-crop.jpg",
-        ]
-        
-        //Declaring variables globally
-        var selectElement;
-        var selectedImageName;
-        var container;
-        var imageElement;
-        var userGuess;
-        var imgPath;
-        var resultImgPath;
-        var resultImgTag;
-        var resultDiv;
-        var resultImg;
-        var resultImgPathMod;
-        var indexNumber;
-        var dropdown;
-        var resultText;
+			<div id="containerSearch">
+				<input
+					type="text"
+					id="searchInput"
+					onkeyup="generateDropdownItems();filterItems(); "
+					placeholder="Search..."
+				/>
 
-        //Retrieves and displays the image based off of which task the user has selected
-        function generateSelectedImage() {
-            selectElement = document.getElementById("image-select");
-            selectedImageName = selectElement.value.toUpperCase();
+				<button onclick="checkGuess()" placeholder="Enter your guess">Check</button>
 
-            container = document.getElementById("image-container");
-            resultDiv = document.getElementById("resultDiv");
-            resultText = document.getElementById("resultText");
-            container.innerHTML = "";
-            resultDiv.innerHTML = "";
-            resultText.innerHTML = "";
-            
+				<div id="dropdown" class="dropdown-content"></div>
+			</div>
+			<div id="resultDiv"></div>
+			<div id="resultText"></div>
+		</div>
+		<script>
+			//Normal images
+			var imageNames = [
+				"ChildrenandDucks.jpg",
+				"ConsolationInTheForest.jpg",
+				"DiggingMenWithHorseAndCart.jpg",
+				"FivePuppiesOnTheCarpet.jpg",
+				"ForestInSnow.jpg",
+			];
+			//Cropped images
+			var imagesNamesCrop = [
+				"ChildrenandDucks-crop.jpg",
+				"ConsolationInTheForest-crop.jpg",
+				"DiggingMenWithHorseAndCart-crop.jpg",
+				"FivePuppiesOnTheCarpet-crop.jpg",
+				"ForestInSnow-crop.jpg",
+			];
 
-            if (selectedImageName !== "") {
-                imageElement = document.createElement("img");
-                imageElement.src = selectedImageName;
-                container.appendChild(imageElement);
-            }
-            //console.log(selectElement.value);
-            
-            assignIndex();//assignIndex is initiated as soon as the user clicks display image
-        }
-        
-        //Function that compares the user input to the correct answer
-        function checkGuess() {
-            userGuess = document.getElementById("searchInput").value.toUpperCase(); // Get the user guess from the searchInput field and make it uppercase
-            var userGuessString = userGuess.toString(); // Convert the user guess to a string
-            //var userGuessStringUpperNoSpace = userGuessString.replace(/\s/g, ""); // Remove all spaces from the user guess
-            resultImgDiv = document.getElementById("resultImgDiv"); // Get the result image Div element
-            result = document.getElementById("resultDiv"); // Get the result container Div
+			//Declaring variables globally
+			var selectElement;
+			var selectedImageName;
+			var container;
+			var imageElement;
+			var userGuess;
+			var imgPath;
+			var resultImgPath;
+			var resultImgTag;
+			var resultDiv;
+			var resultImg;
+			var resultImgPathMod;
+			var indexNumber;
+			var dropdown;
+			var resultText;
 
-            imgPath = "/Images/";
-            //in order to compare the userguess with the correct answer, it is converted to uppercase, all spaces are removed
-            //and -CROP.JPG is added at the end.
-            var userGuessModified =
-                "/IMAGES/" + userGuess.toUpperCase().replace(/\s/g, "") + "-CROP.JPG"; 
-            console.log(selectElement.value);
-            console.log(userGuessModified);
-            console.log(typeof userGuessModified);
-            console.log(typeof selectElement.value);
-            //resultParagraph = document.getElementById("resultParagraph"); // Create a paragraph element
-            if (userGuessModified == selectElement.value.toUpperCase()) {
-                // check if the user guess is the same as the image path (in an attempt to be case-insensitive)
-                resultImgPath = ".." + selectElement.value;
-                resultImgPathMod = resultImgPath.replace("-CROP", "");
-                //alert(resultImgPathMod);
-                correctResult();
-            } else {
-                incorrectResult();
-            }
-        }
+			//Retrieves and displays the image based off of which task the user has selected
+			function generateSelectedImage() {
+				selectElement = document.getElementById("image-select");
+				selectedImageName = selectElement.value.toUpperCase();
 
-        function correctResult() {
-            container.innerHTML = "";
+				container = document.getElementById("image-container");
+				resultDiv = document.getElementById("resultDiv");
+				resultText = document.getElementById("resultText");
+				container.innerHTML = "";
+				resultDiv.innerHTML = "";
+				resultText.innerHTML = "";
 
-            resultDiv = document.getElementById("resultDiv");
-            resultText = document.getElementById("resultText");
-            resultImgPath = "/Images/" + imageNames[indexNumber];
-            //alert("ResultImgPath:" + resultImgPath);
-            resultImgTag =
-                '<img src="' + resultImgPath + '" width="500px" alt="hei">';//The uncropped image is displayed
-            resultDiv.innerHTML = resultImgTag;
-            resultText.innerHTML = "That is correct!"
-            
+				if (selectedImageName !== "") {
+					imageElement = document.createElement("img");
+					imageElement.src = selectedImageName;
+					container.appendChild(imageElement);
+				}
+				//console.log(selectElement.value);
 
-        }
+				assignIndex(); //assignIndex is initiated as soon as the user clicks display image
+			}
 
-        function incorrectResult() {
-            resultText = document.getElementById("resultDiv");
-            resultText.innerHTML = "That is incorrect"
-        }
+			//Function that compares the user input to the correct answer
+			function checkGuess() {
+				userGuess = document.getElementById("searchInput").value.toUpperCase(); // Get the user guess from the searchInput field and make it uppercase
+				var userGuessString = userGuess.toString(); // Convert the user guess to a string
+				//var userGuessStringUpperNoSpace = userGuessString.replace(/\s/g, ""); // Remove all spaces from the user guess
+				resultImgDiv = document.getElementById("resultImgDiv"); // Get the result image Div element
+				result = document.getElementById("resultDiv"); // Get the result container Div
 
-        function assignIndex() {
-            //assigns an indexnumber based off of which task is selected, 
-            //in order to retrieve and display the uncropped image when the user is correct  
-            if (selectElement.value === "/Images/ChildrenandDucks-crop.jpg") {
-            indexNumber = 0;
-            } else if (selectElement.value === "/Images/ConsolationInTheForest-crop.jpg") {
-            indexNumber = 1;
-            } else if (selectElement.value === "/Images/DiggingMenWithHorseAndCart-crop.jpg") {
-            indexNumber = 2;
-            } else if (selectElement.value === "/Images/FivePuppiesOnTheCarpet-crop.jpg") {
-            indexNumber = 3;
-            } else if (selectElement.value === "/Images/ForestInSnow-crop.jpg") {
-            indexNumber = 4;
-            } else {
-            alert("Please select a task!");
-            }
-        }
+				imgPath = "/Images/";
+				//in order to compare the userguess with the correct answer, it is converted to uppercase, all spaces are removed
+				//and -CROP.JPG is added at the end.
+				var userGuessModified =
+					"/IMAGES/" + userGuess.toUpperCase().replace(/\s/g, "") + "-CROP.JPG";
+				console.log(selectElement.value);
+				console.log(userGuessModified);
+				console.log(typeof userGuessModified);
+				console.log(typeof selectElement.value);
+				//resultParagraph = document.getElementById("resultParagraph"); // Create a paragraph element
+				if (userGuessModified == selectElement.value.toUpperCase()) {
+					// check if the user guess is the same as the image path (in an attempt to be case-insensitive)
+					resultImgPath = ".." + selectElement.value;
+					resultImgPathMod = resultImgPath.replace("-CROP", "");
+					//alert(resultImgPathMod);
+					correctResult();
+				} else {
+					incorrectResult();
+				}
+			}
 
+			function correctResult() {
+				container.innerHTML = "";
 
-////////////////////////////////SEARCH FUNCTION/////////////////////////////////////////
+				resultDiv = document.getElementById("resultDiv");
+				resultText = document.getElementById("resultText");
+				resultImgPath = "/Images/" + imageNames[indexNumber];
+				//alert("ResultImgPath:" + resultImgPath);
+				resultImgTag = '<img src="' + resultImgPath + '" width="500px" alt="hei">'; //The uncropped image is displayed
+				resultDiv.innerHTML = resultImgTag;
+				resultText.innerHTML = "That is correct!";
+			}
 
-        function generateDropdownItems() {
-            var dropdown = document.getElementById("dropdown");
-            dropdown.innerHTML = ""; // Clear previous results
+			function incorrectResult() {
+				resultText = document.getElementById("resultDiv");
+				resultText.innerHTML = "That is incorrect";
+			}
 
-            var fragment = document.createDocumentFragment(); // Create a DocumentFragment to hold the currentFloorArray
+			function assignIndex() {
+				//assigns an indexnumber based off of which task is selected,
+				//in order to retrieve and display the uncropped image when the user is correct
+				if (selectElement.value === "/Images/ChildrenandDucks-crop.jpg") {
+					indexNumber = 0;
+				} else if (selectElement.value === "/Images/ConsolationInTheForest-crop.jpg") {
+					indexNumber = 1;
+				} else if (selectElement.value === "/Images/DiggingMenWithHorseAndCart-crop.jpg") {
+					indexNumber = 2;
+				} else if (selectElement.value === "/Images/FivePuppiesOnTheCarpet-crop.jpg") {
+					indexNumber = 3;
+				} else if (selectElement.value === "/Images/ForestInSnow-crop.jpg") {
+					indexNumber = 4;
+				} else {
+					alert("Please select a task!");
+				}
+			}
 
-            for (var i = 0; i < imageNames.length; i++) {
-                var removeWords = /(-crop|.jpg)/gi;
-                var item = imageNames[i].replace(removeWords, ""); // Get the current item in the currentFloorArray and remove the "-crop" part
-                var link = document.createElement("a"); // Create an <a> element
-                link.href = "#"; // Set the href attribute to "#"
-                link.innerText = item; // Set the text content of the link to the current item
-                link.addEventListener("click", function (e) {
-                    // Add a click event listener to the link
-                    e.preventDefault(); // Prevent the default link behavior
-                    var selectedItem = this.innerText; // Get the selected item
-                    document.getElementById("searchInput").value = selectedItem; // Set the search input value
-                    filterItems(); // Filter the items based on the selected value
-                });
-                fragment.appendChild(link); // Append the link to the DocumentFragment
-            }
+			////////////////////////////////SEARCH FUNCTION/////////////////////////////////////////
 
-            dropdown.appendChild(fragment); // Append the DocumentFragment to the dropdown
-        }
+			function generateDropdownItems() {
+				var dropdown = document.getElementById("dropdown");
+				dropdown.innerHTML = ""; // Clear previous results
 
-        // Function to filter the items based on search input
+				var fragment = document.createDocumentFragment(); // Create a DocumentFragment to hold the currentFloorArray
 
-        function filterItems() {
-            var input, filter, dropdown, items, a, i; // Declare variables
-            input = document.getElementById("searchInput"); // Get the input element
+				for (var i = 0; i < imageNames.length; i++) {
+					var removeWords = /(-crop|.jpg)/gi;
+					var item = imageNames[i].replace(removeWords, ""); // Get the current item in the currentFloorArray and remove the "-crop" part
+					var link = document.createElement("a"); // Create an <a> element
+					link.href = "#"; // Set the href attribute to "#"
+					link.innerText = item; // Set the text content of the link to the current item
+					link.addEventListener("click", function (e) {
+						// Add a click event listener to the link
+						e.preventDefault(); // Prevent the default link behavior
+						var selectedItem = this.innerText; // Get the selected item
+						document.getElementById("searchInput").value = selectedItem; // Set the search input value
+						filterItems(); // Filter the items based on the selected value
+					});
+					fragment.appendChild(link); // Append the link to the DocumentFragment
+				}
 
-            if (!input) {
-                // Check if the input element exists
-                console.error("searchInput element not found"); // Log an error message
-                return;
-            }
+				dropdown.appendChild(fragment); // Append the DocumentFragment to the dropdown
+			}
 
-            filter = input.value.toUpperCase(); // Convert the input value to uppercase
-            dropdown = document.getElementById("dropdown"); // Get the dropdown element
+			// Function to filter the items based on search input
 
-            if (!dropdown) {
-                console.error("dropdown element not found"); // Log an error message
-                return;
-            }
+			function filterItems() {
+				var input, filter, dropdown, items, a, i; // Declare variables
+				input = document.getElementById("searchInput"); // Get the input element
 
-            items = dropdown.getElementsByTagName("a"); // Get all <a> elements inside the dropdown
+				if (!input) {
+					// Check if the input element exists
+					console.error("searchInput element not found"); // Log an error message
+					return;
+				}
 
-            for (i = 0; i < items.length; i++) {
-                // Loop through all <a> elements
-                a = items[i];
+				filter = input.value.toUpperCase(); // Convert the input value to uppercase
+				dropdown = document.getElementById("dropdown"); // Get the dropdown element
 
-                if (!a) {
-                    console.error("Invalid item at index", i); // Log an error message
-                    continue;
-                }
+				if (!dropdown) {
+					console.error("dropdown element not found"); // Log an error message
+					return;
+				}
 
-                if (a.innerText && a.innerText.toUpperCase().indexOf(filter) > -1) {
-                    // If the item contains the search term, show it
-                    a.style.display = ""; // Show the item
-                } else {
-                    a.style.display = "none"; // Hide the item
-                }
-            }
+				items = dropdown.getElementsByTagName("a"); // Get all <a> elements inside the dropdown
 
-            if (filter.length > 0) {
-                dropdown.classList.add("show"); // Show the dropdown
-            } else {
-                dropdown.classList.remove("show"); // Hide the dropdown
-            }
-        }
+				for (i = 0; i < items.length; i++) {
+					// Loop through all <a> elements
+					a = items[i];
 
-        // Function to select an item
-        function selectItem(item) {
-            document.getElementById("searchInput").value = item;
-            document.getElementById("dropdown").classList.remove("show");
-        }
+					if (!a) {
+						console.error("Invalid item at index", i); // Log an error message
+						continue;
+					}
 
-        // Close the dropdown when clicking outside
-        window.onclick = function (event) {
-            if (!event.target.matches("#searchInput")) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                for (var i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains("show")) {
-                        openDropdown.classList.remove("show");
-                    }
-                }
-            }
-        };
+					if (a.innerText && a.innerText.toUpperCase().indexOf(filter) > -1) {
+						// If the item contains the search term, show it
+						a.style.display = ""; // Show the item
+					} else {
+						a.style.display = "none"; // Hide the item
+					}
+				}
 
-        // Add event listener to the search input field
-        document.getElementById("searchInput").addEventListener("keyup", filterItems);
-    </script>
-</body>
+				if (filter.length > 0) {
+					dropdown.classList.add("show"); // Show the dropdown
+				} else {
+					dropdown.classList.remove("show"); // Hide the dropdown
+				}
+			}
+
+			// Function to select an item
+			function selectItem(item) {
+				document.getElementById("searchInput").value = item;
+				document.getElementById("dropdown").classList.remove("show");
+			}
+
+			// Close the dropdown when clicking outside
+			window.onclick = function (event) {
+				if (!event.target.matches("#searchInput")) {
+					var dropdowns = document.getElementsByClassName("dropdown-content");
+					for (var i = 0; i < dropdowns.length; i++) {
+						var openDropdown = dropdowns[i];
+						if (openDropdown.classList.contains("show")) {
+							openDropdown.classList.remove("show");
+						}
+					}
+				}
+			};
+
+			// Add event listener to the search input field
+			document.getElementById("searchInput").addEventListener("keyup", filterItems);
+		</script>
+	</body>
 </html>

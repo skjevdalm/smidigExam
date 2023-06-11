@@ -6,9 +6,8 @@
 		<title>Second Floor</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" type="text/css" media="screen" href="/CSS/task.css" />
-        <link rel="stylesheet" type="text/css" media="screen" href="../CSS/mstest.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="../CSS/mstest.css" />
 		<script src="main.js"></script>
-        
 	</head>
 	<body>
 		<div class="Top">
@@ -19,8 +18,34 @@
 			<h1 id="slogo">SCAVENGER</h1>
 		</div>
 
+		
+			<button onclick="generateSelectedImage()" id="btnSelect">Select Image</button>
+		</div>
+		<div class="quiz">
+			<h1>Second floor tasks!</h1>
+
+			<div id="image-container">
+				<img src="/Images/placeHolder.png" alt="Guess the painting" id="placeholder" />
+			</div>
+
+			<br />
+			<div id="containerSearch">
+				<input
+					type="text"
+					id="searchInput"
+					onkeyup="generateDropdownItems();filterItems(); "
+					placeholder="Search..."
+				/>
+
+				<button onclick="checkGuess()" placeholder="Enter your guess">Check</button>
+
+				<div id="dropdown" class="dropdown-content"></div>
+			</div>
+			<div id="resultDiv"></div>
+			<div id="resultText"></div>
+		</div>
 		<script>
-            //Normal images
+			//Normal images
 			var imageNames = [
 				"AndreasMunchStudyingAnatomy.jpg",
 				"BathingGirls.jpg",
@@ -28,16 +53,15 @@
 				"BathingMenOnRocks.jpg",
 				"BricklayerAtWork.jpg",
 			];
-            //Cropped images
+			//Cropped images
 			var imageNamesCrop = [
 				"AndreasMunchStudyingAnatomy-crop.jpg",
 				"BathingGirls-crop.jpg",
 				"BathingMan-crop.jpg",
 				"BathingMenOnRocks-crop.jpg",
 				"BricklayerAtWork-crop.jpg",
-                
 			];
-            //Declaring variables globally
+			//Declaring variables globally
 			var selectElement;
 			var selectedImageName;
 			var container;
@@ -50,21 +74,20 @@
 			var resultImg;
 			var resultImgPathMod;
 			var indexNumber;
-            var dropdown;
-            var resultText;
+			var dropdown;
+			var resultText;
 
-            //Retrieves and displays the image based off of which task the user has selected
+			//Retrieves and displays the image based off of which task the user has selected
 			function generateSelectedImage() {
 				selectElement = document.getElementById("image-select");
 				selectedImageName = selectElement.value.toUpperCase();
 
 				container = document.getElementById("image-container");
-                resultDiv = document.getElementById("resultDiv");
-                resultText = document.getElementById("resultText");
+				resultDiv = document.getElementById("resultDiv");
+				resultText = document.getElementById("resultText");
 				container.innerHTML = "";
-                resultDiv.innerHTML = "";
-                resultText.innerHTML = "";
-                
+				resultDiv.innerHTML = "";
+				resultText.innerHTML = "";
 
 				if (selectedImageName !== "") {
 					imageElement = document.createElement("img");
@@ -72,11 +95,11 @@
 					container.appendChild(imageElement);
 				}
 				//console.log(selectElement.value);
-                
-				assignIndex();//assignIndex is initiated as soon as the user clicks display image
+
+				assignIndex(); //assignIndex is initiated as soon as the user clicks display image
 			}
-			
-            //Function that compares the user input to the correct answer
+
+			//Function that compares the user input to the correct answer
 			function checkGuess() {
 				userGuess = document.getElementById("searchInput").value.toUpperCase(); // Get the user guess from the searchInput field and make it uppercase
 				var userGuessString = userGuess.toString(); // Convert the user guess to a string
@@ -85,10 +108,10 @@
 				result = document.getElementById("resultDiv"); // Get the result container Div
 
 				imgPath = "/Images/";
-                //in order to compare the userguess with the correct answer, it is converted to uppercase, all spaces are removed
-                //and -CROP.JPG is added at the end.
+				//in order to compare the userguess with the correct answer, it is converted to uppercase, all spaces are removed
+				//and -CROP.JPG is added at the end.
 				var userGuessModified =
-					"/IMAGES/" + userGuess.toUpperCase().replace(/\s/g, "") + "-CROP.JPG"; 
+					"/IMAGES/" + userGuess.toUpperCase().replace(/\s/g, "") + "-CROP.JPG";
 				console.log(selectElement.value);
 				console.log(userGuessModified);
 				console.log(typeof userGuessModified);
@@ -109,25 +132,22 @@
 				container.innerHTML = "";
 
 				resultDiv = document.getElementById("resultDiv");
-                resultText = document.getElementById("resultText");
+				resultText = document.getElementById("resultText");
 				resultImgPath = "/Images/" + imageNames[indexNumber];
 				//alert("ResultImgPath:" + resultImgPath);
-				resultImgTag =
-					'<img src="' + resultImgPath + '" width="500px" alt="hei">';//The uncropped image is displayed
+				resultImgTag = '<img src="' + resultImgPath + '" width="500px" alt="hei">'; //The uncropped image is displayed
 				resultDiv.innerHTML = resultImgTag;
-                resultText.innerHTML = "That is correct!"
-                
-
+				resultText.innerHTML = "That is correct!";
 			}
 
 			function incorrectResult() {
-                resultText = document.getElementById("resultDiv");
-				resultText.innerHTML = "That is incorrect"
+				resultText = document.getElementById("resultDiv");
+				resultText.innerHTML = "That is incorrect";
 			}
 
 			function assignIndex() {
-                //assigns an indexnumber based off of which task is selected, 
-                //in order to retrieve and display the uncropped image when the user is correct  
+				//assigns an indexnumber based off of which task is selected,
+				//in order to retrieve and display the uncropped image when the user is correct
 
 				if (selectElement.value == "/Images/AndreasMunchStudyingAnatomy-crop.jpg") {
 					indexNumber = 0;
@@ -142,12 +162,9 @@
 				} else {
 					alert("Please select a task!");
 				}
-
-				
 			}
 
-
-////////////////////////////////SEARCH FUNCTION/////////////////////////////////////////
+			////////////////////////////////SEARCH FUNCTION/////////////////////////////////////////
 
 			function generateDropdownItems() {
 				var dropdown = document.getElementById("dropdown");
@@ -156,7 +173,7 @@
 				var fragment = document.createDocumentFragment(); // Create a DocumentFragment to hold the currentFloorArray
 
 				for (var i = 0; i < imageNames.length; i++) {
-                    var removeWords = /(-crop|.jpg)/gi;
+					var removeWords = /(-crop|.jpg)/gi;
 					var item = imageNames[i].replace(removeWords, ""); // Get the current item in the currentFloorArray and remove the "-crop" part
 					var link = document.createElement("a"); // Create an <a> element
 					link.href = "#"; // Set the href attribute to "#"
@@ -251,29 +268,5 @@
 				<option value="/Images/BathingMenOnRocks-crop.jpg">Task 4</option>
 				<option value="/Images/BricklayerAtWork-crop.jpg">Task 5</option>
 			</select>
-			<button onclick="generateSelectedImage()" id="btnSelect">Select Image</button>
-		</div>
-		<div class="quiz">
-			<h1>Second floor tasks!</h1>
-
-			<div id="image-container">
-				<img src="/Images/placeHolder.png" alt="Guess the painting" id="placeholder" />
-			</div>
-			
-
-            <br />
-            <input
-			type="text"
-			id="searchInput"
-			onkeyup="generateDropdownItems();filterItems(); "
-			placeholder="Search..."
-            
-            />
-            <button onclick="checkGuess()" placeholder="Enter your guess">Check</button>
-        
-        	<div id="dropdown" class="dropdown-content"></div>
-			<div id="resultDiv"></div>
-            <div id="resultText"></div>
-		</div>
 	</body>
 </html>
