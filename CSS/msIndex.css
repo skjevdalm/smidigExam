@@ -1,0 +1,111 @@
+:root {
+	--munchPink: #eba398;
+	--munchBlack: #000000;
+	--munchRed: #fe390f;
+	--munchGreen: #00ff00;
+	--munchNavy: #0f2335;
+	--munchGold: #9b8250;
+	--munchLightGray: #f0f0f0;
+  }
+  
+  body {
+	margin: 0;
+	padding: 0;
+	font-family: Arial, sans-serif;
+  }
+  
+  .Top {
+	background-color: var(--munchNavy);
+	padding: 10px;
+  }
+  
+  #mlogo {
+	margin: 0;
+	color: var(--munchPink);
+  }
+  
+  #slogo {
+	font-size: 0.8em;
+	margin: 0;
+	color: white;
+  }
+  
+  #site {
+	background-color: var(--munchNavy);
+	color: white;
+	padding: 20px;
+	text-align: center;
+	margin: 20px auto;
+	width: calc(90% - 10px);
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  .Mid {
+	padding: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+  }
+  
+  .floor-button {
+	width: 100%;
+	height: 50px;
+	background-color: var(--munchNavy);
+	color: white;
+	border: none;
+	padding: 10px;
+	margin-bottom: 10px;
+	white-space: normal;
+	text-align: center;
+	border-radius: 8px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	transition: 0.3s;
+	position: relative;
+  }
+  
+  .floor-button:hover {
+	background-color: var(--munchPink);
+	color: var(--munchBlack);
+	transition: 0.3s;
+  }
+  
+  .floor-text {
+	position: relative;
+	z-index: 2;
+  }
+  
+  .tooltip {
+	visibility: hidden;
+	opacity: 0;
+	position: absolute;
+	top: 100%;
+	left: 50%;
+	transform: translateX(-50%);
+	transition: opacity 0.3s;
+	z-index: 1;
+	padding: 5px;
+	background-color: var(--munchLightGray);
+	color: var(--munchBlack);
+	border-radius: 4px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	white-space: normal;
+	width: 250px;
+	text-align: center;
+  }
+  
+  .floor-button:hover .tooltip {
+	visibility: visible;
+	opacity: 1;
+  }
+  
+  @media (min-width: 480px) {
+	.Mid {
+	  padding: 10px;
+	}
+  
+	.floor-button {
+	  width: calc(50% - 5px);
+	}
+  }
+  

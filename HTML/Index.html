@@ -5,7 +5,9 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Welcome to scavanger Munch</title>
-		<link rel="stylesheet" href="/CSS/Index.css" />
+		<!--<link rel="stylesheet" href="/CSS/Index.css" />
+		-->
+		<link rel="stylesheet" href="/CSS/msIndex.css">	
 		<script>
 			window.onload = function () {
 				localStorage.clear();
@@ -21,63 +23,63 @@
 		</div>
 		<h1 id="site">CHOOSE THE FLOOR TO EXPLORE THE TASKS!</h1>
 		<div class="Mid">
-			<!--Velger etasje-->
-			
-			<table class="floors">
-				<tr>
-				  	<th id="toptable">
-					<button onclick="window.location.href = 'TaskPage1.html'; setFloor(1)">
-						1. Lobby + Shop + Cafe + Amphitheatre
-					</button>
-					</th>
-				  	<td id="toptable">
-					  <button onclick="window.location.href = 'TaskPage2.html'; setFloor(2)">
-						2. Party hall with live program
-					  </button>
-				  	</td>
-				</tr>
-				<tr>
-				  	<th>
-					<button onclick="window.location.href = 'TaskPage3.html'; setFloor(3)">
-						3. Exhibition: Freedoms form + Workshop + Library
-					</button>
-				  	</th>
-				  	<td>
-					<button onclick="window.location.href = 'TaskPage4.html'; setFloor(4)">
-						4. Exhibition: Munch infinity
-					</button>
-					</td>
-				</tr>
-				<tr>
-				  	<th>
-					<button onclick="window.location.href = 'TaskPage5.html'; setFloor(5)">
-						6. Exhibition: Munch monumental
-					</button>
-					</th>
-				  	<td class="nonreact">					
-						7. Exhibition: Munch shadow + until
-					</td>
-				</tr>
-				<tr>
-					<th class="nonreact">
-						9. Exhibition: Marianne Bratteli heartbeat
-					</th>
-					<td class="nonreact">
-						10. Exhibition: The Chaos Chamber
-					</td>
-				</tr>
-				<tr>
-					<th class="nonreact">
-						12. Exhibition: Top hall + Restaurant
-					</th>
-					<td class="nonreact">
-						13. Skybar
-					</td>
-				</tr>
-			  </table>
-			
-			
-			
+			<button class="floor-button" onclick="window.location.href = 'TaskPage1.html'; setFloor(1)">
+				<span class="floor-text">1. Lobby + Shop + Cafe + Amphitheatre</span>
+				<span class="tooltip">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+			  </button>
+			  <button class="floor-button" onclick="window.location.href = 'TaskPage2.html'; setFloor(2)">
+				<span class="floor-text">2. Party hall with live program</span>
+				<span class="tooltip">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+			  </button>
+			  <br>
+			  <button class="floor-button" onclick="window.location.href = 'TaskPage3.html'; setFloor(3)">
+				<span class="floor-text">3. Exhibition: Freedoms form + Workshop + Library</span>
+				<span class="tooltip">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+			  </button>
+			  <button class="floor-button" onclick="window.location.href = 'TaskPage4.html'; setFloor(4)">
+				<span class="floor-text">4. Exhibition: Munch infinity</span>
+				<span class="tooltip">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+			  </button>
+			  <br>
+			  <button class="floor-button" onclick="window.location.href = 'TaskPage5.html'; setFloor(5)">
+				<span class="floor-text">6. Exhibition: Munch monumental</span>
+				<span class="tooltip">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+			  </button>
+			  <button class="floor-button">
+				<span class="floor-text">7. Exhibition: Munch shadow + until</span>
+				<span class="tooltip">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+			  </button>
+			  <br>
+			  <button class="floor-button">
+				<span class="floor-text">9. Exhibition: Marianne Bratteli heartbeat</span>
+				<span class="tooltip">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+			  </button>
+			  <button class="floor-button">
+				<span class="floor-text">10. Exhibition: The Chaos Chamber</span>
+				<span class="tooltip">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+			  </button>
+			  <br>
+			  <button class="floor-button">
+				<span class="floor-text">12. Exhibition: Top hall + Restaurant</span>
+				<span class="tooltip">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+			  </button>
+			  <button class="floor-button">
+				<span class="floor-text">13. Skybar</span>
+				<span class="tooltip">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
+			  </button>
+		</div>
+		
+	
+		</div>
+	
+	</div>
+
+		<script src="../JS/image-recon.js"></script>
+	</body>
+</html>
+		
+
+
 			<!-- <button onclick="window.location.href = 'Image-recon.html'; setFloor(1)">
 						image recon
 					</button> -->
@@ -85,8 +87,3 @@
 			<button id="testwhatfloorButton" onclick="getItemFromLocalStorage()">
 				Print local storage
 			</button> -->
-		</div>
-
-		<script src="../JS/image-recon.js"></script>
-	</body>
-</html>
