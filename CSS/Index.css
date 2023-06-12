@@ -5,23 +5,69 @@
 body{
     background-color: #eba398;  
     font: italic bold;
+    margin: 0;
+    padding: 0;
 }
-.Top{
+.Top {
     background-color: #0f2335;
     width: 100%;
     height: 100px;
-    font-size: larger;
-    
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
 }
-#slogo{
+
+#mlogo {
+    color: #eba398;
+    font-family: Girott Munch;
+    margin-right: 10px;
+}
+
+#slogo {
+    color: white;
+    font-family: Girott Munch Backslant;
+}
+.floors{
+    width: 100%;
+    height: 50px;
+}
+td{
+    margin: 0;
+    padding: 0;
+    border-top: 1px solid #0f2335;
+    text-align: left;
+}
+th{
+    padding-left: 20px;
+    border-right: 1px solid #0f2335;
+    text-align: left;
+    border-top: 1px solid #0f2335;
+}
+
+button{
+    height: 100px;
+    background-color: #eba398;
+    border: 0;
+    color: #0f2335;
+    font-size: 30px;
+    font-weight: 900;
+    font-family: Girott Munch Backslant;
+}
+button:hover{
     color: white;
 }
-#mlogo{
-    color: #eba398;
-    font-style: oblique;
-}
-.mid{
+#site{
     color: #0f2335;
-    width: 100%;
-    height:fill;
+    padding-left: 20px;
+}
+#toptable{
+    border-top: 0;
+}
+.nonreact{
+    height: 100px;
+    color: white;
+    font-size: 30px;
+    font-weight: 900;
+    font-family: Girott Munch Backslant;
 }

@@ -1,37 +1,59 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Fourth Floor</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <script src='main.js'></script>
-</head>
-<body>
-    <div class="Top">
-        <h1>Disse oppgavene finner du svaret på i fjerde etasje!</h1>
-        
-    </div>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>Fourth Floor</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="stylesheet" type="text/css" media="screen" href="/CSS/task.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="/CSS/mstest.css" />
+		<script src="../JS/task-java.js"></script>
+	</head>
+	<body>
+		<div class="Top">
+			<button onclick="window.location.href = 'Index.html';" id="home">
+				<img src="/Images/homeBtn.png" width="50px" alt="HOME" id="homebtn" />
+			</button>
+			<h1 id="mlogo">MUNCH</h1>
+			<h1 id="slogo">SCAVENGER</h1>
+		</div>
 
-    <div class="Mid">
-        <select id="select-task"><!-- velger oppgave -->
-            <option>--Velg oppgave--</option>
-            <option value="0">Oppgave 1</option>
-            <option value="1">Oppgave 2</option>
-            <option value="2">Oppgave 3</option>
-            <option value="3">Oppgave 4</option>
-            <option value="4">Oppgave 5</option>
-            <option value="5">Oppgave 6</option>
-        </select>
+		<div class="mid">
+			<select id="image-select">
+				<option value="">-- Select Task --</option>
+				<option value="/Images/LifeLeftPart-crop.jpg">Task 1</option>
+				<option value="/Images/RecliningNudeonTheRocks-crop.jpg">Task 2</option>
+				<option value="/Images/TheFight-crop.jpg">Task 3</option>
+				<option value="/Images/TheGirlFromNordland-crop.jpg">Task 4</option>
+				<option value="/Images/TheGirlsOnTheBridge-crop.jpg">Task 5</option>
+			</select>
 
-    </div>
+			
+			<button onclick="selectFloor()" value="Floor4" id="btnSelect">Select Image</button>
+		</div>
 
-    <div class="Bot">
-        <button onclick="window.location.href = 'Index.html';">Hjem</button>
+		<div class="quiz">
+			<h1>Fourth floor tasks!</h1>
 
-    </div>
+			<div id="image-container">
+				<img src="/Images/placeHolder.png" alt="Guess the painting" id="placeholder" />
+			</div>
 
+			<br />
+			<div id="containerSearch">
+				<input
+					type="text"
+					id="searchInput"
+					onkeyup="generateDropdownItems();filterItems(); "
+					placeholder="Search..."
+				/>
 
-</body>
+				<button onclick="checkGuess()" placeholder="Enter your guess">Check</button>
+
+				<div id="dropdown" class="dropdown-content"></div>
+			</div>
+			<div id="resultDiv"></div>
+			<div id="resultText"></div>
+		</div>
+	</body>
 </html>
