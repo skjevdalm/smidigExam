@@ -6,31 +6,32 @@
 	--munchNavy: #0f2335;
 	--munchGold: #9b8250;
 	--munchLightGray: #f0f0f0;
-  }
-  
-  body {
+}
+
+body {
 	margin: 0;
 	padding: 0;
-	font-family: Arial, sans-serif;
-  }
-  
-  .Top {
+	font-family: he Arial, sans-serif;
+}
+
+.Top {
 	background-color: var(--munchNavy);
 	padding: 10px;
-  }
-  
-  #mlogo {
+	width: 100vw;
+}
+
+#mlogo {
 	margin: 0;
 	color: var(--munchPink);
-  }
-  
-  #slogo {
+}
+
+#slogo {
 	font-size: 0.8em;
 	margin: 0;
 	color: white;
-  }
-  
-  #site {
+}
+
+#site {
 	background-color: var(--munchNavy);
 	color: white;
 	padding: 20px;
@@ -39,73 +40,276 @@
 	width: calc(90% - 10px);
 	border-radius: 8px;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  }
-  
-  .Mid {
-	padding: 20px;
+}
+.mid {
+	/* Center the buttons and display them in pairs */
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: center;
+	align-items: center;
+	/* make the buttons the same size */
+	
+}
+
+.tooltip-container {
+  /* Tooltip container */
+  position: relative;
+  width: 150px;
+  margin: auto; /* space between button pairs */
+  flex: 1 0 calc(50% - 10px);
+  vertical-align: top;
+  text-align: center;
+}
+.tooltip-container .tooltip {
+	/* Tooltip text and style/frame */
+	display: none;
+	position: absolute;
+	background-color: var(--munchLightGray);
+	border-radius: 5px;
+	border: #000000 1px solid;
+	color: var(--munchBlack);
+	padding: 10px;
+	border-radius: 4px;
+	top: 100%;
+	left: 0;
+	z-index: 1;
+	text-align: center;
   }
-  
   .floor-button {
-	width: 100%;
-	height: 50px;
+	/* Button style */
+	display: block;
 	background-color: var(--munchNavy);
 	color: white;
+	font-size: 18px;
+	font-weight: lighter;
+	text-align: left;
 	border: none;
-	padding: 10px;
-	margin-bottom: 10px;
-	white-space: normal;
-	text-align: center;
-	border-radius: 8px;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-	transition: 0.3s;
-	position: relative;
+	border-radius: 7px;
+	padding: 12px 24px;
+	margin: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s;
+	width: 100%;
+	box-sizing: border-box;
   }
-  
-  .floor-button:hover {
+.floor-button:hover {
 	background-color: var(--munchPink);
-	color: var(--munchBlack);
-	transition: 0.3s;
-  }
-  
-  .floor-text {
-	position: relative;
-	z-index: 2;
-  }
-  
-  .tooltip {
-	visibility: hidden;
-	opacity: 0;
-	position: absolute;
-	top: 100%;
-	left: 50%;
-	transform: translateX(-50%);
-	transition: opacity 0.3s;
-	z-index: 1;
-	padding: 5px;
+}
+/* social media banner */
+.social-media-banner {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.social-media-banner a {
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	width: 40px;
+	height: 40px;
+	margin-right: 10px;
+	background-color: var(--munchNavy);
+	border-radius: 50%;
+	text-decoration: none; /* Remove the underline */
+}
+
+.social-media-banner a i {
+	color: white; /* Change icon color */
+	font-size: 20px;
+}
+
+/*testemonials*/
+.testimonials {
 	background-color: var(--munchLightGray);
-	color: var(--munchBlack);
-	border-radius: 4px;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-	white-space: normal;
-	width: 250px;
+	padding: 20px;
 	text-align: center;
-  }
-  
-  .floor-button:hover .tooltip {
-	visibility: visible;
+	border: 2px solid var(--munchNavy);
+	border-radius: 8px;
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	max-width: 400px;
+	margin: 0 auto;
+}
+
+.testimonial {
+	margin-bottom: 20px;
+}
+
+.stars {
+	color: var(--munchGold);
+	margin-bottom: 10px;
+	font-size: 24px;
+}
+
+.testimonial .text {
+	color: var(--munchBlack);
+	font-style: italic;
+	margin-bottom: 5px;
+}
+
+.testimonial .author {
+	font-weight: bold;
+}
+.contact-section {
+	background-color: var(--munchLightGray);
+	padding: 30px;
+	text-align: center;
+	border: 2px solid var(--munchNavy);
+	border-radius: 8px;
+	margin-top: 30px;
+}
+
+.contact-section h2 {
+	color: var(--munchNavy);
+	margin-bottom: 10px;
+}
+
+.contact-section p {
+	color: var(--munchBlack);
+	margin-bottom: 20px;
+}
+
+.contact-details {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.contact-info {
+	margin: 10px;
+	text-align: left;
+}
+
+.contact-info h3 {
+	color: var(--munchNavy);
+	margin-bottom: 10px;
+}
+
+.contact-info p {
+	color: var(--munchBlack);
+}
+
+/* code /eng*/
+.language-switch-container {
+	position: fixed;
+	top: 20px;
+	right: 20px;
+	display: flex;
+	align-items: center;
+	font-size: 14px;
+	color: white;
+}
+
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 40px;
+	height: 20px;
+	margin-right: 10px;
+}
+
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: var(--munchPink);
+	transition: 0.4s;
+	border-radius: 20px;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 16px;
+	width: 16px;
+	left: 2px;
+	bottom: 2px;
+	background-color: white;
+	transition: 0.4s;
+	border-radius: 50%;
+}
+
+input[type="checkbox"] {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+input[type="checkbox"]:checked + .slider {
+	background-color: #2196f3;
+}
+
+input[type="checkbox"]:checked + .slider:before {
+	transform: translateX(20px);
+}
+
+.language-label {
+	font-weight: bold;
+}
+/* code for the tooltips and language changer*/
+#button1:hover + #tooltip1 {
+	display: block;
 	opacity: 1;
-  }
-  
-  @media (min-width: 480px) {
+}
+#button2:hover + #tooltip2 {
+	display: block;
+	opacity: 1;
+}
+#button3:hover + #tooltip3 {
+	display: block;
+	opacity: 1;
+}
+#button4:hover + #tooltip4 {
+	display: block;
+	opacity: 1;
+}
+#button5:hover + #tooltip5 {
+	display: block;
+	opacity: 1;
+}
+#button6:hover + #tooltip6 {
+	display: block;
+	opacity: 1;
+}
+#button7:hover + #tooltip7 {
+	display: block;
+	opacity: 1;
+}
+#button8:hover + #tooltip8 {
+	display: block;
+	opacity: 1;
+}
+#button9:hover + #tooltip9 {
+	display: block;
+	opacity: 1;
+}
+#button10:hover + #tooltip10 {
+	display: block;
+	opacity: 1;
+}
+#button11:hover + #tooltip11 {
+	display: block;
+	opacity: 1;
+}
+#button12:hover + #tooltip12 {
+	display: block;
+	opacity: 1;
+}
+#button13:hover + #tooltip13 {
+	display: block;
+	opacity: 1;
+}
+/* Additional styling as needed */
+
+@media (min-width: 480px) {
 	.Mid {
-	  padding: 10px;
+		padding: 10px;
 	}
-  
+
 	.floor-button {
-	  width: calc(50% - 5px);
+		width: calc(50% - 5px);
 	}
-  }
-  
+}

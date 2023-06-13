@@ -7,7 +7,14 @@
 		<title>Welcome to scavanger Munch</title>
 		<!--<link rel="stylesheet" href="/CSS/Index.css" />
 		-->
-		<link rel="stylesheet" href="/CSS/msIndex.css">	
+		<link rel="stylesheet" href="/CSS/msIndex.css" />
+
+		<!-- Other head elements -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+		/>
+
 		<script>
 			window.onload = function () {
 				localStorage.clear();
@@ -20,70 +27,327 @@
 				MUNCH
 				<h1 id="slogo">SCAVANGER</h1>
 			</h1>
+			<div class="language-switch-container">
+				<label class="switch">
+					<input type="checkbox" id="language-toggle" />
+					<span class="slider"></span>
+				</label>
+				<span class="language-label">Toggle Language</span>
+			</div>
 		</div>
 		<h1 id="site">CHOOSE THE FLOOR TO EXPLORE THE TASKS!</h1>
-		<div class="Mid">
-			<button class="floor-button" onclick="window.location.href = 'TaskPage1.html'; setFloor(1)">
-				<span class="floor-text">1. Lobby + Shop + Cafe + Amphitheatre</span>
-				<span class="tooltip">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-			  </button>
-			  <button class="floor-button" onclick="window.location.href = 'TaskPage2.html'; setFloor(2)">
-				<span class="floor-text">2. Party hall with live program</span>
-				<span class="tooltip">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-			  </button>
-			  <br>
-			  <button class="floor-button" onclick="window.location.href = 'TaskPage3.html'; setFloor(3)">
-				<span class="floor-text">3. Exhibition: Freedoms form + Workshop + Library</span>
-				<span class="tooltip">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-			  </button>
-			  <button class="floor-button" onclick="window.location.href = 'TaskPage4.html'; setFloor(4)">
-				<span class="floor-text">4. Exhibition: Munch infinity</span>
-				<span class="tooltip">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-			  </button>
-			  <br>
-			  <button class="floor-button" onclick="window.location.href = 'TaskPage5.html'; setFloor(5)">
-				<span class="floor-text">6. Exhibition: Munch monumental</span>
-				<span class="tooltip">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-			  </button>
-			  <button class="floor-button">
-				<span class="floor-text">7. Exhibition: Munch shadow + until</span>
-				<span class="tooltip">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-			  </button>
-			  <br>
-			  <button class="floor-button">
-				<span class="floor-text">9. Exhibition: Marianne Bratteli heartbeat</span>
-				<span class="tooltip">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-			  </button>
-			  <button class="floor-button">
-				<span class="floor-text">10. Exhibition: The Chaos Chamber</span>
-				<span class="tooltip">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-			  </button>
-			  <br>
-			  <button class="floor-button">
-				<span class="floor-text">12. Exhibition: Top hall + Restaurant</span>
-				<span class="tooltip">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-			  </button>
-			  <button class="floor-button">
-				<span class="floor-text">13. Skybar</span>
-				<span class="tooltip">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</span>
-			  </button>
+		<div class="mid">
+			<!-- Start of mid -->
+			<div class="tooltip-container">
+				<button
+					id="button1"
+					class="floor-button"
+					data-translation-en="1. Entrance Lobby"
+					data-translation-no="1. Inngangsparti"
+					onclick="window.location.href = 'TaskPage1.html'; setFloor(1)"
+				>
+					1. Entrance Lobby
+				</button>
+				<div
+					id="tooltip1"
+					class="tooltip"
+					data-translation-en="Welcome to the Entrance Lobby, where you can gather information, purchase tickets, and begin your journey through the art museum."
+					data-translation-no="Velkommen til inngangspartiet, der du kan samle informasjon, kjøpe billetter og starte reisen gjennom kunstmuseet."
+				>
+					Welcome to the Entrance Lobby, where you can gather
+					information, purchase tickets, and begin your journey
+					through the art museum.
+				</div>
+			</div>
+			<div class="tooltip-container">
+				<button
+					id="button2"
+					class="floor-button"
+					data-translation-en="2. Renaissance Art"
+					data-translation-no="2. Renessansekunst"
+					onclick="window.location.href = 'TaskPage2.html'; setFloor(2)"
+				>
+					2. Renaissance Art
+				</button>
+				<div
+					id="tooltip2"
+					class="tooltip"
+					data-translation-en="Immerse yourself in the splendor of Renaissance Art, featuring masterpieces from renowned artists of that era."
+					data-translation-no="Fordyp deg i praktene til renessansekunst, med mesterverk fra kjente kunstnere fra den tiden."
+				></div>
+			</div>
+
+			<div class="tooltip-container">
+				<button
+					id="button3"
+					class="floor-button"
+					data-translation-en="3. Baroque Collection"
+					data-translation-no="3. Barokksamling"
+					onclick="window.location.href = 'TaskPage3.html'; setFloor(3)"
+				>
+					3. Baroque Collection
+				</button>
+				<div
+					id="tooltip3"
+					class="tooltip"
+					data-translation-en="Explore the opulence of the Baroque Collection, showcasing ornate artworks and extravagant designs."
+					data-translation-no="Utforsk rikdommen i barokksamlingen, som viser utsmykkede kunstverk og overdådige design."
+				></div>
+			</div>
+			<div class="tooltip-container">
+				<button
+					id="button4"
+					class="floor-button"
+					data-translation-en="4. Impressionist Paintings"
+					data-translation-no="4. Impresjonistiske malerier"
+					onclick="window.location.href = 'TaskPage4.html'; setFloor(4)"
+				>
+					4. Impressionist Paintings
+				</button>
+				<div
+					id="tooltip4"
+					class="tooltip"
+					data-translation-en="Admire the beauty of Impressionist Paintings, capturing fleeting moments and vibrant scenes with distinctive brushstrokes."
+					data-translation-no="Beundre skjønnheten i impresjonistiske malerier, som fanger flyktige øyeblikk og levende scener med karakteristiske penselstrøk."
+				></div>
+			</div>
+			<div class="tooltip-container">
+				<button
+					id="button5"
+					class="floor-button"
+					data-translation-en="5. Munch's Masterpieces"
+					data-translation-no="5. Munchs mesterverk"
+					onclick="window.location.href = 'TaskPage5.html'; setFloor(5)"
+				>
+					5. Munch's Masterpieces
+				</button>
+				<div
+					id="tooltip5"
+					class="tooltip"
+					data-translation-en="Experience the grandeur of Munch's monumental works, where his artistic vision unfolds on a larger scale, leaving a lasting impact on viewers."
+					data-translation-no="Opplev storheten i Munchs monumentalverk, der hans kunstneriske visjon utfolder seg i større skala og etterlater et varig inntrykk på publikum."
+				></div>
+			</div>
+			<div class="tooltip-container">
+				<button
+					id="button6"
+					class="floor-button"
+					data-translation-en="6. Modern Art"
+					data-translation-no="6. Moderne kunst"
+					onclick="window.location.href = 'TaskPage6.html'; setFloor(6)"
+				>
+					6. Modern Art
+				</button>
+				<div
+					id="tooltip6"
+					class="tooltip"
+					data-translation-en="Discover the innovation and creativity of Modern Art, with thought-provoking pieces that challenge traditional artistic boundaries."
+					data-translation-no="Oppdag innovasjonen og kreativiteten i moderne kunst, med tankevekkende verk som utfordrer tradisjonelle kunstneriske grenser."
+				></div>
+			</div>
+			<div class="tooltip-container">
+				<button
+					id="button7"
+					class="floor-button"
+					data-translation-en="7. Contemporary Gallery"
+					data-translation-no="7. Samtidskunstgalleri"
+					onclick="window.location.href = 'TaskPage7.html'; setFloor(7)"
+				>
+					7. Contemporary Gallery
+				</button>
+				<div
+					id="tooltip7"
+					class="tooltip"
+					data-translation-en="Immerse yourself in the world of contemporary art, where you can explore diverse artistic expressions and engage in thought-provoking installations."
+					data-translation-no="Fordyp deg i samtidskunstens verden, der du kan utforske forskjellige kunstneriske uttrykk og engasjere deg med tankevekkende installasjoner."
+				></div>
+			</div>
+			<div class="tooltip-container">
+				<button
+					id="button8"
+					class="floor-button"
+					data-translation-en="8. Sculpture Garden"
+					data-translation-no="8. Skulpturhage"
+					onclick="window.location.href = 'TaskPage8.html'; setFloor(8)"
+				>
+					8. Sculpture Garden
+				</button>
+				<div
+					id="tooltip8"
+					class="tooltip"
+					data-translation-en="Stroll through the serene Sculpture Garden and witness the harmonious blend of nature and art, with captivating sculptures nestled amidst lush greenery."
+					data-translation-no="Vandre gjennom den rolige skulpturhagen og opplev den harmoniske fusjonen av natur og kunst, med fengslende skulpturer omgitt av frodig grøntområde."
+				></div>
+			</div>
+			<div class="tooltip-container">
+				<br />
+				<button
+					id="button9"
+					class="floor-button"
+					data-translation-en="9. Interactive Exhibits"
+					data-translation-no="9. Interaktive utstillinger"
+					onclick="window.location.href = 'TaskPage9.html'; setFloor(9)"
+				>
+					9. Interactive Exhibits
+				</button>
+				<div
+					id="tooltip9"
+					class="tooltip"
+					data-translation-en="Engage with interactive exhibits that blur the line between art and audience, inviting you to participate and become a part of the creative process."
+					data-translation-no="Delta i interaktive utstillinger som visker ut skillet mellom kunst og publikum, og inviterer deg til å delta og bli en del av den kreative prosessen."
+				></div>
+			</div>
+			<div class="tooltip-container">
+				<button
+					id="button10"
+					class="floor-button"
+					data-translation-en="10. Workshop: Art of Expression"
+					data-translation-no="10. Verksted: Uttrykkets kunst"
+					onclick="window.location.href = 'TaskPage10.html'; setFloor(10)"
+				>
+					10. Workshop: Art of Expression
+				</button>
+				<div
+					id="tooltip10"
+					class="tooltip"
+					data-translation-en="Join the Art of Expression workshop and learn various artistic techniques from skilled instructors to express yourself through art."
+					data-translation-no="Bli med på verkstedet Uttrykkets kunst og lær ulike kunstneriske teknikker fra dyktige instruktører for å uttrykke deg selv gjennom kunst."
+				></div>
+			</div>
+			<div class="tooltip-container">
+				<button
+					id="button11"
+					class="floor-button"
+					data-translation-en="11. Workshop: Colors of Nature"
+					data-translation-no="11. Verksted: Natures farger"
+					onclick="window.location.href = 'TaskPage11.html'; setFloor(11)"
+				>
+					11. Workshop: Colors of Nature
+				</button>
+				<div
+					id="tooltip11"
+					class="tooltip"
+					data-translation-en="Immerse yourself in the vibrant Colors of Nature workshop, where you can learn to create stunning artworks inspired by the beauty of the natural world."
+					data-translation-no="Fordyp deg i det livlige verkstedet Natures farger, der du kan lære å skape fantastiske kunstverk inspirert av skjønnheten i naturen."
+				></div>
+			</div>
+
+			<div class="tooltip-container">
+				<button
+					id="button12"
+					class="floor-button"
+					data-translation-en="12. Outdoor Sculpture Park"
+					data-translation-no="12. Utendørs skulpturpark"
+					onclick="window.location.href = 'TaskPage12.html'; setFloor(12)"
+				>
+					12. Outdoor Sculpture Park
+				</button>
+				<div
+					id="tooltip12"
+					class="tooltip"
+					data-translation-en="Explore the captivating Outdoor Sculpture Park, where magnificent sculptures blend harmoniously with the surrounding nature, creating a unique artistic experience."
+					data-translation-no="Utforsk den fengslende utendørs skulpturparken, der storslåtte skulpturer harmonerer med den omkringliggende naturen og skaper en unik kunstnerisk opplevelse."
+				></div>
+			</div>
+
+			<div class="tooltip-container">
+				<button
+					id="button13"
+					class="floor-button"
+					data-translation-en="13. Artistic Rooftop Garden"
+					data-translation-no="13. Kunstnerisk takhage"
+					onclick="window.location.href = 'TaskPage13.html'; setFloor(13)"
+				>
+					13. Artistic Rooftop Garden
+				</button>
+				<div
+					id="tooltip13"
+					class="tooltip"
+					data-translation-en="Relax and rejuvenate in the serene Artistic Rooftop Garden, where you can enjoy beautiful artworks amidst lush greenery and panoramic views."
+					data-translation-no="Slapp av og foryng deg i den rolige Kunstneriske takhagen, der du kan nyte vakre kunstverk blant frodig grøntområder og panoramautsikt."
+				></div>
+			</div>
+			<!-- End of tooltip-containers -->
+			¨
 		</div>
-		
-	
+		<!-- End of mid -->
+
+		<div class="testimonials">
+			<div class="testimonial">
+				<div class="stars">⭐⭐⭐⭐⭐</div>
+				<div class="text">
+					"Amazing experience! Highly recommended."
+				</div>
+				<div class="author">- John Doe</div>
+			</div>
+			<div class="testimonial">
+				<div class="stars">⭐⭐⭐⭐</div>
+				<div class="text">
+					"Exceptional service and quality. Will definitely come
+					back!"
+				</div>
+				<div class="author">- Jane Smith</div>
+			</div>
+			<div class="testimonial">
+				<div class="stars">⭐⭐⭐⭐⭐</div>
+				<div class="text">
+					"Outstanding team and excellent results. Couldn't be
+					happier!"
+				</div>
+				<div class="author">- David Johnson</div>
+			</div>
+			<div class="social-media-banner">
+				<a
+					href="#"
+					onclick="window.open('https://www.facebook.com', '_blank')"
+				>
+					<i class="fab fa-facebook-f"></i>
+				</a>
+				<a
+					href="#"
+					onclick="window.open('https://www.twitter.com', '_blank')"
+				>
+					<i class="fab fa-twitter"></i>
+				</a>
+				<a
+					href="#"
+					onclick="window.open('https://www.instagram.com', '_blank')"
+				>
+					<i class="fab fa-instagram"></i>
+				</a>
+				<a
+					href="#"
+					onclick="window.open('https://www.linkedin.com', '_blank')"
+				>
+					<i class="fab fa-linkedin-in"></i>
+				</a>
+			</div>
 		</div>
-	
-	</div>
+
+		<div class="contact-section">
+			<h2>Contact Us</h2>
+			<p>
+				If you have any questions or inquiries, feel free to get in
+				touch with us. We're here to help!
+			</p>
+			<div class="contact-details">
+				<div class="contact-info">
+					<h3>Address</h3>
+					<p>123 Main Street<br />City, State, Postal Code</p>
+				</div>
+				<div class="contact-info">
+					<h3>Email</h3>
+					<p>info@example.com</p>
+				</div>
+				<div class="contact-info">
+					<h3>Phone</h3>
+					<p>+1 123-456-7890</p>
+				</div>
+			</div>
+		</div>
 
 		<script src="../JS/image-recon.js"></script>
+
+		<script src="../JS/norengslider.js"></script>
 	</body>
 </html>
-		
-
-
-			<!-- <button onclick="window.location.href = 'Image-recon.html'; setFloor(1)">
-						image recon
-					</button> -->
-			<!-- <button onclick="clearLocalStorage()">clearLocalStorage</button>
-			<button id="testwhatfloorButton" onclick="getItemFromLocalStorage()">
-				Print local storage
-			</button> -->
