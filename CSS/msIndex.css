@@ -14,15 +14,42 @@ body {
 	font-family: he Arial, sans-serif;
 }
 
+/* Top banner styles */
 .Top {
 	background-color: var(--munchNavy);
+	text-align: center;
 	padding: 10px;
-	width: 100vw;
+	width: 100vw; /* Set width to 100% of viewport width */
+	box-sizing: border-box; /* Include padding within the width */
+	margin-left: calc(50% - 50vw); /* Center the banner */
+	margin-right: calc(50% - 50vw); /* Center the banner */
+	position: fixed;
+	z-index: 2;
+	top: 0;
+	left: 0;
 }
 
-#mlogo {
+#home {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	margin-right: 20px;
+	display: inline-block;
+}
+#mlogo,
+#slogo {
+	font-size: 24px;
+	font-weight: bold;
 	margin: 0;
+	display: inline-block;
+	color: #fff;
+}
+#mlogo {
 	color: var(--munchPink);
+}
+#home:hover {
+	background-color: var(--munchPink);
+	scale: 1.05;
 }
 
 #slogo {
@@ -36,7 +63,8 @@ body {
 	color: white;
 	padding: 20px;
 	text-align: center;
-	margin: 20px auto;
+	margin: 100px auto 20px auto;
+	position: center;
 	width: calc(90% - 10px);
 	border-radius: 8px;
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -48,17 +76,24 @@ body {
 	justify-content: center;
 	align-items: center;
 	/* make the buttons the same size */
-	
 }
 
 .tooltip-container {
-  /* Tooltip container */
-  position: relative;
-  width: 150px;
-  margin: auto; /* space between button pairs */
-  flex: 1 0 calc(50% - 10px);
-  vertical-align: top;
-  text-align: left;
+	/* Tooltip container */
+	position: relative;
+	width: 150px;
+	margin: auto; /* space between button pairs */
+	flex: 1 0 calc(50% - 10px);
+	display: flex;
+	justify-content: left;
+	height: 100px;
+	vertical-align: top;
+	text-align: left;
+	
+}
+.tooltip-container-left {
+	display: flex;
+	justify-content: flex-end;
 }
 .tooltip-container .tooltip {
 	/* Tooltip text and style/frame */
@@ -74,8 +109,9 @@ body {
 	left: 0;
 	z-index: 1;
 	text-align: left;
-  }
-  .floor-button {
+}
+
+.floor-button {
 	/* Button style */
 	display: block;
 	background-color: var(--munchNavy);
@@ -91,7 +127,7 @@ body {
 	transition: background-color 0.3s;
 	width: 100%;
 	box-sizing: border-box;
-  }
+}
 .floor-button:hover {
 	background-color: var(--munchPink);
 }
@@ -192,8 +228,8 @@ body {
 /* code /eng*/
 .language-switch-container {
 	position: fixed;
-	top: 20px;
-	right: 20px;
+	top: 30px;
+	right: 30px;
 	display: flex;
 	align-items: center;
 	font-size: 14px;
@@ -306,7 +342,7 @@ input[type="checkbox"]:checked + .slider:before {
 	display: block;
 	opacity: 1;
 }
-/* Additional styling as needed */
+
 
 @media (min-width: 480px) {
 	.Mid {

@@ -79,3 +79,27 @@ generateDropdownItems();
 
 // Add event listener to the search input field
 document.getElementById("searchInput").addEventListener("keyup", filterItems);
+
+    // Function to show tooltips
+    function showTooltip(element) {
+        var tooltip = element.querySelector(".tooltip");
+        tooltip.style.visibility = "visible";
+    }
+
+    // Function to hide tooltips
+    function hideTooltip(element) {
+        var tooltip = element.querySelector(".tooltip");
+        tooltip.style.visibility = "hidden";
+    }
+
+    // Attach event listeners to buttons
+    var buttons = document.getElementsByClassName("floor-button");
+    for (var i = 0; i < buttons.length; i++) {
+        var button = buttons[i];
+        button.addEventListener("mouseover", function() {
+            showTooltip(this);
+        });
+        button.addEventListener("mouseout", function() {
+            hideTooltip(this);
+        });
+    }
