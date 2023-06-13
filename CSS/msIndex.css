@@ -302,6 +302,10 @@ input[type="checkbox"]:checked + .slider:before {
 	display: block;
 	opacity: 1;
 }
+#EXIT:hover + #tooltipEXIT {
+	display: block;
+	opacity: 1;
+}
 /* Additional styling as needed */
 
 @media (min-width: 480px) {
