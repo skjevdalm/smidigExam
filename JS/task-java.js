@@ -121,7 +121,6 @@ var selectedFloor;
 var currentFloorArray;
 
 function selectFloor(){
-    alert("selectFloor() is called");
     selectedFloor = document.getElementById("btnSelect");
 
     if (selectedFloor.value === "Floor1") {
