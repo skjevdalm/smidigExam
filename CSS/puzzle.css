@@ -1,0 +1,13 @@
+.puzzle-container {
+	display: flex;
+	flex-wrap: wrap;
+	width: 300px;
+	height: 300px;
+}
+
+.puzzle-piece {
+	width: 100px;
+	height: 100px;
+	background-repeat: no-repeat;
+	background-size: 300% 300%;
+}
