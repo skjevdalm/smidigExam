@@ -58,7 +58,7 @@ body {
   margin: auto; /* space between button pairs */
   flex: 1 0 calc(50% - 10px);
   vertical-align: top;
-  text-align: center;
+  text-align: left;
 }
 .tooltip-container .tooltip {
 	/* Tooltip text and style/frame */
@@ -73,7 +73,7 @@ body {
 	top: 100%;
 	left: 0;
 	z-index: 1;
-	text-align: center;
+	text-align: left;
   }
   .floor-button {
 	/* Button style */
