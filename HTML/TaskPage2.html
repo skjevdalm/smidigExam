@@ -5,59 +5,143 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<title>Second Floor</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />		
-		<link rel="stylesheet" type="text/css" media="screen" href="/CSS/task.css" />
-		<link rel="stylesheet" type="text/css" media="screen" href="/CSS/puzzle.css" />
-		<link rel="stylesheet" type="text/css" media="screen" href="/CSS/msIndex.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!--
+		<link
+			rel="stylesheet"
+			type="text/css"
+			media="screen"
+			href="/CSS/task.css"
+		/>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			media="screen"
+			href="/CSS/puzzle.css"
+		/>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			media="screen"
+			href="/CSS/msIndex.css"
+		/>
+	-->
+		<link
+			rel="stylesheet"
+			type="text/css"
+			media="screen"
+			href="/CSS/puzzle.css"
+		/>
+		<link
+			rel="stylesheet"
+			type="text/css"
+			media="screen"
+			href="/CSS/mstest.css"
+		/>
 
 		<script src="../JS/task-java.js"></script>
 		<script src="../JS/puzzleJS.js"></script>
+		<script src="../JS/languagetoggle.js"></script>
+		<script src="/JS/norengslider.js"></script>
 	</head>
 	<body>
 		<div class="Top">
 			<button onclick="window.location.href = 'Index.html';" id="home">
-				<img src="/Images/homeBtn.png" width="50px" alt="HOME" id="homebtn" />
+				<img
+					src="/Images/homeBtn.png"
+					width="50px"
+					alt="HOME"
+					id="homebtn"
+				/>
 			</button>
 			<h1 id="mlogo">MUNCH</h1>
-			<h1 id="slogo">SCAVENGER</h1>
+			<h1 id="slogo">home</h1>
+			<div class="language-switch-container">
+				<label class="switch">
+					<input type="checkbox" id="language-toggle" />
+					<span class="slider"></span>
+				</label>
+				<span class="language-label">Toggle Language</span>
+			</div>
 		</div>
 
-		<div class="mid">
-			<select id="image-select">
-				<option value="">-- Select Task --</option>
-				<option value="/Images/AndreasMunchStudyingAnatomy-crop.jpg">Task 1</option>
-				<option value="/Images/BathingGirls-crop.jpg">Task 2</option>
-				<option value="/Images/BathingMan-crop.jpg">Task 3</option>
-				<option value="/Images/BathingMenOnRocks-crop.jpg">Task 4</option>
-				<option value="/Images/BricklayerAtWork-crop.jpg">Task 5</option>
-			</select>
-			<button onclick="selectFloor()" value="Floor2" id="btnSelect">Select Image</button>
-		</div>
 		<div class="quiz">
-			<h1>Second floor tasks!</h1>
+			<h1
+				data-translation-en="Second floor tasks!"
+				data-translation-no="Andre etasje oppgaver!"
+			>
+				Second floor tasks!
+			</h1>
 
+			<div class="mid">
+				<select id="image-select">
+					<option
+						value=""
+						data-translation-en="Select Task"
+						data-translation-no="Velg Oppgave"
+					>
+						Select Task
+					</option>
+					<option
+						value="/Images/AndreasMunchStudyingAnatomy-crop.jpg"
+					>
+						Task 1
+					</option>
+					<option value="/Images/BathingGirls-crop.jpg">
+						Task 2
+					</option>
+					<option value="/Images/BathingMan-crop.jpg">Task 3</option>
+					<option value="/Images/BathingMenOnRocks-crop.jpg">
+						Task 4
+					</option>
+					<option value="/Images/BricklayerAtWork-crop.jpg">
+						Task 5
+					</option>
+				</select>
+				<button
+					onclick="selectFloor()"
+					value="Floor2"
+					id="btnSelect"
+					data-translation-en="Select Image"
+					data-translation-no="Velg Bilde"
+				>
+					Select Image
+				</button>
+			</div>
 			<div id="image-container">
-				<img src="/Images/placeHolder.png" alt="Guess the painting" id="placeholder" />
+				<img
+					src="/Images/placeHolder.png"
+					alt="Guess the painting"
+					id="placeholder"
+				/>
 			</div>
 			<div class="puzzle-container" id="puzzle-container"></div>
 
-			<br />
 			<div id="containerSearch">
 				<input
 					type="text"
 					id="searchInput"
 					onkeyup="generateDropdownItems();filterItems(); "
 					placeholder="Search..."
+					data-translation-en="Search..."
+					data-translation-no="Søk..."
 				/>
 
-				<button onclick="checkGuess()" placeholder="Enter your guess">Check</button>
+				<button
+					onclick="checkGuess()"
+					placeholder="Enter your guess"
+					data-translation-en="Check"
+					data-translation-no="Sjekk"
+				>
+					Check
+				</button>
 
 				<div id="dropdown" class="dropdown-content"></div>
 			</div>
-			<div id="resultDiv"></div>
-			<div id="resultText"></div>
 		</div>
-		
-		
+		<div class="result-div-container">
+			<div id="resultText"></div>
+			<div id="resultDiv"></div>
+		</div>
 	</body>
 </html>

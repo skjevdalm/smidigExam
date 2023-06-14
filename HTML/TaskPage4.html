@@ -5,42 +5,66 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<title>Fourth Floor</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />		
-		<link rel="stylesheet" type="text/css" media="screen" href="/CSS/task.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+
 		<link rel="stylesheet" type="text/css" media="screen" href="/CSS/puzzle.css" />
-		<link rel="stylesheet" type="text/css" media="screen" href="/CSS/msIndex.css" />
+		<link rel="stylesheet" type="text/css" media="screen" href="/CSS/mstest.css" />
 
 		<script src="../JS/task-java.js"></script>
 		<script src="../JS/puzzleJS.js"></script>
+		<script src="../JS/languagetoggle.js"></script>
+		<script src="/JS/norengslider.js"></script>
 	</head>
 	<body>
 		<div class="Top">
 			<button onclick="window.location.href = 'Index.html';" id="home">
-				<img src="/Images/homeBtn.png" width="50px" alt="HOME" id="homebtn" />
+				<img
+					src="/Images/homeBtn.png"
+					width="50px"
+					alt="HOME"
+					id="homebtn"
+				/>
 			</button>
 			<h1 id="mlogo">MUNCH</h1>
 			<h1 id="slogo">SCAVENGER</h1>
 		</div>
 
-		<div class="mid">
-			<select id="image-select">
-				<option value="">-- Select Task --</option>
-				<option value="/Images/LifeLeftPart-crop.jpg">Task 1</option>
-				<option value="/Images/RecliningNudeonTheRocks-crop.jpg">Task 2</option>
-				<option value="/Images/TheFight-crop.jpg">Task 3</option>
-				<option value="/Images/TheGirlFromNordland-crop.jpg">Task 4</option>
-				<option value="/Images/TheGirlsOnTheBridge-crop.jpg">Task 5</option>
-			</select>
-
-			
-			<button onclick="selectFloor()" value="Floor4" id="btnSelect">Select Image</button>
-		</div>
-
 		<div class="quiz">
-			<h1>Fourth floor tasks!</h1>
+			<h1
+				data-translation-en="Fourth floor tasks!"
+				data-translation-no="Fjerde etasje oppgaver!"
+			>
+				Fourth floor tasks!
+			</h1>
+			<div class="mid">
+				<select id="image-select">
+					<option value="">Select Task</option>
+					<option value="/Images/LifeLeftPart-crop.jpg">
+						Task 1
+					</option>
+					<option value="/Images/RecliningNudeonTheRocks-crop.jpg">
+						Task 2
+					</option>
+					<option value="/Images/TheFight-crop.jpg">Task 3</option>
+					<option value="/Images/TheGirlFromNordland-crop.jpg">
+						Task 4
+					</option>
+					<option value="/Images/TheGirlsOnTheBridge-crop.jpg">
+						Task 5
+					</option>
+				</select>
+
+				<button onclick="selectFloor()" value="Floor4" id="btnSelect">
+					Select Image
+				</button>
+			</div>
 
 			<div id="image-container">
-				<img src="/Images/placeHolder.png" alt="Guess the painting" id="placeholder" />
+				<img
+					src="/Images/placeHolder.png"
+					alt="Guess the painting"
+					id="placeholder"
+				/>
 			</div>
 			<div class="puzzle-container" id="puzzle-container"></div>
 
@@ -53,12 +77,16 @@
 					placeholder="Search..."
 				/>
 
-				<button onclick="checkGuess()" placeholder="Enter your guess">Check</button>
+				<button onclick="checkGuess()" placeholder="Enter your guess">
+					Check
+				</button>
 
 				<div id="dropdown" class="dropdown-content"></div>
 			</div>
-			<div id="resultDiv"></div>
+		</div>
+		<div class="result-div-container">
 			<div id="resultText"></div>
+			<div id="resultDiv"></div>
 		</div>
 	</body>
 </html>

@@ -29,6 +29,21 @@ body {
 	min-width: 800px;
 	background-color: var(--munchLightGray);
 }
+#puzzleBox{
+    padding: 20px;
+    margin-top: 150px;
+    margin-bottom: 6px;
+	text-align: center;
+	border-radius: 5px;
+	box-sizing: border-box;
+	border: #000000 solid 1px;
+	width: 90vw;
+	margin-left: calc(50% - 42.5vw); /* Center the banner */
+	margin-right: calc(50% - 42.5vw); /* Center the banner */
+	min-width: 800px;
+	background-color: var(--munchLightGray);
+    display: block;
+}
 .result-div-container{
     padding: 20px;
     margin-top: 150px;
@@ -42,6 +57,10 @@ body {
 	margin-right: calc(50% - 42.5vw); /* Center the banner */
 	min-width: 800px;
 	background-color: var(--munchLightGray);
+    display: block;
+}
+.result-div-container:not(:empty){
+    display: block;
 }
 
 .Top {

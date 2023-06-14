@@ -114,7 +114,7 @@ h1 {
 
 #image-container,
 #resultDiv {
-	display: flex;
+	display: none;
 	justify-content: center;
 	align-items: center;
 	width: 350px; /* Adjust the width as desired */
@@ -123,6 +123,13 @@ h1 {
 	overflow: hidden;
 	position: relative;
 	transition: transform 0.3s ease; /* Added transition for hover effect */
+}
+#result-div-container{
+	display: none;
+
+}
+#result-div-container:not(:empty){
+	display: none;
 }
 
 #image-container img{

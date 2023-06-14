@@ -1,25 +1,3 @@
-
-
-/*
-/////////////////////////////////////////////Old individual taskpage array//////////////////////////
-//Normal images
-var imageNames = [
-	"FromMaridalen.jpg",
-	"InTheKennel.jpg",
-	"JealousyInTheGarden.jpg",
-	"KarenBjølstadInTheRockingChair.jpg",
-	"KarlJohanintheRain.jpg",
-];
-
-// Cropped images
-var imagesNamesCrop = [
-	"FromMaridalen-crop.jpg",
-	"InTheKennel-crop.jpg",
-	"JealousyInTheGarden-crop.jpg",
-	"KarenBjølstadInTheRockingChair-crop.jpg",
-	"KarlJohanintheRain-crop.jpg",
-];
-*/
 var floor1List = [
 	"FromMaridalen",
 	"InTheKennel",
@@ -120,6 +98,7 @@ var resultText;
 var selectedFloor;
 var currentFloorArray;
 
+
 function selectFloor(){
     selectedFloor = document.getElementById("btnSelect");
 
@@ -148,9 +127,11 @@ function generateSelectedImage() {
 	container = document.getElementById("image-container");
 	resultDiv = document.getElementById("resultDiv");
 	resultText = document.getElementById("resultText");
+	var puzzleContainer = document.getElementById("puzzle-container");
 	container.innerHTML = "";
 	resultDiv.innerHTML = "";
 	resultText.innerHTML = "";
+	puzzleContainer.innerHTML = "";
 
 	if (selectedImageName !== "") {
 		imageElement = document.createElement("img");
@@ -208,6 +189,7 @@ function correctResult() {
 function incorrectResult() {
 	resultText = document.getElementById("resultDiv");
 	resultText.innerHTML = "That is incorrect";
+	createPuzzlePieces();
 }
 
 function assignIndex() {

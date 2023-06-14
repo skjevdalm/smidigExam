@@ -5,11 +5,13 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<title>Fifth Floor</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--
-		<link rel="stylesheet" type="text/css" media="screen" href="/CSS/task.css" />
-		<link rel="stylesheet" type="text/css" media="screen" href="/CSS/puzzle.css" />
-		<link rel="stylesheet" type="text/css" media="screen" href="/CSS/msIndex.css" />
-		-->
+
+		<link
+			rel="stylesheet"
+			type="text/css"
+			media="screen"
+			href="/CSS/puzzle.css"
+		/>
 		<link
 			rel="stylesheet"
 			type="text/css"
@@ -20,6 +22,7 @@
 		<script src="../JS/task-java.js"></script>
 		<script src="../JS/puzzleJS.js"></script>
 		<script src="../JS/languagetoggle.js"></script>
+		<script src="/JS/norengslider.js"></script>
 	</head>
 	<body>
 		<div class="Top">
@@ -54,7 +57,7 @@
 				<select id="image-select">
 					<option
 						value=""
-						data-translation-en="Choose Task"
+						data-translation-en="Select Task"
 						data-translation-no="Velg Oppgave"
 					>
 						Select Task
@@ -94,7 +97,6 @@
 					id="placeholder"
 				/>
 			</div>
-			<div class="puzzle-container" id="puzzle-container"></div>
 
 			<div id="containerSearch">
 				<input
@@ -118,6 +120,10 @@
 				<div id="dropdown" class="dropdown-content"></div>
 			</div>
 		</div>
+		<div id="puzzleBox">
+			<div class="puzzle-container" id="puzzle-container"></div>
+		</div>
+
 		<div class="result-div-container">
 			<div id="resultText"></div>
 			<div id="resultDiv"></div>
