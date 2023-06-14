@@ -89,7 +89,7 @@
 				</select>
 
 				<button
-					onclick="selectFloor()"
+					onclick="selectFloor(); hidePuzzleBox()"
 					value="Floor5"
 					id="btnSelect"
 					data-translation-en="Select Image"
@@ -117,7 +117,7 @@
 				/>
 
 				<button
-					onclick="checkGuess(); createPuzzlePieces()"
+					onclick="checkGuess()"
 					placeholder="Enter your guess"
 					data-translation-en="Check"
 					data-translation-no="Sjekk"

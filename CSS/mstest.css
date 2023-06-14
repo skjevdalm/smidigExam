@@ -45,9 +45,6 @@ body {
 	
 }
 
-.puzzleBox:empty {
-	display: none;
-}
 .result-div-container {
 	padding: 20px;
 	margin-top: 150px;
