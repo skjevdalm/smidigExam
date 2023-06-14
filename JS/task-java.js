@@ -98,11 +98,10 @@ var resultText;
 var selectedFloor;
 var currentFloorArray;
 
+function selectFloor() {
+	selectedFloor = document.getElementById("btnSelect");
 
-function selectFloor(){
-    selectedFloor = document.getElementById("btnSelect");
-
-    if (selectedFloor.value === "Floor1") {
+	if (selectedFloor.value === "Floor1") {
 		currentFloorArray = floor1List;
 	} else if (selectedFloor.value === "Floor2") {
 		currentFloorArray = floor2List;
@@ -115,9 +114,8 @@ function selectFloor(){
 	} else {
 		alert("Somethings wrong mate");
 	}
-    generateSelectedImage();
+	generateSelectedImage();
 }
-
 
 //Retrieves and displays the image based off of which task the user has selected
 function generateSelectedImage() {
@@ -139,7 +137,7 @@ function generateSelectedImage() {
 		container.appendChild(imageElement);
 	}
 	//console.log(selectElement.value);
-    console.log(selectedImageName);
+	console.log(selectedImageName);
 
 	assignIndex(); //assignIndex is initiated as soon as the user clicks display image
 }
@@ -155,8 +153,9 @@ function checkGuess() {
 	imgPath = "/Images/";
 	//in order to compare the userguess with the correct answer, it is converted to uppercase, all spaces are removed
 	//and -CROP.JPG is added at the end.
-	var userGuessModified = "/IMAGES/" + userGuess.toUpperCase().replace(/\s/g, "") + "-CROP.JPG";
-    /*
+	var userGuessModified =
+		"/IMAGES/" + userGuess.toUpperCase().replace(/\s/g, "") + "-CROP.JPG";
+	/*
 	console.log(selectElement.value);
 	console.log(userGuessModified);
 	console.log(typeof userGuessModified);
@@ -182,8 +181,7 @@ function correctResult() {
 	resultImgTag = '<img src="' + resultImgPath + '" width="500px" alt="hei">'; //The uncropped image is displayed
 	resultDiv.innerHTML = resultImgTag;
 	resultText.innerHTML = "That is correct!";
-    console.log(resultImgPath);
-    
+	console.log(resultImgPath);
 }
 
 function incorrectResult() {
@@ -195,46 +193,52 @@ function incorrectResult() {
 function assignIndex() {
 	//assigns an indexnumber based off of which task is selected,
 	//in order to retrieve and display the uncropped image when the user is correct
-	if (selectElement.value === 
-        "/Images/FromMaridalen-crop.jpg" ||
-        "/Images/AndreasMunchStudyingAnatomy-crop" ||
-        "/Images/ChildrenandDucks-crop" ||
-        "/Images/LifeLeftPart-crop" || 
-        "/Images/TheMurderer-crop.jpg" 
-        ) {
+	if (
+		selectElement.value === "/Images/FromMaridalen-crop.jpg" ||
+		"/Images/AndreasMunchStudyingAnatomy-crop" ||
+		"/Images/ChildrenandDucks-crop" ||
+		"/Images/LifeLeftPart-crop" ||
+		"/Images/TheMurderer-crop.jpg"
+	) {
 		indexNumber = 0;
-	} else if (selectElement.value === 
-        "/Images/inTheKennel-crop.jpg" ||
-        "/Images/BathingGirls-crop.jpg" ||
-        "/Images/ConsolationInTheForest-crop.jpg" ||
-        "/Images/RecliningNudeOnTheRocks-crop.jpg" ||
-        "/Images/TreesByTheSea-crop.jpg") {
+	} else if (
+		selectElement.value === "/Images/inTheKennel-crop.jpg" ||
+		"/Images/BathingGirls-crop.jpg" ||
+		"/Images/ConsolationInTheForest-crop.jpg" ||
+		"/Images/RecliningNudeOnTheRocks-crop.jpg" ||
+		"/Images/TreesByTheSea-crop.jpg"
+	) {
 		indexNumber = 1;
-	} else if (selectElement.value === 
-        "/Images/JealousyInTheGarden-crop.jpg" ||
-        "/Images/BathingMan-crop.jpg" ||
-        "/Images/DiggingMenWithHorseAndCart-crop.jpg" ||
-        "/Images/TheFight-crop.jpg" ||
-        "/Images/TwoWomenByTheVerandaSteps-crop.jpg") {
+	} else if (
+		selectElement.value === "/Images/JealousyInTheGarden-crop.jpg" ||
+		"/Images/BathingMan-crop.jpg" ||
+		"/Images/DiggingMenWithHorseAndCart-crop.jpg" ||
+		"/Images/TheFight-crop.jpg" ||
+		"/Images/TwoWomenByTheVerandaSteps-crop.jpg"
+	) {
 		indexNumber = 2;
-	} else if (selectElement.value === 
-        "/Images/KarenBjølstadInTheRockingChair-crop.jpg" ||
-        "/Images/BathingMenOnRocks-crop.jpg" ||
-        "/Images/FivePuppiesOnThecarpet-crop.jpg" ||
-        "/Images/TheGirlFromNordland-crop.jpg" ||
-        "/Images/TwoWomenIntheGarden-crop.jpg") {
+	} else if (
+		selectElement.value ===
+			"/Images/KarenBjølstadInTheRockingChair-crop.jpg" ||
+		"/Images/BathingMenOnRocks-crop.jpg" ||
+		"/Images/FivePuppiesOnThecarpet-crop.jpg" ||
+		"/Images/TheGirlFromNordland-crop.jpg" ||
+		"/Images/TwoWomenIntheGarden-crop.jpg"
+	) {
 		indexNumber = 3;
-	} else if (selectElement.value === 
-        "/Images/KarlJohanintheRain-crop.jpg" ||
-        "/Images/BricklayerAtWork-crop.jpg" ||
-        "/Images/ForestInSnow-crop.jpg" ||
-        "/Images/TheGirlsOnTheBridge-crop.jpg" ||
-        "/Images/UninvitedGuests-crop.jpg" ) {
+	} else if (
+		selectElement.value === "/Images/KarlJohanintheRain-crop.jpg" ||
+		"/Images/BricklayerAtWork-crop.jpg" ||
+		"/Images/ForestInSnow-crop.jpg" ||
+		"/Images/TheGirlsOnTheBridge-crop.jpg" ||
+		"/Images/UninvitedGuests-crop.jpg"
+	) {
 		indexNumber = 4;
-    }else if(selectElement.value === "/Images/WavesAgainstTheShore-crop.jpg"){
-			indexNumber = 5;
-		}
-	 else {
+	} else if (
+		selectElement.value === "/Images/WavesAgainstTheShore-crop.jpg"
+	) {
+		indexNumber = 5;
+	} else {
 		alert("Please select a task!");
 	}
 }
@@ -262,8 +266,7 @@ function generateDropdownItems() {
 		});
 		fragment.appendChild(link); // Append the link to the DocumentFragment
 	}
-    
-    
+
 	dropdown.appendChild(fragment); // Append the DocumentFragment to the dropdown
 }
 

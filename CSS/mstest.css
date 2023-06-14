@@ -9,16 +9,16 @@
 }
 
 body {
-    background-color: white;
-    font-family: "Girott Munch Backslant", Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    color: var(--m);
+	background-color: white;
+	font-family: "Girott Munch Backslant", Arial, sans-serif;
+	margin: 0;
+	padding: 0;
+	color: var(--m);
 }
 
 .quiz {
 	padding: 20px;
-    margin-top: 150px;
+	margin-top: 150px;
 	text-align: center;
 	border-radius: 5px;
 	box-sizing: border-box;
@@ -29,10 +29,10 @@ body {
 	min-width: 800px;
 	background-color: var(--munchLightGray);
 }
-#puzzleBox{
-    padding: 20px;
-    margin-top: 150px;
-    margin-bottom: 6px;
+#puzzleBox {
+	padding: 20px;
+	margin-top: 150px;
+	margin-bottom: 6px;
 	text-align: center;
 	border-radius: 5px;
 	box-sizing: border-box;
@@ -42,12 +42,16 @@ body {
 	margin-right: calc(50% - 42.5vw); /* Center the banner */
 	min-width: 800px;
 	background-color: var(--munchLightGray);
-    display: block;
+	
 }
-.result-div-container{
-    padding: 20px;
-    margin-top: 150px;
-    margin-bottom: 6px;
+
+.puzzleBox:empty {
+	display: none;
+}
+.result-div-container {
+	padding: 20px;
+	margin-top: 150px;
+	margin-bottom: 6px;
 	text-align: center;
 	border-radius: 5px;
 	box-sizing: border-box;
@@ -57,27 +61,27 @@ body {
 	margin-right: calc(50% - 42.5vw); /* Center the banner */
 	min-width: 800px;
 	background-color: var(--munchLightGray);
-    display: block;
+	display: block;
 }
-.result-div-container:not(:empty){
-    display: block;
+.result-div-container:not(:empty) {
+	display: block;
 }
 
 .Top {
-    background-color: #0f2335;
-    width: 100%;
-    height: 100px;
-    font-size: larger;
-    display: flex;
-    align-items: center;
-    padding-left: 20px;
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    z-index: 2;
+	background-color: #0f2335;
+	width: 100%;
+	height: 100px;
+	font-size: larger;
+	display: flex;
+	align-items: center;
+	padding-left: 20px;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	z-index: 2;
 }
-.result-div-container:empty{
-    display: none;
+.result-div-container:empty {
+	display: none;
 }
 
 #home {
@@ -89,75 +93,74 @@ body {
 	display: inline-block;
 }
 #home:hover {
-    background-color: var(--munchPink);
-    scale: 1.05;
+	background-color: var(--munchPink);
+	scale: 1.05;
 }
 
 #mlogo {
-    color: #eba398;
-    font-size: 30px;
-    margin-right: 10px;
-    margin-left: 50px;
-    font-family: "Girott Munch";
+	color: #eba398;
+	font-size: 30px;
+	margin-right: 10px;
+	margin-left: 50px;
+	font-family: "Girott Munch";
 }
 
-
 #slogo {
-    color: white;
-    font-size: 20px;
-    font: lighter
+	color: white;
+	font-size: 20px;
+	font: lighter;
 }
 
 #placeholder {
-    width: 400px;
-    display: flex;
-    align-content: center;
+	width: 400px;
+	display: flex;
+	align-content: center;
 }
 
 h1 {
-    text-align: center;
+	text-align: center;
 }
 
 #image-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 300px;
-    height: 300px;
-    margin: 10px auto;
-    margin-top: 10px;
-    overflow: hidden;
-    position: relative;
-    margin-bottom: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 300px;
+	height: 300px;
+	margin: 10px auto;
+	margin-top: 10px;
+	overflow: hidden;
+	position: relative;
+	margin-bottom: 20px;
 }
-#image-container:hover{
-    cursor: pointer;
-    scale: 1.1;
-    transition: scale 0.3s ease
+#image-container:hover {
+	cursor: pointer;
+	scale: 1.1;
+	transition: scale 0.3s ease;
 }
 
 #image-container img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
-    transition: opacity 0.5s ease;
-    border-radius: 10px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 300px;
+	height: 300px;
+	object-fit: cover;
+	transition: opacity 0.5s ease;
+	border-radius: 10px;
 }
 
 #resultDiv {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 20px;
 }
 #resultDiv img {
-    width: auto;
-    height: 50vw;    
-    object-fit: cover;
-    border-radius: 10px;
+	width: auto;
+	height: 50vw;
+	object-fit: cover;
+	border-radius: 10px;
 }
 
 #image-select {
@@ -168,25 +171,24 @@ h1 {
 }
 #image-select,
 #btnSelect {
-    height: 50px;
-    width: 250px;
-    text-align: left;
-    font-family: Arial, sans-serif;
-    background-color: var(--munchNavy);
-    color: white;
+	height: 50px;
+	width: 250px;
+	text-align: left;
+	font-family: Arial, sans-serif;
+	background-color: var(--munchNavy);
+	color: white;
 }
 #btnSelect:hover {
-    background-color: var(--munchPink);
-    transition: background-color 0.3s ease;
+	background-color: var(--munchPink);
+	transition: background-color 0.3s ease;
 }
 select {
-    width: 100%;
-    padding: 10px;
-;
+	width: 100%;
+	padding: 10px;
 }
 button:hover {
-    background-color: var(--munchPink);
-    transition: background-color 0.3s ease;
+	background-color: var(--munchPink);
+	transition: background-color 0.3s ease;
 }
 #containerSearch {
 	position: relative;
@@ -202,11 +204,11 @@ button:hover {
 	border-radius: 4px;
 	width: 200px;
 	font-family: Arial, Helvetica, sans-serif;
-    height: 25px;
+	height: 25px;
 }
 #searchInput:focus {
-    outline: none;
-    border-color: var(--munchPink);
+	outline: none;
+	border-color: var(--munchPink);
 }
 .dropdown-content {
 	position: absolute;
@@ -219,7 +221,9 @@ button:hover {
 	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 	display: none;
 	z-index: 1;
-	top: calc(100% + 5px); /* Add this line to position it below the search bar */
+	top: calc(
+		100% + 5px
+	); /* Add this line to position it below the search bar */
 	width: 100%; /* Add this line to make it full width */
 }
 
@@ -233,23 +237,23 @@ button:hover {
 }
 
 .dropdown-content a:hover {
-    background-color: #f2f2f2;
-    transition: background-color 0.3s ease;
+	background-color: #f2f2f2;
+	transition: background-color 0.3s ease;
 }
 
 .show {
-    display: block;
+	display: block;
 }
 
 button {
-    background-color: #0f2335;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
+	background-color: #0f2335;
+	color: #fff;
+	border: none;
+	padding: 10px 20px;
+	font-size: 16px;
+	border-radius: 5px;
+	cursor: pointer;
+	transition: background-color 0.3s ease;
 }
 
 .language-switch-container {
@@ -313,24 +317,24 @@ input[type="checkbox"]:checked + .slider:before {
 }
 
 .fade-in {
-    animation: fadeIn 1s;
+	animation: fadeIn 1s;
 }
 
 @keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
 }
 
 @media screen and (max-width: 600px) {
-    .quiz {
-        max-width: 90%;
-        margin-left: 5%;
-    }
-    #placeholder {
-        width: 250px;
-    }
+	.quiz {
+		max-width: 90%;
+		margin-left: 5%;
+	}
+	#placeholder {
+		width: 250px;
+	}
 }

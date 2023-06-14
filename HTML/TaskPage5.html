@@ -20,9 +20,17 @@
 		/>
 
 		<script src="../JS/task-java.js"></script>
+		<!-- Task JS -->
+		
 		<script src="../JS/puzzleJS.js"></script>
+	
+		<!-- Puzzle JS -->
 		<script src="../JS/languagetoggle.js"></script>
+		<!-- Language toggle -->
 		<script src="/JS/norengslider.js"></script>
+		<!-- Language toggle -->
+		
+		
 	</head>
 	<body>
 		<div class="Top">
@@ -102,26 +110,29 @@
 				<input
 					type="text"
 					id="searchInput"
-					onkeyup="generateDropdownItems();filterItems(); "
+					onkeyup="generateDropdownItems(); filterItems(); "
 					placeholder="Search..."
 					data-translation-en="Search..."
 					data-translation-no="Søk..."
 				/>
 
 				<button
-					onclick="checkGuess()"
+					onclick="checkGuess(); createPuzzlePieces()"
 					placeholder="Enter your guess"
 					data-translation-en="Check"
 					data-translation-no="Sjekk"
 				>
 					Check
 				</button>
+				<button onclick="checkGuess(); checkPuzzleContent()">
+					check content of puzzle
+				</button>
 
 				<div id="dropdown" class="dropdown-content"></div>
 			</div>
 		</div>
-		<div id="puzzleBox">
-			<div class="puzzle-container" id="puzzle-container"></div>
+		<div id="puzzleBox" style="display: none;">
+			<div class="puzzle-container" id="puzzle-container"></div></div>
 		</div>
 
 		<div class="result-div-container">
