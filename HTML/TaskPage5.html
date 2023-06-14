@@ -21,16 +21,14 @@
 
 		<script src="../JS/task-java.js"></script>
 		<!-- Task JS -->
-		
+
 		<script src="../JS/puzzleJS.js"></script>
-	
+
 		<!-- Puzzle JS -->
 		<script src="../JS/languagetoggle.js"></script>
 		<!-- Language toggle -->
 		<script src="/JS/norengslider.js"></script>
 		<!-- Language toggle -->
-		
-		
 	</head>
 	<body>
 		<div class="Top">
@@ -55,10 +53,10 @@
 
 		<div class="quiz">
 			<h1
-				data-translation-en="Sixth floor tasks!"
-				data-translation-no="Sjette etasje oppgaver!"
+				data-translation-en="Fifth floor tasks!"
+				data-translation-no="Femte etasje oppgaver!"
 			>
-				Sixth floor tasks!
+				Fifth floor tasks!
 			</h1>
 
 			<div class="mid">
@@ -89,7 +87,7 @@
 				</select>
 
 				<button
-					onclick="selectFloor(); hidePuzzleBox()"
+					onclick="selectFloor()"
 					value="Floor5"
 					id="btnSelect"
 					data-translation-en="Select Image"
@@ -105,6 +103,10 @@
 					id="placeholder"
 				/>
 			</div>
+
+			<button onclick="displayPuzzleBox()">display</button>
+			<button onclick="hidePuzzleBox()">hide</button>
+			<br />
 
 			<div id="containerSearch">
 				<input
@@ -131,13 +133,21 @@
 				<div id="dropdown" class="dropdown-content"></div>
 			</div>
 		</div>
-		<div id="puzzleBox" style="display: none;">
-			<div class="puzzle-container" id="puzzle-container"></div></div>
+		<div id="puzzleBox" style="display: none">
+			<div
+				class="puzzleContainer"
+				id="puzzle-container"
+				style="display: none"
+			></div>
 		</div>
 
-		<div class="result-div-container">
-			<div id="resultText"></div>
-			<div id="resultDiv"></div>
+		<div
+			class="resultDivContainer"
+			id="resultDivContainerID"
+			style="display: none"
+		>
+			<div id="resultText" style="display: none"></div>
+			<div id="resultDiv" style="display: none"></div>
 		</div>
 	</body>
 </html>
