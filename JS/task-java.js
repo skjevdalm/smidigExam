@@ -97,6 +97,7 @@ var dropdown;
 var resultText;
 var selectedFloor;
 var currentFloorArray;
+var quiz;
 
 function selectFloor() {
 	selectedFloor = document.getElementById("btnSelect");
@@ -182,6 +183,7 @@ function correctResult() {
 	resultDiv.innerHTML = resultImgTag;
 	resultText.innerHTML = "That is correct!";
 	console.log(resultImgPath);
+	updateResultStyleBlock();
 }
 
 function incorrectResult() {
@@ -350,3 +352,36 @@ function toggleDropdown() {
 // Event listener for search input focus/blur
 searchInput.addEventListener("focus", toggleDropdown);
 searchInput.addEventListener("blur", toggleDropdown);
+
+/////////////////from Discord
+function updateResultStyleBlock() {
+    var resultDiv = document.getElementById("resultDiv");
+    var resultDivContainer = document.getElementById("resultDivContainerID");
+    var resultText = document.getElementById("resultText");
+	quiz = document.getElementById("quiz");
+	var puzzleBox = document.getElementById("puzzleBox");
+
+    if (resultDiv && resultDivContainer && resultText) {
+        resultDiv.style.display = "block";
+        resultDivContainer.style.display = "block";
+        resultText.style.display = "block";
+		quiz.style.display = "block";
+		puzzleBox.style.display = "block";
+    }
+}
+
+function updateResultStyleNone() {
+    var resultDiv = document.getElementById("resultDiv");
+    var resultDivContainer = document.getElementById("resultDivContainerID");
+    var resultText = document.getElementById("resultText");
+	var quiz = document.getElementById("quiz");
+	var puzzleBox = document.getElementById("puzzleBox");
+
+    if (resultDiv && resultDivContainer && resultText && quiz) {
+        resultDiv.style.display = "none";
+        resultDivContainer.style.display = "none";
+        resultText.style.display = "none";
+		quiz.style.display = "none";
+		puzzleBox.style.display = "none";
+    }
+}

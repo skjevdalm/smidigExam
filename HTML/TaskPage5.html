@@ -87,7 +87,7 @@
 				</select>
 
 				<button
-					onclick="selectFloor()"
+					onclick="selectFloor(); updateResultStyleNone();"
 					value="Floor5"
 					id="btnSelect"
 					data-translation-en="Select Image"
@@ -133,21 +133,19 @@
 				<div id="dropdown" class="dropdown-content"></div>
 			</div>
 		</div>
-		<div id="puzzleBox" style="display: none">
-			<div
-				class="puzzleContainer"
-				id="puzzle-container"
-				style="display: none"
-			></div>
-		</div>
 
-		<div
-			class="resultDivContainer"
-			id="resultDivContainerID"
-			style="display: none"
-		>
-			<div id="resultText" style="display: none"></div>
-			<div id="resultDiv" style="display: none"></div>
+		<div id="puzzleBox" style="display: none">
+			<div class="puzzle-container" id="puzzle-container"></div>
+		</div>
+		<div id="quiz" class="quiz"  style="display: none;">
+			<div
+				class="resultDivContainer"
+				id="resultDivContainerID"
+				style="display: none"
+			>
+				<div id="resultText" style="display: none"></div>
+				<div id="resultDiv" style="display: none"></div>
+			</div>
 		</div>
 	</body>
 </html>
