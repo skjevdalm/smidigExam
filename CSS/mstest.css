@@ -1,47 +1,317 @@
-/* Search Input Field */
-#searchInput {
-	padding: 8px;
-	border: 1px solid #ccc;
-	border-radius: 4px;
-	width: 200px;
-	font-family: Arial, Helvetica, sans-serif;
+:root {
+	--munchPink: #eba398;
+	--munchBlack: #000000;
+	--munchRed: #fe390f;
+	--munchGreen: #00ff00;
+	--munchNavy: #0f2335;
+	--munchGold: #9b8250;
+	--munchLightGray: #f0f0f0;
 }
 
-/* Dropdown Menu */
+body {
+    background-color: white;
+    font-family: "Girott Munch Backslant", Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: var(--m);
+}
+
+.quiz {
+	padding: 20px;
+    margin-top: 150px;
+	text-align: center;
+	border-radius: 5px;
+	box-sizing: border-box;
+	border: #000000 solid 1px;
+	width: 90vw;
+	margin-left: calc(50% - 42.5vw); /* Center the banner */
+	margin-right: calc(50% - 42.5vw); /* Center the banner */
+	min-width: 800px;
+	background-color: var(--munchLightGray);
+}
+.result-div-container{
+    padding: 20px;
+    margin-top: 150px;
+    margin-bottom: 6px;
+	text-align: center;
+	border-radius: 5px;
+	box-sizing: border-box;
+	border: #000000 solid 1px;
+	width: 90vw;
+	margin-left: calc(50% - 42.5vw); /* Center the banner */
+	margin-right: calc(50% - 42.5vw); /* Center the banner */
+	min-width: 800px;
+	background-color: var(--munchLightGray);
+}
+
+.Top {
+    background-color: #0f2335;
+    width: 100%;
+    height: 100px;
+    font-size: larger;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 2;
+}
+.result-div-container:empty{
+    display: none;
+}
+
+#home {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
+	margin-right: 20px;
+	margin-top: 0px;
+	display: inline-block;
+}
+#home:hover {
+    background-color: var(--munchPink);
+    scale: 1.05;
+}
+
+#mlogo {
+    color: #eba398;
+    font-size: 30px;
+    margin-right: 10px;
+    margin-left: 50px;
+    font-family: "Girott Munch";
+}
+
+
+#slogo {
+    color: white;
+    font-size: 20px;
+    font: lighter
+}
+
+#placeholder {
+    width: 400px;
+    display: flex;
+    align-content: center;
+}
+
+h1 {
+    text-align: center;
+}
+
+#image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+    margin: 10px auto;
+    margin-top: 10px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 20px;
+}
+#image-container:hover{
+    cursor: pointer;
+    scale: 1.1;
+    transition: scale 0.3s ease
+}
+
+#image-container img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    transition: opacity 0.5s ease;
+    border-radius: 10px;
+}
+
+#resultDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+#resultDiv img {
+    width: auto;
+    height: 50vw;    
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+#image-select {
+	padding: 5px;
+	font-size: 16px;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+#image-select,
+#btnSelect {
+    height: 50px;
+    width: 250px;
+    text-align: left;
+    font-family: Arial, sans-serif;
+    background-color: var(--munchNavy);
+    color: white;
+}
+#btnSelect:hover {
+    background-color: var(--munchPink);
+    transition: background-color 0.3s ease;
+}
+select {
+    width: 100%;
+    padding: 10px;
+;
+}
+button:hover {
+    background-color: var(--munchPink);
+    transition: background-color 0.3s ease;
+}
+#containerSearch {
+	position: relative;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	display: inline-block;
+	width: auto;
+}
+#searchInput {
+	padding: 8px;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	width: 200px;
+	font-family: Arial, Helvetica, sans-serif;
+    height: 25px;
+}
+#searchInput:focus {
+    outline: none;
+    border-color: var(--munchPink);
+}
 .dropdown-content {
-	display: none;
 	position: absolute;
+	justify-content: center;
+	align-items: center;
+	text-align: left;
 	background-color: #fff;
 	border: 1px solid #ccc;
-	border-radius: 4px;
-	padding: 5px;
-	width: 200px;
-	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	border-radius: 5px;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	display: none;
 	z-index: 1;
-	max-height: 200px;
-	overflow-y: auto;
-	font-family: Arial, Helvetica, sans-serif;
+	top: calc(100% + 5px); /* Add this line to position it below the search bar */
+	width: 100%; /* Add this line to make it full width */
 }
 
 .dropdown-content a {
-	color: black;
-	padding: 8px;
 	display: block;
-	border-bottom: 1px solid #ccc;
+	cursor: pointer;
+	color: var(--munchBlack);
 	text-decoration: none;
-	font-family: Arial, Helvetica, sans-serif;
-}
-
-.dropdown-content a:last-child {
-	border-bottom: none;
+	transition: background-color 0.3s ease;
+	padding: 5px;
 }
 
 .dropdown-content a:hover {
-	background-color: #f1f1f1;
+    background-color: #f2f2f2;
+    transition: background-color 0.3s ease;
 }
-.dropdown-content.show {
-	display: block;
+
+.show {
+    display: block;
 }
-.dropdown-content {
-	display: none;
+
+button {
+    background-color: #0f2335;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.language-switch-container {
+	position: fixed;
+	top: 40px;
+	right: 100px;
+	display: flex;
+	align-items: center;
+	font-size: 14px;
+	color: white;
+}
+
+.switch {
+	position: relative;
+	display: inline-block;
+	width: 40px;
+	height: 20px;
+	margin-right: 10px;
+}
+
+.slider {
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: var(--munchPink);
+	transition: 0.4s;
+	border-radius: 20px;
+}
+
+.slider:before {
+	position: absolute;
+	content: "";
+	height: 16px;
+	width: 16px;
+	left: 2px;
+	bottom: 2px;
+	background-color: white;
+	transition: 0.4s;
+	border-radius: 50%;
+}
+
+input[type="checkbox"] {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+input[type="checkbox"]:checked + .slider {
+	background-color: #2196f3;
+}
+
+input[type="checkbox"]:checked + .slider:before {
+	transform: translateX(20px);
+}
+
+.language-label {
+	font-weight: bold;
+}
+
+.fade-in {
+    animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .quiz {
+        max-width: 90%;
+        margin-left: 5%;
+    }
+    #placeholder {
+        width: 250px;
+    }
 }

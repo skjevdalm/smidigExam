@@ -6,12 +6,14 @@
 		<title>First Floor</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 
-		<link rel="stylesheet" type="text/css" media="screen" href="/CSS/taskMS.css" />
-		<link rel="stylesheet" type="text/css" media="screen" href="/CSS/mstest.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />		
+		<link rel="stylesheet" type="text/css" media="screen" href="/CSS/task.css" />
 		<link rel="stylesheet" type="text/css" media="screen" href="/CSS/puzzle.css" />
-		
+		<link rel="stylesheet" type="text/css" media="screen" href="/CSS/msIndex.css" />
+
 		<script src="../JS/puzzleJS.js"></script>
 		<script src="../JS/task-java.js"></script>
+
 	</head>
 	<body>
 		<div class="Top">
@@ -19,7 +21,14 @@
 				<img src="/Images/homeBtn.png" width="50px" alt="HOME" id="homebtn" />
 			</button>
 			<h1 id="mlogo">MUNCH</h1>
-			<h1 id="slogo">SCAVENGER</h1>
+			<h1 id="slogo">home</h1>
+			<div class="language-switch-container">
+				<label class="switch">
+					<input type="checkbox" id="language-toggle" />
+					<span class="slider"></span>
+				</label>
+				<span class="language-label">Toggle Language</span>
+			</div>
 		</div>
 
 		<div class="mid">
@@ -43,7 +52,6 @@
 			</div>
 			<div class="puzzle-container" id="puzzle-container"></div>
 
-			<br />
 			<div id="containerSearch">
 				<input
 					type="text"

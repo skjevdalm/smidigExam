@@ -287,6 +287,7 @@ function setFloor(floorNumber) {
 
 
 function setFloor(floorNumber) {
+
 	switch (floorNumber) {
 		case 1:
 			currentFloorArray = floor1ListCrop;

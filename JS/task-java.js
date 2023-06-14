@@ -196,7 +196,7 @@ function checkGuess() {
 function correctResult() {
 	resultDiv = document.getElementById("resultDiv");
 	resultText = document.getElementById("resultText");
-	resultImgPath = "/Images/" + currentFloorArray[indexNumber] + ".JPG";
+	resultImgPath = "/Images/" + userGuess + ".JPG";
 	//alert("ResultImgPath:" + resultImgPath);
 	resultImgTag = '<img src="' + resultImgPath + '" width="500px" alt="hei">'; //The uncropped image is displayed
 	resultDiv.innerHTML = resultImgTag;
