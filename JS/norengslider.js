@@ -1,5 +1,6 @@
 function updateButtonContent(buttonId, translationAttribute) {
 	const button = document.getElementById(buttonId);
+	const h1 = document.getElementById(site);
 	button.textContent = button.dataset[translationAttribute];
 }
 
@@ -48,7 +49,6 @@ function handleLanguageToggle(event) {
 		updateButtonContent("button11", "translationEn");
 		updateButtonContent("button12", "translationEn");
 		updateButtonContent("button13", "translationEn");
-
 		// Add more buttons here
 	}
 
