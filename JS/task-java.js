@@ -196,6 +196,7 @@ function incorrectResult() {
 		'<h3 data-translation-en="Incorrect answer,"data-translation-no="Feil svar,">Incorrect answer,</h3>\n<h3	data-translation-en="Maybe try to solve this puzzle!"data-translation-no="Prøv å løse dette puslespillet!">Maybe try to solve this puzzle!</h3>';
 	+toggleLanguage();
 	createPuzzlePieces();
+	scrollPage();
 }
 
 function assignIndex() {
