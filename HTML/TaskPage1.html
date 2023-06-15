@@ -61,7 +61,7 @@
 				data-translation-en="First floor tasks!"
 				data-translation-no="Første etasje oppgaver!"
 			>
-				First floor tasks! (up to date at 10:18 15.06.2023)
+				First floor tasks!
 			</h1>
 
 			<div class="mid">
@@ -116,6 +116,8 @@
 					placeholder="Search..."
 					data-translation-en="Search..."
 					data-translation-no="Søk..."
+					data-deque-tooltip="Search for the name of the painting"
+					class="deque-input"
 				/>
 
 				<button
@@ -123,6 +125,7 @@
 					placeholder="Enter your guess"
 					data-translation-en="Check"
 					data-translation-no="Sjekk"
+					id="btnSelect"
 				>
 					Check
 				</button>
@@ -132,9 +135,10 @@
 		</div>
 
 		<div id="puzzleBox" style="display: none">
+			<div id="incorrectResultText"></div>
 			<div class="puzzle-container" id="puzzle-container"></div>
 		</div>
-		<div id="quiz" class="quiz" style="display: none">
+		<div id="quiz" class="resultOfDiv" style="display: none">
 			<div
 				class="resultDivContainer"
 				id="resultDivContainerID"

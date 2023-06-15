@@ -1,8 +1,8 @@
-#puzzleBox{
+#puzzleBox {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 300px;	
+	width: 300px;
 	height: 300px;
 	overflow: hidden;
 }
@@ -17,11 +17,11 @@
 	justify-content: center;
 	margin-left: calc(50% - 150px);
 	margin-right: calc(50% - 150px);
-  }
+}
 
-  .puzzle-piece {
+.puzzle-piece {
 	width: 100px;
 	height: 100px;
 	background-repeat: no-repeat;
 	background-size: 300% 300%;
-  }
+}

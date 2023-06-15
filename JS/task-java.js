@@ -98,6 +98,7 @@ var resultText;
 var selectedFloor;
 var currentFloorArray;
 var quiz;
+var incorrectResultText;
 
 function selectFloor() {
 	selectedFloor = document.getElementById("btnSelect");
@@ -181,14 +182,19 @@ function correctResult() {
 	//alert("ResultImgPath:" + resultImgPath);
 	resultImgTag = '<img src="' + resultImgPath + '" width="500px" alt="hei">'; //The uncropped image is displayed
 	resultDiv.innerHTML = resultImgTag;
-	resultText.innerHTML = "That is correct!";
+	resultText.innerHTML =
+		'<h3	data-translation-en="Correct answer," data-translation-no="Riktig svar">Correct answer!</h3>\n<h3 data-translation-en="Move on the the next task!"data-translation-no="Gå videre til neste oppgave">Move on the the next task!</h3>';
+	+toggleLanguage();
 	console.log(resultImgPath);
 	updateResultStyleBlock();
+	scrollPage();
 }
 
 function incorrectResult() {
-	resultText = document.getElementById("resultDiv");
-	resultText.innerHTML = "That is incorrect";
+	incorrectResultText = document.getElementById("incorrectResultText");
+	incorrectResultText.innerHTML =
+		'<h3 data-translation-en="Incorrect answer,"data-translation-no="Feil svar,">Incorrect answer,</h3>\n<h3	data-translation-en="Maybe try to solve this puzzle!"data-translation-no="Prøv å løse dette puslespillet!">Maybe try to solve this puzzle!</h3>';
+	+toggleLanguage();
 	createPuzzlePieces();
 }
 
@@ -355,19 +361,17 @@ searchInput.addEventListener("blur", toggleDropdown);
 
 /////////////////from Discord
 function updateResultStyleBlock() {
-    var resultDiv = document.getElementById("resultDiv");
-    var resultDivContainer = document.getElementById("resultDivContainerID");
-    var resultText = document.getElementById("resultText");
+	var resultDiv = document.getElementById("resultDiv");
+	var resultDivContainer = document.getElementById("resultDivContainerID");
+	var resultText = document.getElementById("resultText");
 	var quiz = document.getElementById("quiz");
-	
 
-    if (resultDiv && resultDivContainer && resultText) {
-        resultDiv.style.display = "block";
-        resultDivContainer.style.display = "block";
-        resultText.style.display = "block";
+	if (resultDiv && resultDivContainer && resultText) {
+		resultDiv.style.display = "block";
+		resultDivContainer.style.display = "block";
+		resultText.style.display = "block";
 		quiz.style.display = "block";
-		
-    }
+	}
 }
 
 function updateQuizStyleNone() {
@@ -383,17 +387,24 @@ function updateQuizStyleNone() {
 }
 
 function updateResultStyleNone() {
-    var resultDiv = document.getElementById("resultDiv");
-    var resultDivContainer = document.getElementById("resultDivContainerID");
-    var resultText = document.getElementById("resultText");
+	var resultDiv = document.getElementById("resultDiv");
+	var resultDivContainer = document.getElementById("resultDivContainerID");
+	var resultText = document.getElementById("resultText");
 	var quiz = document.getElementById("quiz");
 	var puzzleBox = document.getElementById("puzzleBox");
 
-    if (resultDiv && resultDivContainer && resultText && quiz) {
-        resultDiv.style.display = "none";
-        resultDivContainer.style.display = "none";
-        resultText.style.display = "none";
+	if (resultDiv && resultDivContainer && resultText && quiz) {
+		resultDiv.style.display = "none";
+		resultDivContainer.style.display = "none";
+		resultText.style.display = "none";
 		quiz.style.display = "none";
 		puzzleBox.style.display = "none";
-    }
+	}
+}
+
+function scrollPage() {
+	window.scrollTo({
+		top: document.body.scrollHeight,
+		behavior: "smooth",
+	});
 }

@@ -1,4 +1,3 @@
-
 function shuffleArray(array) {
 	for (let i = array.length - 1; i > 0; i--) {
 		const j = Math.floor(Math.random() * (i + 1));
@@ -41,8 +40,6 @@ createPuzzlePieces();
 /////////////////////////////////////////////////////////////////////////////////////////////////
 var puzzleBox;
 
-
-
 // Function to create puzzle pieces
 function createPuzzlePieces() {
 	console.log("createPuzzlePieces is running");
@@ -69,7 +66,6 @@ function createPuzzlePieces() {
 		puzzlePieces.push(piece);
 		displayPuzzleBox();
 	}
-	
 
 	// Shuffle puzzle pieces
 	const shuffledPieces = shuffleArray(puzzlePieces);
@@ -87,11 +83,10 @@ function displayPuzzleBox() {
 	puzzleBox = document.getElementById("puzzleBox");
 	console.log("Display puzzlebox kjører");
 	puzzleBox.style.display = "block"; // Show the puzzleBox
-	
 }
 function hidePuzzleBox() {
 	puzzleBox = document.getElementById("puzzleBox");
 	puzzleBox.style.display = "none"; // Hide the puzzleBox
 }
 
-// update 
+// update

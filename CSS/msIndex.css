@@ -28,7 +28,6 @@ body {
 	top: 0;
 	left: 0;
 	height: 100px;
-	
 }
 
 #home {
@@ -66,7 +65,7 @@ body {
 	color: white;
 	padding: 20px;
 	text-align: center;
-	margin-top: 150px;
+	margin-top: 20px;
 	margin-bottom: 30px;
 	margin-left: auto;
 	margin-right: auto;
@@ -82,25 +81,32 @@ body {
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-	/* make the buttons the same size */
+	width: 90vw;
+	margin-left: calc(50% - 42.5vw);
+	margin-right: calc(50% - 42.5vw);
+	box-sizing: border-box;
+	border: #000000 solid 1px;
+	background-color: var(--munchLightGray);
+	margin-bottom: 10px;
+	margin-top: 200px;
+	border-radius: 8px;
 }
 
 .tooltip-container {
 	/* Tooltip container */
 	position: relative;
 	width: 150px;
-	margin: auto; /* space between button pairs */
-	flex: 1 0 calc(50% - 10px);
+	margin-left: 10px; /* space between button pairs */
+	margin-right: 10px; /* space between button pairs */
+	flex: 1 0 calc(40% - 10px);
 	display: flex;
-	justify-content: left;
-	height: 100px;
+	justify-content: left;;
 	vertical-align: top;
 	text-align: left;
-	
 }
 .tooltip-container-left {
 	display: flex;
-	justify-content: flex-end;
+	justify-content: right;
 }
 .tooltip-container .tooltip {
 	/* Tooltip text and style/frame */
@@ -350,13 +356,133 @@ input[type="checkbox"]:checked + .slider:before {
 	opacity: 1;
 }
 
+@media (max-width 822px){
+	.language-label {
+		display: none;
+	}
+}
 
-@media (min-width: 480px) {
-	.Mid {
-		padding: 10px;
+@media (max-width: 600px) {
+	/* Adjustments for smaller screens */
+	.Top {
+		height: 100px; /* Reduce the height of the top banner */
+		padding: 5px; /* Adjust the padding of the top banner */
+	}
+	.language-switch-container {
+		margin-top: 25px;
+	}
+	.language-label {
+		display: none;
+	}
+
+	#site {
+		margin-top: 120px; /* Reduce the margin-top of the site content */
+		padding: 10px; /* Adjust the padding of the site content */
+		width: calc(90% - 20px); /* Increase the width of the site content */
+	}
+
+	.mid .tooltip-container {
+		height: auto; /* Adjust the height of the tooltip container */
+		margin-bottom: 10px; /* Add some spacing between tooltip containers */
 	}
 
 	.floor-button {
-		width: calc(50% - 5px);
+		font-size: 16px; /* Reduce the font size of the floor buttons */
+		padding: 10px 20px; /* Adjust the padding of the floor buttons */
+		margin: 3px; /* Adjust the margin of the floor buttons */
 	}
+	button {
+		height: 75px;
+	}
+	.tooltip-container{
+		display: flex;
+		flex: 1 0 calc(60% - 20px);
+	}
+
+	.social-media-banner {
+		margin-top: 20px; /* Adjust the margin of the social media banner */
+	}
+
+	.testimonials {
+		max-width: 300px; /* Reduce the maximum width of testimonials */
+		margin: 0 auto 20px; /* Adjust the margins of testimonials */
+	}
+
+	.contact-section {
+		margin-top: 20px; /* Adjust the margin of the contact section */
+	}
+
+	.contact-info {
+		margin: 10px 0; /* Adjust the margin of the contact information */
+	}
+
+	.language-switch-container {
+		top: 20px; /* Adjust the position of the language switch container */
+		right: 20px; /* Adjust the position of the language switch container */
+	}
+
+	.language-label {
+		font-size: 12px; /* Reduce the font size of the language label */
+	}
+
+	.button:active {
+		background-color: var(--munchPink);
+	}
+	#button1:active + #tooltip1 {
+		background-color: var(--munchLightGray);
+		display: block;
+	}
+	#button2:active + #tooltip2 {
+		background-color: var(--munchLightGray);
+		display: block;
+	}
+	#button3:active + #tooltip3 {
+		background-color: var(--munchLightGray);
+		display: block;
+	}
+	#button4:active + #tooltip4 {
+		background-color: var(--munchLightGray);
+		display: block;
+	}
+	#button5:active + #tooltip5 {
+		background-color: var(--munchLightGray);
+		display: block;
+	}
+	#button6:active + #tooltip6 {
+		background-color: var(--munchLightGray);
+		display: block;
+	}
+	#button7:active + #tooltip7 {
+		background-color: var(--munchLightGray);
+		display: block;
+	}
+	#button8:active + #tooltip8 {
+		background-color: var(--munchLightGray);
+		display: block;
+	}
+	#button9:active + #tooltip9 {
+		background-color: var(--munchLightGray);
+		display: block;
+	}
+	#button10:active + #tooltip10 {
+		background-color: var(--munchLightGray);
+		display: block;
+	}
+	#button11:active + #tooltip11 {
+		background-color: var(--munchLightGray);
+		display: block;
+	}
+	#button12:active + #tooltip12 {
+		background-color: var(--munchLightGray);
+		display: block;
+	}
+	#button13:active + #tooltip13 {
+		background-color: var(--munchLightGray);
+		display: block;
+	}
+	#EXIT:active + #tooltipEXIT {
+		background-color: var(--munchLightGray);
+		display: block;
+	}
+
 }
