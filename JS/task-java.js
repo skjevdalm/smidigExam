@@ -358,16 +358,28 @@ function updateResultStyleBlock() {
     var resultDiv = document.getElementById("resultDiv");
     var resultDivContainer = document.getElementById("resultDivContainerID");
     var resultText = document.getElementById("resultText");
-	quiz = document.getElementById("quiz");
-	var puzzleBox = document.getElementById("puzzleBox");
+	var quiz = document.getElementById("quiz");
+	
 
     if (resultDiv && resultDivContainer && resultText) {
         resultDiv.style.display = "block";
         resultDivContainer.style.display = "block";
         resultText.style.display = "block";
 		quiz.style.display = "block";
-		puzzleBox.style.display = "block";
+		
     }
+}
+
+function updateQuizStyleNone() {
+	var quiz = document.getElementById("quiz");
+	var puzzleBox = document.getElementById("puzzleBox");
+	var puzzleBoxContainer = document.getElementById("puzzle-container");
+
+	if (quiz && puzzleBox && puzzleBoxContainer) {
+		quiz.style.display = "none";
+		puzzleBox.style.display = "none";
+		puzzleBoxContainer.style.display = "none";
+	}
 }
 
 function updateResultStyleNone() {

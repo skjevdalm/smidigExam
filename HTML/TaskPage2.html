@@ -3,29 +3,14 @@
 	<head>
 		<meta charset="utf-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-		<title>Second Floor</title>
+		<title
+			data-translation-en="Second floor"
+			data-translation-no="Andre etasje"
+		>
+			Second floor
+		</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<!--
-		<link
-			rel="stylesheet"
-			type="text/css"
-			media="screen"
-			href="/CSS/task.css"
-		/>
-		<link
-			rel="stylesheet"
-			type="text/css"
-			media="screen"
-			href="/CSS/puzzle.css"
-		/>
-		<link
-			rel="stylesheet"
-			type="text/css"
-			media="screen"
-			href="/CSS/msIndex.css"
-		/>
-	-->
+
 		<link
 			rel="stylesheet"
 			type="text/css"
@@ -40,9 +25,15 @@
 		/>
 
 		<script src="../JS/task-java.js"></script>
+		<!-- Task JS -->
+
 		<script src="../JS/puzzleJS.js"></script>
+
+		<!-- Puzzle JS -->
 		<script src="../JS/languagetoggle.js"></script>
+		<!-- Language toggle -->
 		<script src="/JS/norengslider.js"></script>
+		<!-- Language toggle -->
 	</head>
 	<body>
 		<div class="Top">
@@ -98,15 +89,16 @@
 						Task 5
 					</option>
 				</select>
+
 				<button
-					onclick="selectFloor()"
+					onclick="selectFloor(); updateResultStyleNone();"
 					value="Floor2"
 					id="btnSelect"
 					data-translation-en="Select Image"
 					data-translation-no="Velg Bilde"
 				>
-					Select Image
-				</button>
+					Select Image</button
+				><!-- change the value of the floor button for each floor -->
 			</div>
 			<div id="image-container">
 				<img
@@ -115,13 +107,11 @@
 					id="placeholder"
 				/>
 			</div>
-			<div class="puzzle-container" id="puzzle-container"></div>
-
 			<div id="containerSearch">
 				<input
 					type="text"
 					id="searchInput"
-					onkeyup="generateDropdownItems();filterItems(); "
+					onkeyup="generateDropdownItems(); filterItems(); "
 					placeholder="Search..."
 					data-translation-en="Search..."
 					data-translation-no="Søk..."
@@ -139,15 +129,19 @@
 				<div id="dropdown" class="dropdown-content"></div>
 			</div>
 		</div>
-		<div ></div>
-		<div id="puzzleBox" style="display: none;">
-			<div class="puzzle-container" id="puzzle-container"></div></div>
-		</div>
 
-		<div class="result-div-container" >
-			<div id="resultText"></div>
-			<div id="resultDiv"></div>
+		<div id="puzzleBox" style="display: none">
+			<div class="puzzle-container" id="puzzle-container"></div>
 		</div>
-		
+		<div id="quiz" class="quiz" style="display: none">
+			<div
+				class="resultDivContainer"
+				id="resultDivContainerID"
+				style="display: none"
+			>
+				<div id="resultText" style="display: none"></div>
+				<div id="resultDiv" style="display: none"></div>
+			</div>
+		</div>
 	</body>
 </html>
