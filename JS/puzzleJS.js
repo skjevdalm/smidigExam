@@ -6,35 +6,6 @@ function shuffleArray(array) {
 	return array;
 }
 
-// Create puzzle pieces
-function createPuzzlePieces() {
-	const imageSrc = "/ImaGES/AndreasMunchStudyingAnatomy.jpg"; // Placeholder image URL /Images/AndreasMunchStudyingAnatomy.jpg
-	const puzzleContainer = document.getElementById("puzzle-container");
-	const puzzlePieces = [];
-
-	// Create puzzle piece elements
-	for (let i = 0; i < 9; i++) {
-		const piece = document.createElement("div");
-		piece.className = "puzzle-piece";
-		piece.style.backgroundImage = `url(${imageSrc})`;
-		piece.style.backgroundPosition = `-${(i % 3) * 100}px -${
-			Math.floor(i / 3) * 100
-		}px`;
-		puzzlePieces.push(piece);
-	}
-
-	// Shuffle puzzle pieces
-	const shuffledPieces = shuffleArray(puzzlePieces);
-
-	// Append shuffled pieces to the puzzle container
-	shuffledPieces.forEach((piece) => {
-		puzzleContainer.appendChild(piece);
-	});
-}
-
-// Call the function to create the puzzle pieces
-createPuzzlePieces();
-
 /////////////////////////////////////////////////////////////////////////////////////////////////
 /////    							P U Z Z L E   G A M E 						            /////
 /////////////////////////////////////////////////////////////////////////////////////////////////
