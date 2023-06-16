@@ -464,11 +464,4 @@ searchInput.addEventListener("blur", toggleDropdown(), filterItems());
 
 generateDropdownItems();
 
-// Event listener for dropdown item click
-/*
-dropdown.addEventListener("click", function (e) {
-  if (e.target.tagName.toLowerCase() === "a") {
-    selectItem(e.target.innerText);
-  }
-});
-*/
+
