@@ -157,12 +157,6 @@ function checkGuess() {
   //and -CROP.JPG is added at the end.
   var userGuessModified =
     "/IMAGES/" + userGuess.toUpperCase().replace(/\s/g, "") + "-CROP.JPG";
-  /*
-	console.log(selectElement.value);
-	console.log(userGuessModified);
-	console.log(typeof userGuessModified);
-	console.log(typeof selectElement.value);
-    */
   //resultParagraph = document.getElementById("resultParagraph"); // Create a paragraph element
   if (userGuessModified == selectElement.value.toUpperCase()) {
     // check if the user guess is the same as the image path (in an attempt to be case-insensitive)
@@ -249,7 +243,7 @@ function assignIndex() {
   }
 }
 
-/////////////////from Discord
+//////////////////////////restult style//////////////////////////
 function updateResultStyleBlock() {
   var resultDiv = document.getElementById("resultDiv");
   var resultDivContainer = document.getElementById("resultDivContainerID");
@@ -394,9 +388,6 @@ window.onclick = function (event) {
 // Function to navigate dropdown
 
 let lastIndex = -1;
-
-//document.addEventListener("keydown", navigateDropdown, console.log("keydown eventlistener"));
-//document.addEventListener("keyup", navigateDropdown, console.log("keyup eventlistener"));
 
 function navigateDropdown(e) {
   var dropdown = document.getElementById("dropdown");
