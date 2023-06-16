@@ -447,8 +447,7 @@ function navigateDropdown(e) {
   }
 }
 
-document.addEventListener("keydown", navigateDropdown);
-//document.addEventListener("keyup", navigateDropdown);
+document.addEventListener("keydown", navigateDropdown); // Add a keydown event listener to the document
 
 // Get the search input and dropdown
 var searchInput = document.getElementById("searchInput");
